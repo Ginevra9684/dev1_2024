@@ -231,3 +231,12 @@ do
     }
 }
 while (choice != 4);
+/*
+other option
+                 case 3:      //!!!need to change the project and use bool values to make it work!!!
+                addedNames.Sort();
+                Console.WriteLine("d-Descending");
+                rearrange = Console.ReadKey(true).KeyChar;
+                if (rearrange == "d") addedNames.Reverse();
+                break;
+*/

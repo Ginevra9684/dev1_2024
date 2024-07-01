@@ -60,9 +60,10 @@ L'app permette di inserire un nuovo partecipante
 
 L'app visializza la lista dei partecipanti
 
-L'app permette di uscire
-
 L'app permette di ordinare la lista dei partecipanti in ordine alfabetico
 
-partecipanti.Sort();       ordinamento della lista in ordine alfabetico 
-partecipanti.Reverse();    capovolgimento della lista
+L'app permette di uscire
+
+- partecipanti.Sort();       ordinamento della lista in ordine alfabetico 
+
+- partecipanti.Reverse();    capovolgimento della lista
