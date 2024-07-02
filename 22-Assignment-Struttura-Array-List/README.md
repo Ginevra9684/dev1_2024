@@ -926,6 +926,9 @@ int indice = partecipanti.IndexOf(nome);            IndexOf restituisce l'indice
 
 </details>
 
+<details>
+
+<summary>Schema versione definitiva </summary>
 
 ```mermaid
 stateDiagram-v2
@@ -962,3 +965,5 @@ stateDiagram-v2
     if_state5 --> Segnala_non_Presenza_Nome : se nome non presente in lista
     [CICLO_OPZIONI] --> 7_Esci
     7_Esci --> INTERROMPE_CICLO
+
+    </details>
