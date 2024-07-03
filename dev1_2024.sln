@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "26-Registro-Voti", "26-Regi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "28-Gioco-di-Dadi", "28-Gioco-di-Dadi\28-Gioco-di-Dadi.csproj", "{14706322-FFF8-4AE3-950C-0307986D8657}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "29-Pc-Indovina-Numero", "29-Pc-Indovina-Numero\29-Pc-Indovina-Numero.csproj", "{DC398233-0EAC-4B61-8B46-A8C30458E1F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{14706322-FFF8-4AE3-950C-0307986D8657}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14706322-FFF8-4AE3-950C-0307986D8657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14706322-FFF8-4AE3-950C-0307986D8657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -95,21 +95,3 @@ while (playerPoints > 0 && computerPoints > 0)
 
     Console.ReadKey();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
