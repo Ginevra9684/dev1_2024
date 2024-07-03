@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "25-Registro-Presenze", "25-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "26-Registro-Voti", "26-Registro-Voti\26-Registro-Voti.csproj", "{64F85D5F-9970-4893-BECD-A939CB0C5F89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "28-Gioco-di-Dadi", "28-Gioco-di-Dadi\28-Gioco-di-Dadi.csproj", "{14706322-FFF8-4AE3-950C-0307986D8657}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{64F85D5F-9970-4893-BECD-A939CB0C5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64F85D5F-9970-4893-BECD-A939CB0C5F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64F85D5F-9970-4893-BECD-A939CB0C5F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14706322-FFF8-4AE3-950C-0307986D8657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14706322-FFF8-4AE3-950C-0307986D8657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14706322-FFF8-4AE3-950C-0307986D8657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14706322-FFF8-4AE3-950C-0307986D8657}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
