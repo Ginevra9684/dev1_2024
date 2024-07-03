@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "28-Gioco-di-Dadi", "28-Gioc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "29-Pc-Indovina-Numero", "29-Pc-Indovina-Numero\29-Pc-Indovina-Numero.csproj", "{DC398233-0EAC-4B61-8B46-A8C30458E1F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "30-Yahtzee", "30-Yahtzee\30-Yahtzee.csproj", "{4B43F37D-A4C9-4189-A013-96F960CE8103}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC398233-0EAC-4B61-8B46-A8C30458E1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B43F37D-A4C9-4189-A013-96F960CE8103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B43F37D-A4C9-4189-A013-96F960CE8103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B43F37D-A4C9-4189-A013-96F960CE8103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B43F37D-A4C9-4189-A013-96F960CE8103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
