@@ -1,4 +1,4 @@
-﻿// do-while uguale a while ma se le condizioni non sono soddisfatte compila comunque il numero di partenza
+﻿// do-while uguale a while ma se le condizioni non sono soddisfatte compila comunque almeno una volta ciò che si trova al suo interno
 
 int numero = 10;
 

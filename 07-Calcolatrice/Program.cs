@@ -41,7 +41,8 @@ switch (op)
             if (secondNumber != 0)
             {
                 double division = firstNumber / secondNumber;
-                Console.WriteLine($"The result is: {division}");
+                double rest = firstNumber % secondNumber;
+                Console.WriteLine($"The result is: {division} with rest of {rest}");
             }
             else
             {

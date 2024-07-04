@@ -20,14 +20,14 @@ Console.WriteLine($"My attempt is {attempt}");
 
 while (chances < 5 )
 {
-            // We keep a hint to the computer
+            // We keep giving a hint to the computer until chances are over
 
     string hint = Console.ReadLine().ToUpper().Trim(); //L= lower number H= higher number C=correct
 
     if (hint == "C")
     {
         Console.WriteLine("The computer wins!");
-        chances = +5 ;
+        return;
     }
     else if (hint == "L")
     {       

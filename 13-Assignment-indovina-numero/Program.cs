@@ -1,7 +1,7 @@
 ﻿            // The console generates a number and links it to an int
 
 Random random = new Random();
-int number = random.Next(1,101);
+int number = random.Next(1,10);
 
             // The console asks to guess the number 
 
@@ -9,9 +9,9 @@ Console.WriteLine("Guess the number I picked up between 1 and 100");
 
             // Identification of the chances and hints given by the console
 
-int chances = 0;
+int chances = 5;
 
-while (chances < 5)
+while (chances != 0)
 {
     Console.WriteLine("Write here your number:");
 
@@ -20,6 +20,7 @@ while (chances < 5)
     if (guess == number)
     {
         Console.WriteLine("Compliments!");
+        return;
     }
     else if (guess < number)
     {
@@ -30,7 +31,7 @@ while (chances < 5)
         Console.WriteLine("That's not it, you may try a smaller number");
     }
 
-    chances++;
+    chances--;
 
 }
 
