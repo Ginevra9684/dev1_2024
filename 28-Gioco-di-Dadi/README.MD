@@ -22,16 +22,14 @@ Creare una console app per simulare un gioco di dadi
 ```mermaid
 
 stateDiagram-v2
-    state if_state <<choice>>
     [Gioco_di_Dadi] --> Computer
     [Gioco_di_Dadi] --> Player
     Computer --> Lancio_dei_Dadi
     Player --> Lancio_dei_Dadi
-    Lancio_dei_Dadi --> if_state
-    if_state --> Player_Perde_Punti : Dadi Computer > Dadi Player
-    if_state --> Computer_Perde_Punti : Dadi Player > Dadi Computer
-    Player_Perde_Punti --> if_state
-    Computer_Perde_Punti --> if_state
+    Lancio_dei_Dadi --> Player_Perde_Punti : Dadi Computer > Dadi Player
+    Lancio_dei_Dadi --> Computer_Perde_Punti : Dadi Player > Dadi Computer
+    Player_Perde_Punti --> Lancio_dei_Dadi
+    Computer_Perde_Punti --> Lancio_dei_Dadi
     Player_Perde_Punti --> Player_Perde_Gioco : Punti = 0
     Computer_Perde_Punti --> Computer_Perde_Gioco : Punti = 0 
 ```
