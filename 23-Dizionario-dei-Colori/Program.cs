@@ -1,16 +1,16 @@
-﻿/*Dictionary<string, string> colori = new Dictionary<string, string>();
+﻿Dictionary<string, string> colori = new Dictionary<string, string>();
 colori.Add("rosso","0FF000");
 colori.Add("verde","00FF00");
 colori.Add("blu","0000FF");
 
-            // KeyValuePair è una struttura che rappresenta una copia chiave valore
+            // KeyValuePair è una struttura che rappresenta una coppia chiave valore
 foreach(KeyValuePair<string, string> colore in colori)
 {
     Console.WriteLine($"Il colore {colore.Key} ha il codice {colore.Value}");
 }
-*/
-// oppure utilizzando var
 
+// oppure utilizzando var
+/*
 var dizionario = new Dictionary<string, string>
 {
 {"rosso","0FF000"},
@@ -22,3 +22,4 @@ foreach (var elemento in dizionario)
 {
     Console.WriteLine($"Chiave: {elemento.Key}, Valore: {elemento.Value}");
 }
+*/

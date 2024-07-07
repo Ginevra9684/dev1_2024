@@ -18,6 +18,4 @@ Quindi nella versione 2.0 vogliamo effettuare i seguenti miglioramenti:
 
 > Ad ogni tentativo il computer sorteggia un numero compreso fra il numero scelto in precedenza ( +1 o -1) ed un numero casuale
 
-- [X] Se dopo i primi 4 tentativi il computer non riesce ad indovinare, fa un ultimo tentativo casuale nel range dei numeri filtrati fino al tentativo
-
 - [X] Il programmo stampa lo stato di gioco del computer cioè il numero di tentativi effettuati e se ha indovinato o no
