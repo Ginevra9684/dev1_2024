@@ -38,7 +38,7 @@ while (stillGuessing)
 
     chances --;
 
-    hint = Console.ReadKey(true).KeyChar;
+    hint = Console.ReadKey().KeyChar;
 
     Console.Clear();
 
