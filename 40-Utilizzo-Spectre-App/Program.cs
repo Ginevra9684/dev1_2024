@@ -30,7 +30,7 @@ AnsiConsole.Write(table);
 */
 do
 {
-    choice = int.Parse(AnsiConsole.Prompt(new TextPrompt<string>("Choose an option between the following: \n 1. Add name \n 2. See added names \n 3. Exit")));
+    choice = int.Parse(AnsiConsole.Prompt(new TextPrompt<string>("[mediumspringgreen]Choose an option between the following[/] : \n 1. Add name \n 2. See added names \n 3. Exit")));
 
     switch (choice) 
     {
@@ -49,6 +49,7 @@ do
             {
             table.AddRow(room, added);
             }
+            AnsiConsole.Write(table);
             break;
         case 3:
                 

@@ -1,4 +1,5 @@
-﻿// -----------------------------------------------------
+﻿Random random = new Random();
+ // -----------------------------------------------------
 
             // We create a list fot FizzBuzz
 
@@ -18,10 +19,10 @@ List<int> numbers = new List<int>();
 
 // ---------------------------------------------------------
 
-for (int number = 1; 1<= 100; number++)
+for (int i = 1 ; i<= 100; i++)
 {
-    int randomNumber = Random.Next(1,101);
-    Console.WriteLine($"{randomNumber}, ");
+    int number = random.Next(1,101);
+    Console.WriteLine($"{number}, ");
     if (number % 3 == 0 && number % 5 == 0)
     {
         fizzBuzz.Add(number);
@@ -34,6 +35,10 @@ for (int number = 1; 1<= 100; number++)
     else if ( number % 5 == 0 )
     {
         buzz.Add(number);
+    }
+    else
+    {
+        numbers.Add(number);
     }
     Thread.Sleep(100);
 }
@@ -55,7 +60,7 @@ Console.WriteLine("The list Fizz contains the numbers:");
 
 foreach (var addedNumber in fizz)
 {
-    Console.WriteLine(addedNumber);
+    Console.Write($"{addedNumber} ,");
 }
 
 Thread.Sleep(1500);
@@ -65,7 +70,7 @@ Console.WriteLine("The list Buzz contains the numbers:");
 
 foreach (var addedNumber in buzz)
 {
-    Console.Write(addedNumber);
+    Console.Write($"{addedNumber} ,");
 }
 
 Thread.Sleep(1500);
@@ -75,6 +80,6 @@ Console.WriteLine("The list FizzBuzz contains the numbers:");
 
 foreach (var addedNumber in fizzBuzz)
 {
-    Console.Write(addedNumber);
+    Console.Write($"{addedNumber} ,");
 }
 

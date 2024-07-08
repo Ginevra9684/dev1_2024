@@ -6,11 +6,9 @@
 Random random = new Random();
 int indice = random.Next(0,3);
 
-bool indovinando = true;
-
 Console.WriteLine("Indovina il numero sorteggiato");
 
-while(indovinando)
+while(true)
 {
     int numero = int.Parse(Console.ReadLine()!);
 
@@ -19,8 +17,7 @@ while(indovinando)
     if (numero == numeri[indice])
     {
     Console.WriteLine("Hai indovinato");
-
-    indovinando = false;
+    break;
     }
     else if (numero < numeri[indice])
     {

@@ -5,11 +5,11 @@ int numberOfDices = int.Parse(Console.ReadLine()!);
 
 int[] table = new int[numberOfDices];
 //----------------------------------------------------------------------
-Console.WriteLine("How many matches do you want to do?");
+/*Console.WriteLine("How many matches do you want to do?");
 
 int matches = int.Parse(Console.ReadLine()!);
 
-int[] points = new int[matches];
+int[] points = new int[matches];*/
 //------------------------------------------------------------------------
 Random random = new Random();
 
