@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "39-Sorteggio-Dadi", "39-Sor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40-Utilizzo-Spectre-App", "40-Utilizzo-Spectre-App\40-Utilizzo-Spectre-App.csproj", "{0641506F-EEF2-437C-991B-E85AD011EDC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "41-Dice-Game-Spectre", "41-Dice-Game-Spectre\41-Dice-Game-Spectre.csproj", "{DA998B18-C85E-40E8-844C-641B0F3A58EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{0641506F-EEF2-437C-991B-E85AD011EDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0641506F-EEF2-437C-991B-E85AD011EDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0641506F-EEF2-437C-991B-E85AD011EDC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA998B18-C85E-40E8-844C-641B0F3A58EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA998B18-C85E-40E8-844C-641B0F3A58EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA998B18-C85E-40E8-844C-641B0F3A58EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA998B18-C85E-40E8-844C-641B0F3A58EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
