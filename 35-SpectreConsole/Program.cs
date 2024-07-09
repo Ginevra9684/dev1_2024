@@ -96,3 +96,18 @@ AnsiConsole.Write(
 // Markup
 
 AnsiConsole.MarkupLine("Hello :warning:");
+/*
+AnsiConsole.Status()
+    .Spinner(Spinner.Known.Star)
+    .Start("Thinking...", ctx => {
+        // Omitted
+    });
+    */
+
+    AnsiConsole.Status()
+    .dots12("Thinking...", ctx => 
+    {
+        // Simulate some work
+        AnsiConsole.MarkupLine("Doing some work...");
+        Thread.Sleep(1000);
+    });

@@ -115,7 +115,7 @@ AnsiConsole.Write(table);
 
 # ESEMPIO 4
 
-## DIZIONARIO CON DUE STRINGHE PER LA CHIAVE E UNA STRINGA E UN INTERO PER IL VALORE
+## DIZIONARIO CON DUE CHIAVI DI TIPO STRINGA E DUE VALORI, UNO DI TIPO STRINGA E UNO DI TIPO INTERO
 
 <details>
 <summary> </summary>
@@ -141,5 +141,4 @@ foreach (var partecipante in partecipanti)
 }
 AnsiConsole.Write(table);
 ```
-
 </details>
