@@ -1,12 +1,28 @@
-## ASSIGNMENT
+## YAHTZEE SEMPLIFICATO
 
-Si tirano 5 dadi 
+Console app che :
 
-Lo scopo è avere più facce possibili con indicato lo stesso numero
+- Chiede all'utente di tirare 5 dadi e visualizza il lancio
+- Chiede all'utente quali dadi vuole cambiare
+- Chiede all'utente di tirare i dadi selezionati
+- A seconda del numero di dadi uguali il programma assegna un punteggio
+> Ad esempio se i dadi uguali sono 2 il punteggio assegnato è uno, se sono 3 viene assegnato 2 e così via
 
-> ad esempio se ho cinque su 2 dadi posso ritirare gli altri 3 dadi un'altra volta
+**Obiettivo**
 
-Si può decidere di rilanciare i dadi per cui vogliamo tentare un numero diverso
+- Ottenere il numero maggiori di dadi uguali
+
+**Prerequisiti**
+
+- [x] Creare array per contenere i 5 dadi
+- [x] Creare un oggetto random con un intervallo tra 1 e 6
+- [x] Utilizzare un metodo per visualizzare il primo lancio
+- [X] Scegliere la logica migliore per permettere all'utente di selezionare quali dadi cambiare e quali tenere
+- [X] Utilizzare un metodo per visualizzare un secondo lancio
+- [ ] Creare la logica di assegnazione del punteggio
+- [ ] Utilizzare un metodo per visualizzare il punteggio
+
+**Codice** 
 
 <details>
 
@@ -26,7 +42,5 @@ flowchart TD
     F --> I[3-Si può decidere di lanciare dei dadi una seconda volta]
 
 ```
-
-
 
 </details>
