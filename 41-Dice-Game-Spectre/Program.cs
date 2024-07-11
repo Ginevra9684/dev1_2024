@@ -81,7 +81,7 @@ while (playerPoints > 0 && computerPoints > 0)
         AnsiConsole.Markup("[252]This match is even[/]\n");
     }
 
-    var playing = AnsiConsole.Confirm("Do you want to continue ?");
+    AnsiConsole.Confirm("Do you want to continue ?");
 
     AnsiConsole.Clear();
 }
