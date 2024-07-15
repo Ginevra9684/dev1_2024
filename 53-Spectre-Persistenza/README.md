@@ -10,6 +10,26 @@ Formattare con Spectre.Console
 - [X] scrivere su file txt vuoto
 - [X] aggiungere il punteggio di chi vince a ogni partita nella linea giusta
 
+## Modo alternativo di ReadAllLines(path)
+
+```C#
+// leggi punteggi da file
+if (File.Exists("punteggi.txt"))
+{
+    using (var sr = new StreamReader("punteggi.txt"))
+    {
+        while (!sr.EndOfStream)
+        {
+            var line = sr.ReadLine();
+            var values = line.Split(',');
+            var punteggio = int.Parse(values[0]);
+            var nome = values[1];
+            punteggi.Add(punteggio, nome);
+        }
+    }
+}
+```
+
 <details>
 <summary> Esercizio scelto </summary>
 

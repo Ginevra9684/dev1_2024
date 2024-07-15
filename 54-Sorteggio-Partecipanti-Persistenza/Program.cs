@@ -7,7 +7,6 @@ string participant;
 string input;
 string rearrange;
 string search;
-bool usingMenu = true;
 string path = @"names.txt";
 
 if (!File.Exists (path))
@@ -29,18 +28,18 @@ do
         .PageSize(9)
         .MoreChoicesText("Move up and down to select!")
         .AddChoices(new[] {
-            "[92]Add participant[/]", "[19]See added participants[/]", "[81]Rearrange your list[/]", "[84]Search a participant of your choice inside the list[/]",
+            "[27]Add participant[/]", "[4]See added participants[/]", "[81]Rearrange your list[/]", "[79]Search a participant of your choice inside the list[/]",
             "[82]Remove participant[/]", "[11]Overwrite a participant[/]", "[214]Create 2 squads in split mode[/]", "[196]Create 2 squads in random mode[/]", "[199]Exit[/]"
         }));
 
     switch (input) 
     {
-        case "[92]Add participant[/]":         // To add a participant to our list
-        participant = AnsiConsole.Prompt(new TextPrompt<string>("[98]Insert here the participant you want to add \t[/]"));
+        case "[27]Add participant[/]":         // To add a participant to our list
+        participant = AnsiConsole.Prompt(new TextPrompt<string>("Insert here the participant you want to add \t"));
 
             if(participants.Contains(participant))
             {
-                AnsiConsole.WriteLine($"Impossibility to add :  {participant} is already in the list!!");
+                AnsiConsole.Markup($"Impossibility to add :  {participant} is already in the list!!\n");
             }
             else
             {
@@ -49,8 +48,8 @@ do
                 File.AppendAllText(path, participant + "\n");
             }
             break;                                         
-        case "[19]See added participants[/]":         // To see our list
-            AnsiConsole.WriteLine($"The current participants are:{participants.Count}\n The complete list is:");
+        case "[4]See added participants[/]":         // To see our list
+            AnsiConsole.Markup($"The current participants are:{participants.Count}\n The complete list is:");
 
             foreach (string added in participants)
             {
@@ -78,7 +77,7 @@ do
                 AnsiConsole.WriteLine("The current option is not valid");
             }
             break;
-        case "[84]Search a participant of your choice inside the list[/]":
+        case "[79]Search a participant of your choice inside the list[/]":
             search = AnsiConsole.Prompt(new TextPrompt<string>("What participant do you want to search?\t"));
             if (participants.Contains(search))
             {

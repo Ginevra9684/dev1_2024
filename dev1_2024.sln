@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "53-Spectre-Persistenza", "5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "54-Sorteggio-Partecipanti-Persistenza", "54-Sorteggio-Partecipanti-Persistenza\54-Sorteggio-Partecipanti-Persistenza.csproj", "{FDF4A7CE-F022-4BFA-A4A3-215A4DAAC159}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "55-Menu-Sottomenu", "55-Menu-Sottomenu\55-Menu-Sottomenu.csproj", "{ADB3D847-7F05-4BE4-9609-A3DD5F4638BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -189,6 +191,10 @@ Global
 		{FDF4A7CE-F022-4BFA-A4A3-215A4DAAC159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF4A7CE-F022-4BFA-A4A3-215A4DAAC159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF4A7CE-F022-4BFA-A4A3-215A4DAAC159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB3D847-7F05-4BE4-9609-A3DD5F4638BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB3D847-7F05-4BE4-9609-A3DD5F4638BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB3D847-7F05-4BE4-9609-A3DD5F4638BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB3D847-7F05-4BE4-9609-A3DD5F4638BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
