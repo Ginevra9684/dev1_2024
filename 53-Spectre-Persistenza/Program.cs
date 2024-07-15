@@ -1,24 +1,26 @@
 ﻿using Spectre.Console;
-//--------------------------------------------------------------------------------------------------------------
-            // We create a link to an external file.txt
-
-string path = @"startingScores.txt"; 
-
-string[] startingScores = File.ReadAllLines(path);
-
-int playerPoints = Convert.ToInt32(startingScores[0]);
-int computerPoints = Convert.ToInt32(startingScores[1]);   
+            // We clear the console
+AnsiConsole.Clear();
 
             // We generate a random object
 
 Random random = new Random();
 
-            // We create a local array for the scores
-string[] scores = new string[startingScores.Length]; 
-for (int i = 0; i < startingScores.Length; i++)
+            // We decide what will be the starting points for both the player and the computer
+
+int playerPoints = 100;
+int computerPoints = 100;
+
+//----------We write into the file which line will be for player or computer final points-------------------------------------------
+            // We create a link to an external file.txt
+string path = @"scores.txt";
+
+if (!File.Exists(path))
 {
-    scores[i] = startingScores[i];
+    File.Create(path).Close();  
+    File.AppendAllText(path,"player points: \ncomputer points: "); 
 }
+string[] scores = File.ReadAllLines(path);
 
 //----------We create a cicle in which the game continues until someone gets to 0 points or less-------------------
 while (playerPoints > 0 && computerPoints > 0)
@@ -64,15 +66,14 @@ while (playerPoints > 0 && computerPoints > 0)
 
             // We extabilish that who has higher number wins
 
-    int subVersion1 = computerSum - playerSum; 
-
-    int subVersion2 = playerSum - computerSum;
+    int sub;
 
     if (computerSum > playerSum)
     {
-        AnsiConsole.Markup($"[208]You have lost this round {subVersion1} points will be detracted from your points[/]\n");
+        sub = computerSum - playerSum;
+        playerPoints -= sub;
 
-        playerPoints -= subVersion1;
+        AnsiConsole.Markup($"[208]You have lost this round {sub} points will be detracted from your points[/]\n");
 
             // The points get detracted from the player
 
@@ -80,9 +81,10 @@ while (playerPoints > 0 && computerPoints > 0)
     }
     else if (computerSum < playerSum)
     {
+        sub = playerSum - computerSum;
+        computerPoints -= sub;
 
-        AnsiConsole.Markup($"[120]You have won this round {subVersion2} points will be detracted from the computer points[/]\n");
-        computerPoints -= subVersion2;
+        AnsiConsole.Markup($"[120]You have won this round {sub} points will be detracted from the computer points[/]\n");
 
             // The points get detracted from the computer
 
@@ -100,24 +102,6 @@ while (playerPoints > 0 && computerPoints > 0)
     AnsiConsole.Clear();
 }
 
-//----------We create a coonection to a 2nd file where we write the final points-------------------------------------------
-string path2 = @"allScores.txt";
-
-string[] allScores;
-
-if (!File.Exists(path2))
-{
-    File.Create(path2).Close();
-
-            // We first overwrite the file with the starting scores
-    foreach ( string score in scores)
-    {
-        File.AppendAllText(path2, score + "\n");
-    }
-}
-
-allScores = File.ReadAllLines(path2);//------------------------------------------------------------------------ !!!!!!!!!! avevo scritto path invece di path2 CHIEDERE DIFFERENZA--- E se si poteva direttamente usare array scores senza passare per array startingscores
-
 //----------We print the points of the winner and add them to the second file with all scores----------------------------
 
 if (playerPoints <= 0)
@@ -132,13 +116,13 @@ else if(computerPoints <= 0)
 if (playerPoints > 0)
 {
     AnsiConsole.Markup($"[32]The player points are : {playerPoints}[/]\n");
-    allScores[0] += " " + Convert.ToString(playerPoints);
-    File.WriteAllLines(path2, allScores);
+    scores[0] += " " + Convert.ToString(playerPoints);
+    File.WriteAllLines(path, scores);
 }
 
 if (computerPoints > 0)
 {
     AnsiConsole.Markup($"[11]The computer points are : {computerPoints}[/]\n");
-    allScores[1] += " " + Convert.ToString(computerPoints);
-    File.WriteAllLines(path2, allScores);
+    scores[1] += " " + Convert.ToString(computerPoints);
+    File.WriteAllLines(path, scores);
 }
