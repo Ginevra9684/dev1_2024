@@ -20,10 +20,10 @@ if (File.Exists("punteggi.txt"))
     {
         while (!sr.EndOfStream)
         {
-            var line = sr.ReadLine();
-            var values = line.Split(',');
-            var punteggio = int.Parse(values[0]);
-            var nome = values[1];
+            var line = sr.ReadLine();                       // 10,Paolo
+            var values = line.Split(',');                   // ["10", "Paolo"]
+            var punteggio = int.Parse(values[0]);           // 10
+            var nome = values[1];                           // Paolo
             punteggi.Add(punteggio, nome);
         }
     }

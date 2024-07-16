@@ -7,11 +7,11 @@ string participant;
 string input;
 string rearrange;
 string search;
-string path = @"names.txt";
+const string path = @"names.txt";
 
-if (!File.Exists (path))
+if (File.Exists(path))
 {
-    File.Create(path).Close();
+    participants = new List<string>(File.ReadAllLines(path));
 }
 
             // We clear the console
@@ -35,18 +35,11 @@ do
     switch (input) 
     {
         case "[27]Add participant[/]":         // To add a participant to our list
-        participant = AnsiConsole.Prompt(new TextPrompt<string>("Insert here the participant you want to add \t"));
+        string name = AnsiConsole.Prompt(new TextPrompt<string>("Insert here the participant you want to add \t"));
+        participants.Add(name);
 
-            if(participants.Contains(participant))
-            {
-                AnsiConsole.Markup($"Impossibility to add :  {participant} is already in the list!!\n");
-            }
-            else
-            {
-                participants.Add(participant);
-                                        // We add the participant also to the txt file
-                File.AppendAllText(path, participant + "\n");
-            }
+        File.WriteAllLines(path, participants);
+        
             break;                                         
         case "[4]See added participants[/]":         // To see our list
             AnsiConsole.Markup($"The current participants are:{participants.Count}\n The complete list is:");
@@ -76,6 +69,7 @@ do
             {
                 AnsiConsole.WriteLine("The current option is not valid");
             }
+            File.WriteAllLines(path, participants);
             break;
         case "[79]Search a participant of your choice inside the list[/]":
             search = AnsiConsole.Prompt(new TextPrompt<string>("What participant do you want to search?\t"));
@@ -95,10 +89,12 @@ do
             {
                 participants.Remove(participant);
                 AnsiConsole.WriteLine($" {participant}'s participant has been succesfully removed!");
+
+                File.WriteAllLines(path,participants);
             }
             else
             {
-                AnsiConsole.WriteLine($" {participant}'s participant doesn't appear in this list, therefore it can't be removed");
+                AnsiConsole.WriteLine($" {participant} doesn't appear in this list, therefore it can't be removed");
             }
             break;
         case "[11]Overwrite a participant[/]":
@@ -110,6 +106,7 @@ do
                 int index = participants.IndexOf(participant);
                 participants[index] = newParticipant;
                 AnsiConsole.WriteLine("The edit occured successfully!");
+                File.WriteAllLines(path, participants);
             }
             else
             {
