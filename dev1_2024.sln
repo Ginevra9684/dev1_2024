@@ -71,6 +71,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "57-Lista-Partecipanti-con-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "58-Lista-Partecipanti-con-Funzioni-e-SpectreConsole", "58-Lista-Partecipanti-con-Funzioni-e-SpectreConsole\58-Lista-Partecipanti-con-Funzioni-e-SpectreConsole.csproj", "{83C860E4-D6E6-4D21-B239-F445A8FF8F7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "59-Lista-Nomi-csv", "59-Lista-Nomi-csv\59-Lista-Nomi-csv.csproj", "{982E4C1A-D3B8-4695-9760-C6FB0C454B7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "60-Lista-Nomi-Inserimento-csv", "60-Lista-Nomi-Inserimento-csv\60-Lista-Nomi-Inserimento-csv.csproj", "{CE59C5BD-A91F-4114-9CB1-1B4269D9DB44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "61-Lettura-json", "61-Lettura-json\61-Lettura-json.csproj", "{F7F40E53-7911-4F6A-80C4-48077EB5B260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "62-Lettura-json-Deserializzazione", "62-Lettura-json-Deserializzazione\62-Lettura-json-Deserializzazione.csproj", "{917D1AC7-4992-4251-A49A-8319AAE4B0C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "63-Deserializzazione-json-Multilivello", "63-Deserializzazione-json-Multilivello\63-Deserializzazione-json-Multilivello.csproj", "{1D619E21-2467-4BD8-8BCE-7744EF3C29CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "64-Deserializzazione-json-Scrittura-csv", "64-Deserializzazione-json-Scrittura-csv\64-Deserializzazione-json-Scrittura-csv.csproj", "{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -213,6 +225,30 @@ Global
 		{83C860E4-D6E6-4D21-B239-F445A8FF8F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C860E4-D6E6-4D21-B239-F445A8FF8F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C860E4-D6E6-4D21-B239-F445A8FF8F7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982E4C1A-D3B8-4695-9760-C6FB0C454B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982E4C1A-D3B8-4695-9760-C6FB0C454B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982E4C1A-D3B8-4695-9760-C6FB0C454B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982E4C1A-D3B8-4695-9760-C6FB0C454B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE59C5BD-A91F-4114-9CB1-1B4269D9DB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE59C5BD-A91F-4114-9CB1-1B4269D9DB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE59C5BD-A91F-4114-9CB1-1B4269D9DB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE59C5BD-A91F-4114-9CB1-1B4269D9DB44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F40E53-7911-4F6A-80C4-48077EB5B260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F40E53-7911-4F6A-80C4-48077EB5B260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F40E53-7911-4F6A-80C4-48077EB5B260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F40E53-7911-4F6A-80C4-48077EB5B260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{917D1AC7-4992-4251-A49A-8319AAE4B0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{917D1AC7-4992-4251-A49A-8319AAE4B0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{917D1AC7-4992-4251-A49A-8319AAE4B0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{917D1AC7-4992-4251-A49A-8319AAE4B0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D619E21-2467-4BD8-8BCE-7744EF3C29CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D619E21-2467-4BD8-8BCE-7744EF3C29CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D619E21-2467-4BD8-8BCE-7744EF3C29CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D619E21-2467-4BD8-8BCE-7744EF3C29CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
