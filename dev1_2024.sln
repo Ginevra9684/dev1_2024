@@ -83,6 +83,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "63-Deserializzazione-json-M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "64-Deserializzazione-json-Scrittura-csv", "64-Deserializzazione-json-Scrittura-csv\64-Deserializzazione-json-Scrittura-csv.csproj", "{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "65-Lettura-csv-Scrittura-json", "65-Lettura-csv-Scrittura-json\65-Lettura-csv-Scrittura-json.csproj", "{0BF77BAB-DD44-4EAF-BDF3-A3B6459D48DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "66-Creazione-json-con-Interfaccia", "66-Creazione-json-con-Interfaccia\66-Creazione-json-con-Interfaccia.csproj", "{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -249,6 +253,14 @@ Global
 		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E5E3DF-DCF8-4383-8A76-58D7A4A4C7FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF77BAB-DD44-4EAF-BDF3-A3B6459D48DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF77BAB-DD44-4EAF-BDF3-A3B6459D48DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF77BAB-DD44-4EAF-BDF3-A3B6459D48DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF77BAB-DD44-4EAF-BDF3-A3B6459D48DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
