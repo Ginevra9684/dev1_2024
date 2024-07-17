@@ -87,6 +87,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "65-Lettura-csv-Scrittura-js
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "66-Creazione-json-con-Interfaccia", "66-Creazione-json-con-Interfaccia\66-Creazione-json-con-Interfaccia.csproj", "{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "67-Gestionale-json", "67-Gestionale-json\67-Gestionale-json.csproj", "{F1BF2943-4CF6-45C2-8ED5-8E330F874CBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +263,10 @@ Global
 		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EB30230-E583-45B4-BC7C-FF5B88FCE9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1BF2943-4CF6-45C2-8ED5-8E330F874CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BF2943-4CF6-45C2-8ED5-8E330F874CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BF2943-4CF6-45C2-8ED5-8E330F874CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BF2943-4CF6-45C2-8ED5-8E330F874CBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
