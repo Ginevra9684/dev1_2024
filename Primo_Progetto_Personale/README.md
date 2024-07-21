@@ -101,8 +101,10 @@ stateDiagram-v2
     Ambientazione_e_Soggetto? --> Luogo_Specifico
     Luogo_Specifico --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
     Luogo_Specifico --> Tema? : if ambientazione
-    Soggetto_Random --> Tema?
+    Soggetto_Random --> Tema? : if soggetto != creatura
+    Soggetto_Random -->  Creatura_Mitologica_o\nPropria_Creazione? : if soggetto = creatura
     Soggetto_Umano_+\nSoggetto_Random --> Tema? : if Random != creatura mitologica
+    Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura mitologica
     Tema? --> if_state3
     if_state3 --> Tema_Random : if risposta = si
     if_state3 --> 2D_o_3D : if risposta = no
