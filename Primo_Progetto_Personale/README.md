@@ -35,7 +35,7 @@
 
 ## Target
 
-Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa e non delle idee da cui partire
+Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa o non ha delle idee da cui partire
 
 # Funzionalità
 
@@ -50,23 +50,26 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 
 # Passaggi
 
-- [ ] Creare un file Json contenente le ambientazioni
-- [ ] Creare un file Json contenente vari animali
-- [ ] Creare un file Json contenente creature mitologiche
-- [ ] Creare un file Json contenente vari temi
-- [ ] Creare un file Json contenente le possibili tecniche
-- [ ] Scrivere il menu principale di scelta
-- [ ] Aggiungere il sottomenu dell'ambientazione
-- [ ] - estrarre il luogo dal file Json
-- [ ] Aggiungere il sottomenu del soggetto
-- [ ] - sottomenu scelta autonoma
-- [ ] - - estrazione soggetto da un file Json
-- [ ] - scelta uno o due soggetti
-- [ ] - - estrazione da file Json
-- [ ] Scelta tema
-- [ ] Input 2D 0 3D
-- [ ] Tecnica di disegno 2D
-- [ ] Chiusura del programma
+- [X] Creare un file Json contenente le ambientazioni
+- [X] Creare un file Json contenente vari animali
+- [X] Creare un file Json contenente creature mitologiche
+- [X] Creare un file Json contenente vari temi
+- [X] Creare un file Json contenente le possibili tecniche
+- [X] Scrivere il menu principale di scelta
+- [X] Aggiungere il sottomenu dell'ambientazione
+- [X] - estrarre il luogo dal file Json
+- [X] Aggiungere il sottomenu del soggetto
+- [X] - sottomenu scelta autonoma
+- [X] - - estrazione soggetto da un file Json
+- [X] - scelta uno o due soggetti
+- [X] - - estrazione da file Json
+- [X] Scelta tema
+- [X] Input 2D 0 3D
+- [X] Tecnica di disegno 2D
+- [X] Chiusura del programma
+- [ ] Inserire più elementi nei vari file json
+- [ ] Inserire una lista esaustiva nel file animali
+- [ ] Prova debugging
 
 ```mermaid
 stateDiagram-v2
@@ -78,9 +81,9 @@ stateDiagram-v2
     state if_state6 <<choice>>
     state if_state7 <<choice>>
     CREA_IDEE --> Scelta
-    Scelta --> Ambientazione?
     Scelta --> Soggetto?
     Scelta --> Ambientazione_e_Soggetto?
+    Scelta --> Ambientazione?
     Ambientazione? --> Luogo_Specifico 
     Soggetto? --> Preferenza?\n(umano/animale/creatura)
     Preferenza?\n(umano/animale/creatura) --> if_state
@@ -99,12 +102,12 @@ stateDiagram-v2
     if_state2 --> Soggetto_Random : if risposta = 1
     if_state2 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
     Ambientazione_e_Soggetto? --> Luogo_Specifico
-    Luogo_Specifico --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
     Luogo_Specifico --> Tema? : if ambientazione
-    Soggetto_Random --> Tema? : if soggetto != creatura
-    Soggetto_Random -->  Creatura_Mitologica_o\nPropria_Creazione? : if soggetto = creatura
-    Soggetto_Umano_+\nSoggetto_Random --> Tema? : if Random != creatura mitologica
-    Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura mitologica
+    Luogo_Specifico --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
+    Soggetto_Random --> Tema? : if Random != creatura
+    Soggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Tema? : if Random != creatura
     Tema? --> if_state3
     if_state3 --> Tema_Random : if risposta = si
     if_state3 --> 2D_o_3D : if risposta = no
@@ -117,6 +120,26 @@ stateDiagram-v2
     if_state5 --> FINE : if risposta = no
     Tecnica_Random --> FINE
 ```
+
+<details>
+<summary> Guida alla lettura del codice </summary>
+
+ - Prima il commento , poi il codice a cui si riferisce
+ - // scritti 3 tabs più a destra rispetto all'inizio del codice
+ - 1 spazio tra // e il commento
+ - Occasionalmente i commenti corti saranno scritti nella stessa linea di codice
+   - // 1 tab più a destra della fine della linea di codice
+ - Nomi variabili in camelCase
+ - Nomi Metodi in PascalCase
+ - 5 file json
+ - Tutte le variabili e le costanti vengono dichiarate all'inizio del blocco di codice (inteso come Main o specifico Metodo)
+ - I Metodi sono raggruppati tramite un commento scritto tutto maiuscolo e a inizio riga
+   - Ogni metodo è separato da //---------------------------------
+
+
+
+</details>
+
 <details>
 <summary> Implementazioni </summary>
 
@@ -125,5 +148,8 @@ stateDiagram-v2
 - [ ] Stampa tabella finale con tutte le scelte
 - [ ] Restart del ciclo a fine programma per più progetti
 - [ ] Aggiunta opzioni come caratteristiche e personalità dei personaggi, materiali degli oggetti
+- [ ] Aggiunta caratteristiche dei luoghi (es meteo, orario);
+- [ ] Migliorare il codice con più Metodi, in modo che le variabili inserite in essi siano richiamabili anche all'interno del Main (se possibile)
+- [ ] Creare versione in inglese
 
 </details>
