@@ -640,21 +640,37 @@ class Program
 -   <details>
     <summary> Risolti </summary>
 
-    in Metodo CaricaAnimali il for non restituisce nulla
+    In Metodo CaricaAnimali il for non restituisce nulla
 
     ```C#
     for (int i = 1; i == quantitativoAnimali ;i++ ) 
 
-    //rif riga 372 --> soluzione <= invece di ==
+    // soluzione    <= invece di ==
     ```
+
+    Impossibilità di usare ReadKey invece di ReadLine per assegnare un char a una stringa
+
+    ```C#
+    string scelta; 
+    scelta = Console.ReadKey();
+
+    // soluzione    scelta = Console.ReadKey(true).KeyChar.ToString();       (true serve a non mostrare il carattere scritto dall'utente)
+    ```
+
+    Conversione da ReadKey a intero non gestisce nessun inserimento anche se giusto
+
+    ```C#
+    int quantitativoAnimali;
+    quantitativoAnimali = int.Parse(Console.ReadKey(true).KeyChar);
+
+    // soluzione quantitativoAnimali = int.Parse(Console.ReadKey(true).KeyChar.ToString());
+    ```
+
+
     </details>
 
 -   <details>
     <summary> Non risolti </summary>
-
-    Impossibilità di usare ReadKey invece di ReadLine per assegnare un numero/char a un intero o stringa
-
-    es riga 23
 
     </details>
 

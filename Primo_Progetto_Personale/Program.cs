@@ -20,19 +20,19 @@ class Program
 
         Console.WriteLine("Vuoi un tema di riferimento? (s/n)");
         
-        scelta = Console.ReadLine()!.ToLower().Trim();
+        scelta = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
 
         if (scelta == "s")
         {
             CaricaTema();   // Metodo per ottenere un tema
             Proseguimento();
         }
-        else if (scelta == "n") Proseguimento();
+        else if (scelta == "n" ) Proseguimento();
         else Errore();
 
         Console.WriteLine("Il disegno è 2D (su carta) o 3D? Se su carta vuoi una tecnica di riferimento? (s/n)");
 
-        scelta = Console.ReadLine()!.ToLower().Trim();
+        scelta = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
 
         if (scelta == "s")
         {
@@ -79,8 +79,8 @@ class Program
 
     static void MenuPrincipale()
     {
-        int scelta; //
-    //--------------//
+        int scelta;    //
+    //-----------------//
 
                     // Tre opzioni
         Console.WriteLine("Scegliere l'area principale di proprio interesse! (1/2/3)");
@@ -90,7 +90,7 @@ class Program
 
         try
         {
-            scelta = Convert.ToInt32(Console.ReadLine());
+            scelta = int.Parse(Console.ReadKey(true).KeyChar.ToString().ToLower().Trim());
 
             switch (scelta)
             {
@@ -130,8 +130,8 @@ class Program
 //-----------------------------------------------------------------------------------------------------------------------------------
     static void PreferenzaSoggetto()
     {
-        int scelta; //
-    //--------------//
+        int scelta;    //
+    //-----------------//
 
                     // Menu per la preferenza di soggetto
         Console.WriteLine("Scegliere tra le seguenti opzioni (1/2/3/4)");
@@ -142,7 +142,7 @@ class Program
 
         try
         {
-            scelta = Convert.ToInt32(Console.ReadLine()!.Trim());
+            scelta = int.Parse(Console.ReadKey(true).KeyChar.ToString().ToLower().Trim());
 
             switch (scelta)
             {
@@ -176,7 +176,6 @@ class Program
         }
         catch(Exception ex)
         {
-            Console.WriteLine("Si richiede l'inserimento di un numero");
             Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
             Proseguimento();
             PreferenzaSoggetto();
@@ -195,7 +194,7 @@ class Program
 
         try
         {
-            sceltaCreatura = Console.ReadLine()!.ToLower().Trim();
+            sceltaCreatura = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
 
             if (sceltaCreatura == "m")  // restituiamo una creatura random
             {
@@ -234,7 +233,7 @@ class Program
         Console.WriteLine("Preferisci un soggetto unico o una coppia di soggetti? (u/c)");
 
                     // scelta quantità soggetti e relative casistiche 
-        quantitativoSoggetti = Console.ReadLine()!.ToLower().Trim();
+        quantitativoSoggetti = Console.ReadKey().KeyChar.ToString().ToLower().Trim();
 
         if (quantitativoSoggetti == "u") SoggettoCasuale();
         
@@ -352,34 +351,49 @@ class Program
         int quantitativoAnimali;     //
     //-------------------------------//
 
-        Console.WriteLine("quanti animali vuoi usare per comporre la tua creatura?(2-5)");
+        
 
-                    // Scelta numero animali
-        quantitativoAnimali = Convert.ToInt32(Console.ReadLine()!.Trim());
-
-        Console.Clear();
-
-        try
-        {
+        
                         // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
             string path = @"animali.json";
             string json = File.ReadAllText(path);
             dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-            Console.WriteLine("Gli animali saranno:");
+            
+        try
+        {
+            Console.WriteLine("quanti animali vuoi usare per comporre la tua creatura?(2-5)");
 
-                        // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
-            for (int i = 1; i <= quantitativoAnimali ;i++ ) 
+                        // Scelta numero animali
+            quantitativoAnimali = int.Parse(Console.ReadKey(true).KeyChar.ToString().Trim());
+
+            Console.Clear();
+
+            if (quantitativoAnimali >= 2 && quantitativoAnimali <= 5)
             {
-                            // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-                indice = random.Next(0, obj.Count);
-                Console.WriteLine(obj[indice].animale);
+                Console.WriteLine("Gli animali saranno:");
+                
+                            // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
+                for (int i = 1; i <= quantitativoAnimali ;i++ ) 
+                {
+                                // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+                    indice = random.Next(0, obj.Count);
+                    Console.WriteLine(obj[indice].animale);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Opzione non valida");
+                Proseguimento();
+                CaricaAnimali();
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Il file non esiste");
+            Console.WriteLine("Si richiede un numero");
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            Proseguimento();
+            CaricaAnimali();
             return;
         }
     }
