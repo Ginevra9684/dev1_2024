@@ -44,7 +44,7 @@ class Program
     static void Avvertimenti()
     {
         Console.WriteLine("REGOLE ED AVVERTIMENTI");
-        Console.WriteLine("1.I nomi di animali e creature saranno scritti in inglese per convenzione");
+        Console.WriteLine("1.I nomi di animali, creature e temi saranno scritti in inglese per convenzione");
         Console.WriteLine("2.Se si fa un inserimento sbagliato l'opzione darà errore e verrà saltata");
     }
     static void Proseguimento()
@@ -75,6 +75,8 @@ class Program
 
                     // Titolo
         Console.WriteLine("IDEE PER ILLUSTRAZIONI");
+
+        Avvertimenti();
 
                     // Tre opzioni
         Console.WriteLine("Scegliere l'area principale di proprio interesse! (1/2/3)");
@@ -245,34 +247,54 @@ class Program
         Random random = new Random();
         int indice;
 
-                    // Crezione un percorso tra il programma e il file dei luoghi
-        string path = @"luoghi.json";
-                    // Lettura dell'intero file tramite il percorso
-        string json = File.ReadAllText(path);
-                    // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
+        try
+        {
+                        // Crezione un percorso tra il programma e il file dei luoghi
+            string path = @"luoghi.json";
+                        // Lettura dell'intero file tramite il percorso
+            string json = File.ReadAllText(path);
+                        // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-                    // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
-        indice = random.Next(0,obj.Count);
+                        // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
+            indice = random.Next(0,obj.Count);
 
-                    // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
-        Console.WriteLine("Il tuo luogo di riferimento sarà:");
-        Console.WriteLine(obj[indice].luogo);
+                        // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
+            Console.WriteLine("Il tuo luogo di riferimento sarà:");
+            Console.WriteLine(obj[indice].luogo);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
     }
 //-------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaAnimale()
-    {
-                    // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-        string path = @"animali.json";
-        string json = File.ReadAllText(path);
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+    {   
         Random random = new Random();
-        int indice = random.Next(0, obj.Count);
+        int indice;
 
-        Console.WriteLine("L'animale sarà:");
-        Console.WriteLine(obj[indice].animale);
+        try
+        {
+                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+            string path = @"animali.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
+
+                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+            indice = random.Next(0, obj.Count);
+
+            Console.WriteLine("L'animale sarà:");
+            Console.WriteLine(obj[indice].animale);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaCreaturaMitologica()
@@ -280,16 +302,25 @@ class Program
         Random random = new Random();
         int indice;
 
-                    // Colleghiamo il file delle creature mitologiche 
-        string path = @"creature.json";
-        string json = File.ReadAllText(path);
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
+        try
+        {
+                        // Colleghiamo il file delle creature mitologiche 
+            string path = @"creature.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-        indice = random.Next(0, obj.Count);
+                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+            indice = random.Next(0, obj.Count);
 
-        Console.WriteLine("La creatura sarà:");
-        Console.WriteLine(obj[indice].creatura);
+            Console.WriteLine("La creatura sarà:");
+            Console.WriteLine(obj[indice].creatura);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaTema()
@@ -297,16 +328,25 @@ class Program
         Random random = new Random();
         int indice;
 
-                    // Collegamento a file dei temi
-        string path = @"temi.json";
-        string json = File.ReadAllText(path);
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
+        try
+        {
+                        // Collegamento a file dei temi
+            string path = @"temi.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-                    // Stampa di un oggetto del file tramite indice
-        indice = random.Next(0, obj.Count);
+                        // Stampa di un oggetto del file tramite indice
+            indice = random.Next(0, obj.Count);
 
-        Console.WriteLine("Il tema sarà:");
-        Console.WriteLine(obj[indice].tema);
+            Console.WriteLine("Il tema sarà:");
+            Console.WriteLine(obj[indice].tema);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaTecnica()
@@ -314,15 +354,24 @@ class Program
         Random random = new Random();
         int indice;
 
-                    // Collegamento a file delle tecniche
-        string path = @"tecniche.json";
-        string json = File.ReadAllText(path);
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
+        try
+        {
+                        // Collegamento a file delle tecniche
+            string path = @"tecniche.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-                    // Stampa di un oggetto del file tramite indice
-        indice = random.Next(0, obj.Count);
+                        // Stampa di un oggetto del file tramite indice
+            indice = random.Next(0, obj.Count);
 
-        Console.WriteLine("La tecnica sarà:");
-        Console.WriteLine(obj[indice].tecnica);
+            Console.WriteLine("La tecnica sarà:");
+            Console.WriteLine(obj[indice].tecnica);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
     }
 }
