@@ -4,11 +4,17 @@ class Program
 {
     static void Main()
     {
-                    // Variabili usate nel Main
-        string scelta;
+        string scelta; // Variabili usate nel Main
+    //-----------------//
 
                     // Puliamo la console
         Console.Clear();
+
+                    // Titolo
+        Console.WriteLine("IDEE PER ILLUSTRAZIONI\n");
+
+        Avvertimenti();
+        Proseguimento();
     
         MenuPrincipale();   // Metodo per visualizzare il primo menu di scelta
 
@@ -45,12 +51,13 @@ class Program
     {
         Console.WriteLine("REGOLE ED AVVERTIMENTI");
         Console.WriteLine("1.I nomi di animali, creature e temi saranno scritti in inglese per convenzione");
-        Console.WriteLine("2.Se si fa un inserimento sbagliato l'opzione darà errore e verrà saltata");
+        Console.WriteLine("2.Se si fa un inserimento sbagliato l'opzione darà errore o/e verrà saltata");
     }
+//----------------------------------------------------------------------------------------------------------------------------------
     static void Proseguimento()
     {
                     // Per permettere all'utente di proseguire al premere di untasto e cancellare a schermo le linee precedenti
-        Console.WriteLine("Premere un tasto per proseguire");
+        Console.WriteLine("\nPremere un tasto per proseguire...");
         Console.ReadKey();
 
         Console.Clear();
@@ -69,14 +76,11 @@ class Program
     }
 
 // METODI PER MENU E SOTTOMENU-------------------------------------------------------------------------------------------------------
+
     static void MenuPrincipale()
     {
-        int scelta;
-
-                    // Titolo
-        Console.WriteLine("IDEE PER ILLUSTRAZIONI");
-
-        Avvertimenti();
+        int scelta; //
+    //--------------//
 
                     // Tre opzioni
         Console.WriteLine("Scegliere l'area principale di proprio interesse! (1/2/3)");
@@ -84,36 +88,50 @@ class Program
         Console.WriteLine("2.Soggetto");
         Console.WriteLine("3.Ambiente e Soggetto");
 
-        scelta = Convert.ToInt32(Console.ReadLine());
-
-        Console.Clear();
-
-        switch (scelta)
+        try
         {
-            case 1:
-                CaricaLuogo();  // Metodo per ottenere un luogo
-                Proseguimento();    // Metodo per pulire la console
-                break;
+            scelta = Convert.ToInt32(Console.ReadLine());
 
-            case 2:
-                PreferenzaSoggetto();   // Metodo per scegliere il/i soggetto/i
-                break;
+            switch (scelta)
+            {
+                case 1:
+                    Console.Clear();
+                    CaricaLuogo();  // Metodo per ottenere un luogo
+                    Proseguimento();    // Metodo per pulire la console
+                    break;
 
-            case 3:
-                CaricaLuogo();
-                Proseguimento();
-                PreferenzaSoggetto();
-                break;
+                case 2:
+                    Console.Clear();
+                    PreferenzaSoggetto();   // Metodo per scegliere il/i soggetto/i
+                    break;
 
-            default:
-                Errore();   // Metodo per segnalare una scelta inaspettata dal programma
-                break;
+                case 3:
+                    Console.Clear();
+                    CaricaLuogo();
+                    Proseguimento();
+                    PreferenzaSoggetto();
+                    break;
+
+                default:
+                    Errore();   // Metodo per segnalare una scelta inaspettata dal programma
+                    Proseguimento();
+                    MenuPrincipale();
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Si richiede l'inserimento di un numero");
+            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
+            Proseguimento();
+            MenuPrincipale();
         }
     }
 //-----------------------------------------------------------------------------------------------------------------------------------
     static void PreferenzaSoggetto()
     {
-        int scelta; 
+        int scelta; //
+    //--------------//
 
                     // Menu per la preferenza di soggetto
         Console.WriteLine("Scegliere tra le seguenti opzioni (1/2/3/4)");
@@ -122,32 +140,46 @@ class Program
         Console.WriteLine("3.Creatura");
         Console.WriteLine("4.Nessuna preferenza");
 
-        scelta = Convert.ToInt32(Console.ReadLine()!.Trim());
-
-        switch (scelta)
+        try
         {
-            case 1:
-                            // Se viene scelto umano non ci sono specifiche da consigliare
-                Proseguimento();
-                break;
+            scelta = Convert.ToInt32(Console.ReadLine()!.Trim());
 
-            case 2:
-                CaricaAnimale();
-                Proseguimento();
-                break;
+            switch (scelta)
+            {
+                case 1:
+                                // Se viene scelto umano non ci sono specifiche da consigliare
+                    Proseguimento();
+                    break;
 
-            case 3:
-                TipoCreatura();
-                break;
+                case 2:
+                    Console.Clear();
+                    CaricaAnimale();
+                    Proseguimento();
+                    break;
 
-            case 4:
-                Proseguimento();
-                QuantitativoSoggetti();
-                break;
+                case 3:
+                    Console.Clear();
+                    TipoCreatura();
+                    break;
 
-            default:
-                Errore();
-                break;
+                case 4:
+                    Proseguimento();
+                    QuantitativoSoggetti();
+                    break;
+
+                default:
+                    Errore();
+                    Proseguimento();
+                    PreferenzaSoggetto();
+                    break;
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("Si richiede l'inserimento di un numero");
+            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
+            Proseguimento();
+            PreferenzaSoggetto();
         }
     }
 
@@ -155,42 +187,49 @@ class Program
 
     static void TipoCreatura()
     {
-        string sceltaCreatura;
-        int quantitativoAnimali;
+        string sceltaCreatura; //
+    //-------------------------//
 
                     // Scelta tra una creatura mitologica e una propria creazione
         Console.WriteLine("Preferisci una creatura mitologica o inventarne una te? (m/i)");
-        sceltaCreatura = Console.ReadLine()!.ToLower().Trim();
 
-        if (sceltaCreatura == "m")  // restituiamo una creatura random
+        try
         {
-                        // Metodo per ottenere una creatura mitologica e Metodo per pulire la console
-            CaricaCreaturaMitologica();
-            Proseguimento();
-        }
-        else if (sceltaCreatura == "i") // restituiamo una lista di animali
-        {
-            Console.WriteLine("quanti animali vuoi usare per comporre la tua creatura?(2-5)");
+            sceltaCreatura = Console.ReadLine()!.ToLower().Trim();
 
-                        // Scelta numero animali
-            quantitativoAnimali = Convert.ToInt32(Console.ReadLine()!.Trim());
-
-            Console.WriteLine("Gli animali da utilizzare saranno:");
-
-                        // Iterazione da 0 a numero scelto --> lista animali da usar
-
-            for (int i = 1; i <= quantitativoAnimali ;i++ ) 
+            if (sceltaCreatura == "m")  // restituiamo una creatura random
             {
-                CaricaAnimale();
+                Console.Clear();
+                            // Metodo per ottenere una creatura mitologica e Metodo per pulire la console
+                CaricaCreaturaMitologica();
+                Proseguimento();
             }
-            Proseguimento();
+            else if (sceltaCreatura == "i") // restituiamo una lista di animali
+            {
+                Console.Clear();
+                CaricaAnimali();
+                Proseguimento();
+            }
+            else 
+            {
+                Errore();
+                Proseguimento();
+                TipoCreatura();
+            }
         }
-        else Errore();
+        catch (Exception ex)
+        {
+                        // Non preciso un messaggio perchè non sono a conoscenza di tipi di eccezioni per questa casistica
+            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
+            Proseguimento();
+            TipoCreatura();
+        }
     }
 //--------------------------------------------------------------------------------------------------------------------------------
     static void QuantitativoSoggetti()
     {
-        string quantitativoSoggetti;
+        string quantitativoSoggetti; //
+    //-------------------------------//
 
         Console.WriteLine("Preferisci un soggetto unico o una coppia di soggetti? (u/c)");
 
@@ -207,13 +246,20 @@ class Program
 
             SoggettoCasuale();
         }
-        else Errore();
+        else 
+        {
+            Errore();
+            Proseguimento();
+            QuantitativoSoggetti();
+        }
     }
+
 // METODI PER SCELTE RANDOM ------------------------------------------------------------------------------------------------------------------------------------
     static void SoggettoCasuale()
     {
-        Random random = new Random();
-        int soggettoRandom;
+        Random random = new Random(); //
+        int soggettoRandom;           //
+    //--------------------------------//
 
         soggettoRandom = random.Next(1, 4);
 
@@ -244,8 +290,9 @@ class Program
 
     static void CaricaLuogo()
     {
-        Random random = new Random();
-        int indice;
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
 
         try
         {
@@ -273,8 +320,9 @@ class Program
 //-------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaAnimale()
     {   
-        Random random = new Random();
-        int indice;
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
 
         try
         {
@@ -297,10 +345,50 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
+    static void CaricaAnimali()
+    {
+        Random random = new Random();//
+        int indice;                  //
+        int quantitativoAnimali;     //
+    //-------------------------------//
+
+        Console.WriteLine("quanti animali vuoi usare per comporre la tua creatura?(2-5)");
+
+                    // Scelta numero animali
+        quantitativoAnimali = Convert.ToInt32(Console.ReadLine()!.Trim());
+
+        Console.Clear();
+
+        try
+        {
+                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+            string path = @"animali.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
+
+            Console.WriteLine("Gli animali saranno:");
+
+                        // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
+            for (int i = 1; i <= quantitativoAnimali ;i++ ) 
+            {
+                            // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+                indice = random.Next(0, obj.Count);
+                Console.WriteLine(obj[indice].animale);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
+    }
+//------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaCreaturaMitologica()
     {
-        Random random = new Random();
-        int indice;
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
 
         try
         {
@@ -325,8 +413,9 @@ class Program
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaTema()
     {
-        Random random = new Random();
-        int indice;
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
 
         try
         {
@@ -351,8 +440,9 @@ class Program
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaTecnica()
     {
-        Random random = new Random();
-        int indice;
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
 
         try
         {
