@@ -64,7 +64,7 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - [X] - scelta uno o due soggetti
 - [X] - - estrazione da file Json
 - [X] Scelta tema
-- [X] Input 2D 0 3D
+- [X] Input 2D o 3D
 - [X] Tecnica di disegno 2D
 - [X] Chiusura del programma
 - [X] Gestione delle eccezioni
@@ -645,16 +645,16 @@ class Program
     ```C#
     for (int i = 1; i == quantitativoAnimali ;i++ ) 
 
-    //rif riga 230 --> soluzione <= invece di ==
+    //rif riga 372 --> soluzione <= invece di ==
     ```
     </details>
 
 -   <details>
     <summary> Non risolti </summary>
 
-    Impossibilità di usare ReadKey invece di ReadLine per assegnare un char a un intero o stringa
+    Impossibilità di usare ReadKey invece di ReadLine per assegnare un numero/char a un intero o stringa
 
-    es riga 17
+    es riga 23
 
     </details>
 
