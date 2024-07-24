@@ -1,14 +1,29 @@
-﻿using Newtonsoft.Json;
+﻿using Spectre.Console;
 
-Random random = new Random();
+// Ask for the user's favorite fruits
+var fruits = AnsiConsole.Prompt(
+    new MultiSelectionPrompt<string>()
+        .Title("What are your [green]favorite fruits[/]?")
+        .NotRequired() // Not required to have a favorite fruit
+        .PageSize(10)
+        .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+        .InstructionsText(
+            "[grey](Press [blue]<space>[/] to toggle a fruit, " + 
+            "[green]<enter>[/] to accept)[/]")
+        .AddChoices(new[] {
+            "Apple", "Apricot", "Avocado",
+            "Banana", "Blackcurrant", "Blueberry",
+            "Cherry", "Cloudberry", "Coconut",
+        }));
 
+if (fruits.Contains("Apple"))
+{
+    Console.WriteLine("Ciao");
+    Console.ReadKey();
+} 
 
-string path = @"random.json";
-string json = File.ReadAllText(path);
-dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-int indice = random.Next(0,obj.Count);
-
-
-Console.WriteLine($"animale: {obj[indice].animale}");
-
+if (fruits.Contains("Banana"))
+{
+    Console.WriteLine("Come va?");
+    Console.ReadKey();
+} 

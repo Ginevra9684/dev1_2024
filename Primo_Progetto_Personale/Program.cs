@@ -1,5 +1,8 @@
-﻿// Pacchetto esterno per poter usare i file JSON
+﻿            // Pacchetto esterno per poter usare i file JSON
 using Newtonsoft.Json;
+
+            // Pacchetto esterno per implementazioni estetiche
+using Spectre.Console;
 class Program  
 {
     static void Main()
@@ -8,39 +11,17 @@ class Program
     //-----------------//
 
                     // Puliamo la console
-        Console.Clear();
+        AnsiConsole.Clear();
 
                     // Titolo
-        Console.WriteLine("IDEE PER ILLUSTRAZIONI\n");
+        AnsiConsole.Markup("[50]IDEE PER ILLUSTRAZIONI[/]:artist_palette:\n\n");
 
         Avvertimenti();
         Proseguimento();
     
         MenuPrincipale();   // Metodo per visualizzare il primo menu di scelta
 
-        Console.WriteLine("Vuoi un tema di riferimento? (s/n)");
-        
-        scelta = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
-
-        if (scelta == "s")
-        {
-            CaricaTema();   // Metodo per ottenere un tema
-            Proseguimento();
-        }
-        else if (scelta == "n" ) Proseguimento();
-        else Errore();
-
-        Console.WriteLine("Il disegno è 2D (su carta) o 3D? Se su carta vuoi una tecnica di riferimento? (s/n)");
-
-        scelta = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
-
-        if (scelta == "s")
-        {
-            CaricaTecnica(); 
-            Proseguimento();
-        }
-        else if (scelta == "n") Proseguimento();
-        else Errore();
+        ScelteSecondarie();
 
         Conclusione();  // Metodo per chiudere il programma 
     }
@@ -49,15 +30,15 @@ class Program
 
     static void Avvertimenti()
     {
-        Console.WriteLine("REGOLE ED AVVERTIMENTI");
-        Console.WriteLine("1.I nomi di animali, creature e temi saranno scritti in inglese per convenzione");
-        Console.WriteLine("2.Se si fa un inserimento sbagliato l'opzione darà errore o/e verrà saltata");
+        AnsiConsole.Markup("[204]REGOLE ED AVVERTIMENTI[/]\n");
+        AnsiConsole.Markup("[208]1.[/]I nomi di animali, creature e temi saranno scritti in inglese per convenzione[208].[/]:anger_symbol:\n");
+        AnsiConsole.Markup("[208]2.[/]Se si fa un inserimento sbagliato l'opzione darà errore o/e verrà saltata[208].[/]:cross_mark:\n");
     }
 //----------------------------------------------------------------------------------------------------------------------------------
     static void Proseguimento()
     {
                     // Per permettere all'utente di proseguire al premere di untasto e cancellare a schermo le linee precedenti
-        Console.WriteLine("\nPremere un tasto per proseguire...");
+        AnsiConsole.Markup("\n:red_exclamation_mark:Premere un tasto per proseguire[221].[/][222].[/][223].[/]");
         Console.ReadKey();
 
         Console.Clear();
@@ -66,119 +47,117 @@ class Program
     static void Conclusione()
     {               
                     // Frasi di chiusura
-        Console.WriteLine("Ora dovresti avere tutto l'occorrente per iniziare il tuo progetto");
-        Console.WriteLine("Di seguito alcuni siti/app dove poter pubblicare le tue opere");
+        AnsiConsole.Markup(":blowfish: Ora dovresti avere tutto l'occorrente per iniziare il tuo progetto\n");
+        AnsiConsole.Markup(":backhand_index_pointing_down: Di seguito alcuni siti/app dove poter pubblicare le tue opere : \n");
     }
 //-------------------------------------------------------------------------------------------------------------------------------
     static void Errore()
     {
-        Console.WriteLine("Opzione non valida");   // in caso di inserimento non previsto
+        AnsiConsole.Markup(":red_circle:Opzione non valida\n");   // in caso di inserimento non previsto
     }
 
 // METODI PER MENU E SOTTOMENU-------------------------------------------------------------------------------------------------------
 
     static void MenuPrincipale()
     {
-        int scelta;    //
+        string input;  //
     //-----------------//
 
-                    // Tre opzioni
-        Console.WriteLine("Scegliere l'area principale di proprio interesse! (1/2/3)");
-        Console.WriteLine("1.Ambiente");
-        Console.WriteLine("2.Soggetto");
-        Console.WriteLine("3.Ambiente e Soggetto");
-
-        try
+                    // Menu di scelta che assegna direttamente alla stringa input il valore di ciò che viene selezionato
+        input = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("<-<-<-[50]SCELTA PRINCIPALE[/]->->->")
+            .PageSize(3)
+            .MoreChoicesText("Spostati con le frecce direzionali.")
+            .AddChoices(new[] {"[86]1.[/]Ambiente[86].[/]","[85]2.[/]Soggetto[85].[/]","[49]3.[/]Ambiente e Soggetto[49].[/]"   // Tre opzioni
+            }));
+                    
+        switch (input)
         {
-            scelta = int.Parse(Console.ReadKey(true).KeyChar.ToString().ToLower().Trim());
+            case "[86]1.[/]Ambiente[86].[/]":
+                AnsiConsole.Clear();
+                CaricaLuogo();  // Metodo per ottenere un luogo
+                Proseguimento();    // Metodo per pulire la console
+                break;
 
-            switch (scelta)
-            {
-                case 1:
-                    Console.Clear();
-                    CaricaLuogo();  // Metodo per ottenere un luogo
-                    Proseguimento();    // Metodo per pulire la console
-                    break;
+            case "[85]2.[/]Soggetto[85].[/]":
+                AnsiConsole.Clear();
+                PreferenzaSoggetto();   // Metodo per scegliere il/i soggetto/i
+                break;
 
-                case 2:
-                    Console.Clear();
-                    PreferenzaSoggetto();   // Metodo per scegliere il/i soggetto/i
-                    break;
-
-                case 3:
-                    Console.Clear();
-                    CaricaLuogo();
-                    Proseguimento();
-                    PreferenzaSoggetto();
-                    break;
-
-                default:
-                    Errore();   // Metodo per segnalare una scelta inaspettata dal programma
-                    Proseguimento();
-                    MenuPrincipale();
-                    break;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Si richiede l'inserimento di un numero");
-            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
-            Proseguimento();
-            MenuPrincipale();
+            case "[49]3.[/]Ambiente e Soggetto[49].[/]":
+                AnsiConsole.Clear();
+                CaricaLuogo();
+                Proseguimento();
+                PreferenzaSoggetto();
+                break;
         }
     }
 //-----------------------------------------------------------------------------------------------------------------------------------
     static void PreferenzaSoggetto()
     {
-        int scelta;    //
+        string input;  //
     //-----------------//
 
-                    // Menu per la preferenza di soggetto
-        Console.WriteLine("Scegliere tra le seguenti opzioni (1/2/3/4)");
-        Console.WriteLine("1.Umano");
-        Console.WriteLine("2.Animale");
-        Console.WriteLine("3.Creatura");
-        Console.WriteLine("4.Nessuna preferenza");
+        input = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("<-<-<-[50]SCELTA SOGGETTO[/]->->->")
+            .PageSize(4)
+            .MoreChoicesText("Spostati con le frecce direzionali.")
+            .AddChoices(new[] {"[86]1.[/]Umano[86].[/]","[85]2.[/]Animale[85].[/]","[49]3.[/]Creatura[49].[/]","[79]4.[/]Nessuna preferenza[79].[/]"   // Quattro opzioni
+            }));
 
-        try
+        switch (input)
         {
-            scelta = int.Parse(Console.ReadKey(true).KeyChar.ToString().ToLower().Trim());
+            case "[86]1.[/]Umano[86].[/]":
+                            // Se viene scelto umano non ci sono specifiche da consigliare
+                Proseguimento();
+                break;
 
-            switch (scelta)
-            {
-                case 1:
-                                // Se viene scelto umano non ci sono specifiche da consigliare
-                    Proseguimento();
-                    break;
+            case "[85]2.[/]Animale[85].[/]":
+                AnsiConsole.Clear();
+                CaricaAnimale();
+                Proseguimento();
+                break;
 
-                case 2:
-                    Console.Clear();
-                    CaricaAnimale();
-                    Proseguimento();
-                    break;
+            case "[49]3.[/]Creatura[49].[/]":
+                AnsiConsole.Clear();
+                TipoCreatura();
+                break;
 
-                case 3:
-                    Console.Clear();
-                    TipoCreatura();
-                    break;
-
-                case 4:
-                    Proseguimento();
-                    QuantitativoSoggetti();
-                    break;
-
-                default:
-                    Errore();
-                    Proseguimento();
-                    PreferenzaSoggetto();
-                    break;
-            }
+            case "[79]4.[/]Nessuna preferenza[79].[/]":
+                AnsiConsole.Clear();
+                QuantitativoSoggetti();
+                break;
         }
-        catch(Exception ex)
+    }
+//--------------------------------------------------------------------------------------------------------------------------
+    static void ScelteSecondarie()
+    {
+                    // Prompt per scelte multiple
+        var altreOpzioni = AnsiConsole.Prompt(
+        new MultiSelectionPrompt<string>()
+            .Title("<-<-<-[50]AGGIUNTE[/]->->->")
+            .NotRequired() 
+            .PageSize(10)
+            .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
+            .InstructionsText(
+                "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
+                "[123]<enter>[/] per confermare le tue scelte)[/]")
+            .AddChoices(new[] {
+                "[86]1.[/] Tema[86].[/]", "[85]2.[/] Tecnica[85].[/]"
+            }));
+        
+        if (altreOpzioni.Contains("[86]1.[/] Tema[86].[/]"))
         {
-            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
+            CaricaTema();
             Proseguimento();
-            PreferenzaSoggetto();
+        }
+
+        if (altreOpzioni.Contains("[85]2.[/] Tecnica[85].[/]"))
+        {
+            CaricaTecnica();
+            Proseguimento();
         }
     }
 
@@ -186,43 +165,34 @@ class Program
 
     static void TipoCreatura()
     {
-        string sceltaCreatura; //
-    //-------------------------//
+        string input; //
+    //----------------//
 
                     // Scelta tra una creatura mitologica e una propria creazione
-        Console.WriteLine("Preferisci una creatura mitologica o inventarne una te? (m/i)");
+        input = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("<-<-<-[50]PREFERENZA CREATURA[/]->->->")
+            .PageSize(3)
+            .MoreChoicesText("Spostati con le frecce direzionali.")
+            .AddChoices(new[] {"[86]1.[/]Creatura Mitologica[86].[/]","[85]2.[/]Propria Invenzione[85].[/]"  // Due opzioni
+            }));
 
-        try
+        switch (input)
         {
-            sceltaCreatura = Console.ReadKey(true).KeyChar.ToString().ToLower().Trim();
-
-            if (sceltaCreatura == "m")  // restituiamo una creatura random
-            {
-                Console.Clear();
-                            // Metodo per ottenere una creatura mitologica e Metodo per pulire la console
+            case "[86]1.[/]Creatura Mitologica[86].[/]":    // restituiamo una creatura random
+                AnsiConsole.Clear();
+                            // Metodo per ottenere una creatura mitologica
                 CaricaCreaturaMitologica();
+                            // Metodo per pulire la console
                 Proseguimento();
-            }
-            else if (sceltaCreatura == "i") // restituiamo una lista di animali
-            {
-                Console.Clear();
+                break;
+            case "[85]2.[/]Propria Invenzione[85].[/]":
+                AnsiConsole.Clear();
+                            // Metodo per ottenere una lista di animali
                 CaricaAnimali();
                 Proseguimento();
-            }
-            else 
-            {
-                Errore();
-                Proseguimento();
-                TipoCreatura();
-            }
-        }
-        catch (Exception ex)
-        {
-                        // Non preciso un messaggio perchè non sono a conoscenza di tipi di eccezioni per questa casistica
-            Console.WriteLine($"ERRORE NON TRATTATO: {ex.Message}");
-            Proseguimento();
-            TipoCreatura();
-        }
+                break;
+        }       
     }
 //--------------------------------------------------------------------------------------------------------------------------------
     static void QuantitativoSoggetti()
@@ -230,26 +200,25 @@ class Program
         string quantitativoSoggetti; //
     //-------------------------------//
 
-        Console.WriteLine("Preferisci un soggetto unico o una coppia di soggetti? (u/c)");
+        quantitativoSoggetti = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("<-<-<-[50]QUANTITÀ SOGGETTI[/]->->->")
+                .PageSize(3)
+                .MoreChoicesText("Spostati con le frecce direzionali.")
+                .AddChoices(new[] {"[86]1.[/]Soggetto Unico[86].[/]","[85]2.[/]Doppio Soggetto" // Due opzioni
+                }));
 
-                    // scelta quantità soggetti e relative casistiche 
-        quantitativoSoggetti = Console.ReadKey().KeyChar.ToString().ToLower().Trim();
-
-        if (quantitativoSoggetti == "u") SoggettoCasuale();
-        
-        else if (quantitativoSoggetti == "c")
+        switch(quantitativoSoggetti)
         {
-            Console.WriteLine("Il primo soggetto sarà umano il secondo sarà sorteggiato casualmente");
-
-            Proseguimento();
-
-            SoggettoCasuale();
-        }
-        else 
-        {
-            Errore();
-            Proseguimento();
-            QuantitativoSoggetti();
+            case "[86]1.[/]Soggetto Unico[86].[/]" :
+                AnsiConsole.Clear();
+                SoggettoCasuale();
+                break;
+            case "[85]2.[/]Doppio Soggetto" :
+                AnsiConsole.Markup("[97]-[/]Il primo soggetto sarà umano il secondo sarà sorteggiato casualmente\n");
+                Proseguimento();
+                SoggettoCasuale();
+                break;
         }
     }
 
@@ -276,7 +245,6 @@ class Program
 
             case 3:
                 TipoCreatura();
-                Proseguimento();
                 break;
 
             default:
@@ -306,8 +274,8 @@ class Program
             indice = random.Next(0,obj.Count);
 
                         // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
-            Console.WriteLine("Il tuo luogo di riferimento sarà:");
-            Console.WriteLine(obj[indice].luogo);
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
+            AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
         }
         catch (Exception ex)
         {
@@ -333,8 +301,8 @@ class Program
                         // Il programma stampa un oggetto del file tramite indice scelto in maniera random
             indice = random.Next(0, obj.Count);
 
-            Console.WriteLine("L'animale sarà:");
-            Console.WriteLine(obj[indice].animale);
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà il seguente animale[208]:[/]\n\n");
+            AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n"); 
         }
         catch (Exception ex)
         {
@@ -346,54 +314,78 @@ class Program
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaAnimali()
     {
-        Random random = new Random();//
-        int indice;                  //
-        int quantitativoAnimali;     //
-    //-------------------------------//
-
+        Random random = new Random();   //
+        int indice;                     //
+        string quantitativoAnimali;     //
+    //----------------------------------//
         
+                    // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+        string path = @"animali.json";
+        string json = File.ReadAllText(path);
+        dynamic obj = JsonConvert.DeserializeObject(json)!;
 
-        
-                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-            string path = @"animali.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-            
         try
         {
-            Console.WriteLine("quanti animali vuoi usare per comporre la tua creatura?(2-5)");
+                        // Prompt per la selezione del quantitativo di animali
+            quantitativoAnimali = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("<-<-<-[50]QUANTI ANIMALI PER LA CREAZIONE?[/]->->->")
+                .PageSize(3)
+                .MoreChoicesText("Spostati con le frecce direzionali.")
+                .AddChoices(new[] {"[86].2[/]","[85].3[/]","[49].4[/]","[79].5[/]"  // Quattro opzioni
+                }));
 
-                        // Scelta numero animali
-            quantitativoAnimali = int.Parse(Console.ReadKey(true).KeyChar.ToString().Trim());
+            AnsiConsole.Markup(":backhand_index_pointing_right: La tua creatura sarà composta dai seguenti animali [208]:[/]\n\n");
 
-            Console.Clear();
-
-            if (quantitativoAnimali >= 2 && quantitativoAnimali <= 5)
+            switch (quantitativoAnimali)
             {
-                Console.WriteLine("Gli animali saranno:");
-                
-                            // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
-                for (int i = 1; i <= quantitativoAnimali ;i++ ) 
-                {
-                                // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-                    indice = random.Next(0, obj.Count);
-                    Console.WriteLine(obj[indice].animale);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Opzione non valida");
-                Proseguimento();
-                CaricaAnimali();
+                case "[86].2[/]":
+                    AnsiConsole.Clear();
+
+                                    // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
+                    for (int i = 1; i <= 2 ;i++ ) 
+                    {
+                                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+                        indice = random.Next(0, obj.Count);
+                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+                    }
+                    break;
+                case "[85].3[/]":
+                    AnsiConsole.Clear();
+
+                    for (int i = 1; i <= 3 ;i++ ) 
+                    {
+                                    
+                        indice = random.Next(0, obj.Count);
+                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+                    }
+                    break;
+                case "[49].4[/]":
+                    AnsiConsole.Clear();
+
+                    for (int i = 1; i <= 4 ;i++ ) 
+                    {
+                                    
+                        indice = random.Next(0, obj.Count);
+                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+                    }
+                    break;
+                case "[79].5[/]":
+                    AnsiConsole.Clear();
+
+                    for (int i = 1; i <= 5 ;i++ ) 
+                    {
+                                    
+                        indice = random.Next(0, obj.Count);
+                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+                    }
+                    break;
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Si richiede un numero");
+            Console.WriteLine("Il file non esiste");
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
-            Proseguimento();
-            CaricaAnimali();
             return;
         }
     }
@@ -414,8 +406,8 @@ class Program
                         // Il programma stampa un oggetto del file tramite indice scelto in maniera random
             indice = random.Next(0, obj.Count);
 
-            Console.WriteLine("La creatura sarà:");
-            Console.WriteLine(obj[indice].creatura);
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà la seguente creatura[177]:[/]\n\n");
+            AnsiConsole.Markup($"[177]-[/] {obj[indice].creatura}[177].[/]\n"); 
         }
         catch (Exception ex)
         {
@@ -441,8 +433,8 @@ class Program
                         // Stampa di un oggetto del file tramite indice
             indice = random.Next(0, obj.Count);
 
-            Console.WriteLine("Il tema sarà:");
-            Console.WriteLine(obj[indice].tema);
+            AnsiConsole.Markup(":backhand_index_pointing_right: Potrai attenerti al seguente tema [229]:[/]\n\n");
+            AnsiConsole.Markup($"[229]-[/] {obj[indice].tema}[229].[/]\n"); 
         }
         catch (Exception ex)
         {
@@ -468,8 +460,8 @@ class Program
                         // Stampa di un oggetto del file tramite indice
             indice = random.Next(0, obj.Count);
 
-            Console.WriteLine("La tecnica sarà:");
-            Console.WriteLine(obj[indice].tecnica);
+            AnsiConsole.Markup(":backhand_index_pointing_right: Potrai utilizzare la seguente tecnica [225]:[/]\n\n");
+            AnsiConsole.Markup($"[225]-[/] {obj[indice].tecnica}[225].[/]\n"); 
         }
         catch (Exception ex)
         {

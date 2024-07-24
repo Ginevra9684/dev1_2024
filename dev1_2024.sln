@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TESTS", "TESTS\TESTS.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "68-Gestione-Eccezioni", "68-Gestione-Eccezioni\68-Gestione-Eccezioni.csproj", "{92F072D4-7268-4022-8ED8-D0F9688548EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "69-Data-e-Ora", "69-Data-e-Ora\69-Data-e-Ora.csproj", "{5F84B714-34C8-4C32-AF66-1AE4D4CE30F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +287,10 @@ Global
 		{92F072D4-7268-4022-8ED8-D0F9688548EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F072D4-7268-4022-8ED8-D0F9688548EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F072D4-7268-4022-8ED8-D0F9688548EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F84B714-34C8-4C32-AF66-1AE4D4CE30F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F84B714-34C8-4C32-AF66-1AE4D4CE30F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F84B714-34C8-4C32-AF66-1AE4D4CE30F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F84B714-34C8-4C32-AF66-1AE4D4CE30F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -621,7 +621,7 @@ class Program
 <details>
 <summary> Implementazioni </summary>
 
-- [ ] Visione grafica con Spectre.Console
+- [X] Visione grafica con Spectre.Console
 - [ ] Front End con Html e Css
 - [ ] Stampa tabella finale con tutte le scelte
 - [ ] Restart del ciclo a fine programma per più progetti
