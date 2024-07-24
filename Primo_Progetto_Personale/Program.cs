@@ -7,9 +7,6 @@ class Program
 {
     static void Main()
     {
-        string scelta; // Variabili usate nel Main
-    //-----------------//
-
                     // Puliamo la console
         AnsiConsole.Clear();
 
@@ -77,6 +74,8 @@ class Program
             case "[86]1.[/]Ambiente[86].[/]":
                 AnsiConsole.Clear();
                 CaricaLuogo();  // Metodo per ottenere un luogo
+                Proseguimento();
+                CaratteristicheLuogo(); // Metodo per aggiungere caratteristiche al luogo
                 Proseguimento();    // Metodo per pulire la console
                 break;
 
@@ -89,11 +88,40 @@ class Program
                 AnsiConsole.Clear();
                 CaricaLuogo();
                 Proseguimento();
+                CaratteristicheLuogo();
+                Proseguimento();
                 PreferenzaSoggetto();
                 break;
         }
     }
 //-----------------------------------------------------------------------------------------------------------------------------------
+    static void CaratteristicheLuogo()
+    {
+        var caratteristiche = AnsiConsole.Prompt(
+        new MultiSelectionPrompt<string>()
+            .Title("<-<-<-[50]CARATTERISTICHE LUOGO[/]->->->")
+            .NotRequired() 
+            .PageSize(10)
+            .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
+            .InstructionsText(
+                "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
+                "[123]<enter>[/] per confermare le tue scelte)[/]")
+            .AddChoices(new[] {
+                "[86]1.[/] Meteo[86].[/]", "[85]2.[/] Momento[85].[/]"
+            }));
+
+        if (caratteristiche.Contains("[86]1.[/] Meteo[86].[/]"))
+        {
+            CaricaCondizioneMeteo();
+            Proseguimento();
+        }
+
+        if (caratteristiche.Contains("[85]2.[/] Momento[85].[/]"))
+        {
+            CaricaMomentoGiornata();
+            Proseguimento();
+        }
+    }
     static void PreferenzaSoggetto()
     {
         string input;  //
@@ -285,6 +313,60 @@ class Program
         }
     }
 //-------------------------------------------------------------------------------------------------------------------------------------
+    static void CaricaCondizioneMeteo()
+    {
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
+
+        try
+        {
+                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+            string path = @"meteo.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
+
+                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+            indice = random.Next(0, obj.Count);
+
+            AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [208]:[/]\n\n");
+            AnsiConsole.Markup($"[46]-[/] {obj[indice].meteo}[46].[/]\n"); 
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
+    }
+//----------------------------------------------------------------------------------------------------------------------------------------
+    static void CaricaMomentoGiornata()
+    {
+        Random random = new Random(); //
+        int indice;                   //
+    //--------------------------------//
+
+        try
+        {
+                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+            string path = @"momenti.json";
+            string json = File.ReadAllText(path);
+            dynamic obj = JsonConvert.DeserializeObject(json)!;
+
+                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+            indice = random.Next(0, obj.Count);
+
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [208]:[/]\n\n");
+            AnsiConsole.Markup($"[46]-[/] {obj[indice].momento}[46].[/]\n");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Il file non esiste");
+            Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
+            return;
+        }
+    }
+//---------------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaAnimale()
     {   
         Random random = new Random(); //

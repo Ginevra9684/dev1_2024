@@ -81,46 +81,50 @@ stateDiagram-v2
     state if_state4 <<choice>>
     state if_state5 <<choice>>
     state if_state6 <<choice>>
-    state if_state7 <<choice>>
     CREA_IDEE --> Scelta
     Scelta --> Soggetto?
     Scelta --> Ambientazione_e_Soggetto?
     Scelta --> Ambientazione?
-    Ambientazione? --> Luogo_Specifico 
+    Ambientazione? --> Luogo_Specifico
+    Luogo_Specifico --> Caratteristiche_Luogo
+    Caratteristiche_Luogo --> if_state6
+    if_state6 --> Condizioni_Metereologiche
+    if_state6 --> Momento
+    Condizioni_Metereologiche --> Meteo_Random : if selezionato
+    Momento --> Momento_Random : if selezionato 
     Soggetto? --> Preferenza?\n(umano/animale/creatura)
     Preferenza?\n(umano/animale/creatura) --> if_state
     if_state --> Scelta_Manuale\nun_solo_soggetto : if risposta = si
-    Scelta_Manuale\nun_solo_soggetto --> if_state6
-    if_state6 --> Tema? : if scelta != creatura
-    if_state6 --> Creatura_Mitologica_o\nPropria_Creazione? : if scelta = creatura
-    Creatura_Mitologica_o\nPropria_Creazione? --> if_state7
-    if_state7 --> Creatura_Mitologica\nRandom : if scelta = 1
-    Creatura_Mitologica\nRandom --> Tema?
-    if_state7 --> Quantità_Animali_per\nCreazione? : if scelta = 2
+    Scelta_Manuale\nun_solo_soggetto --> if_state2
+    if_state2 --> Opzioni_Aggiuntive : if scelta != creatura
+    if_state2 --> Creatura_Mitologica_o\nPropria_Creazione? : if scelta = creatura
+    Creatura_Mitologica_o\nPropria_Creazione? --> if_state3
+    if_state3 --> Creatura_Mitologica\nRandom : if scelta = 1
+    Creatura_Mitologica\nRandom --> Opzioni_Aggiuntive
+    if_state3 --> Quantità_Animali_per\nCreazione? : if scelta = 2
     Quantità_Animali_per\nCreazione? --> Lista_Animali_Random
-    Lista_Animali_Random --> Tema?
+    Lista_Animali_Random --> Opzioni_Aggiuntive
     if_state --> Scelta_Soggetto_Unico_o\nDoppio_Soggetto : if risposta = no
-    Scelta_Soggetto_Unico_o\nDoppio_Soggetto --> if_state2
-    if_state2 --> Soggetto_Random : if risposta = 1
-    if_state2 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
+    Scelta_Soggetto_Unico_o\nDoppio_Soggetto --> if_state4
+    if_state4 --> Soggetto_Random : if risposta = 1
+    if_state4 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
     Ambientazione_e_Soggetto? --> Luogo_Specifico
-    Luogo_Specifico --> Tema? : if ambientazione
-    Luogo_Specifico --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
-    Soggetto_Random --> Tema? : if Random != creatura
+    Meteo_Random --> Opzioni_Aggiuntive : if ambientazione
+    Momento_Random --> Opzioni_Aggiuntive : if ambientazione
+    Meteo_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
+    Momento_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
+    Soggetto_Random --> Opzioni_Aggiuntive : if Random != creatura
     Soggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
     Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
-    Soggetto_Umano_+\nSoggetto_Random --> Tema? : if Random != creatura
-    Tema? --> if_state3
-    if_state3 --> Tema_Random : if risposta = si
-    if_state3 --> 2D_o_3D : if risposta = no
-    2D_o_3D --> if_state4
-    if_state4 --> Tecnica? : if risposta = 2D
-    if_state4 --> FINE : if risposta = 3D
-    Tema_Random --> 2D_o_3D
-    Tecnica? --> if_state5
-    if_state5 --> Tecnica_Random : if risposta = si
-    if_state5 --> FINE : if risposta = no
-    Tecnica_Random --> FINE
+    Soggetto_Umano_+\nSoggetto_Random --> Opzioni_Aggiuntive : if Random != creatura
+    Opzioni_Aggiuntive --> if_state5
+    if_state5 --> Tema 
+    if_state5 --> Tecnica 
+    Tema --> Tema_Random : if selezionato
+    Tecnica --> Tecnica_Random : if selezionato
+    Tema_Random --> Conclusione
+    Tecnica_Random --> Conclusione
+    
 ```
 
 
@@ -616,6 +620,61 @@ class Program
     }
 }
 ```
+</details>
+
+<details>
+<summary> Schema originale </summary>
+
+```mermaid
+stateDiagram-v2
+    state if_state <<choice>>
+    state if_state2 <<choice>>
+    state if_state3 <<choice>>
+    state if_state4 <<choice>>
+    state if_state5 <<choice>>
+    state if_state6 <<choice>>
+    state if_state7 <<choice>>
+    CREA_IDEE --> Scelta
+    Scelta --> Soggetto?
+    Scelta --> Ambientazione_e_Soggetto?
+    Scelta --> Ambientazione?
+    Ambientazione? --> Luogo_Specifico 
+    Soggetto? --> Preferenza?\n(umano/animale/creatura)
+    Preferenza?\n(umano/animale/creatura) --> if_state
+    if_state --> Scelta_Manuale\nun_solo_soggetto : if risposta = si
+    Scelta_Manuale\nun_solo_soggetto --> if_state6
+    if_state6 --> Tema? : if scelta != creatura
+    if_state6 --> Creatura_Mitologica_o\nPropria_Creazione? : if scelta = creatura
+    Creatura_Mitologica_o\nPropria_Creazione? --> if_state7
+    if_state7 --> Creatura_Mitologica\nRandom : if scelta = 1
+    Creatura_Mitologica\nRandom --> Tema?
+    if_state7 --> Quantità_Animali_per\nCreazione? : if scelta = 2
+    Quantità_Animali_per\nCreazione? --> Lista_Animali_Random
+    Lista_Animali_Random --> Tema?
+    if_state --> Scelta_Soggetto_Unico_o\nDoppio_Soggetto : if risposta = no
+    Scelta_Soggetto_Unico_o\nDoppio_Soggetto --> if_state2
+    if_state2 --> Soggetto_Random : if risposta = 1
+    if_state2 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
+    Ambientazione_e_Soggetto? --> Luogo_Specifico
+    Luogo_Specifico --> Tema? : if ambientazione
+    Luogo_Specifico --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
+    Soggetto_Random --> Tema? : if Random != creatura
+    Soggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Tema? : if Random != creatura
+    Tema?--> if_state3
+    if_state3 --> Tema_Random : if risposta = si
+    if_state3 --> 2D_o_3D : if risposta = no
+    2D_o_3D --> if_state4
+    if_state4 --> Tecnica? : if risposta = 2D
+    if_state4 --> FINE : if risposta = 3D
+    Tema_Random --> 2D_o_3D
+    Tecnica? --> if_state5
+    if_state5 --> Tecnica_Random : if risposta = si
+    if_state5 --> FINE : if risposta = no
+    Tecnica_Random --> FINE
+```
+
 </details>
 
 <details>
