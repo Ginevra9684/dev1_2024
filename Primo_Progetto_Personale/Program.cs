@@ -23,7 +23,7 @@ class Program
         Conclusione();  // Metodo per chiudere il programma 
     }
 
-// METODI PER LA FLUIDITÀ DEL CODICE---------------------------------------------------------------------------------------------
+// METODI PER LA FLUIDITÀ DEL CODICE--------------------------------------------------------------------------------------------------
 
     static void Avvertimenti()
     {
@@ -31,7 +31,7 @@ class Program
         AnsiConsole.Markup("[208]1.[/]I nomi di animali, creature e temi saranno scritti in inglese per convenzione[208].[/]:anger_symbol:\n");
         AnsiConsole.Markup("[208]2.[/]Se si fa un inserimento sbagliato l'opzione darà errore o/e verrà saltata[208].[/]:cross_mark:\n");
     }
-//----------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void Proseguimento()
     {
                     // Per permettere all'utente di proseguire al premere di untasto e cancellare a schermo le linee precedenti
@@ -40,20 +40,20 @@ class Program
 
         Console.Clear();
     }
-//--------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void Conclusione()
     {               
                     // Frasi di chiusura
         AnsiConsole.Markup(":blowfish: Ora dovresti avere tutto l'occorrente per iniziare il tuo progetto\n");
         AnsiConsole.Markup(":backhand_index_pointing_down: Di seguito alcuni siti/app dove poter pubblicare le tue opere : \n");
     }
-//-------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void Errore()
     {
         AnsiConsole.Markup(":red_circle:Opzione non valida\n");   // in caso di inserimento non previsto
     }
 
-// METODI PER MENU E SOTTOMENU-------------------------------------------------------------------------------------------------------
+// METODI PER MENU E SOTTOMENU--------------------------------------------------------------------------------------------------------
 
     static void MenuPrincipale()
     {
@@ -94,7 +94,7 @@ class Program
                 break;
         }
     }
-//-----------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void CaratteristicheLuogo()
     {
         var caratteristiche = AnsiConsole.Prompt(
@@ -122,6 +122,7 @@ class Program
             Proseguimento();
         }
     }
+//------------------------------------------------------------------------------------------------------------------------------------
     static void PreferenzaSoggetto()
     {
         string input;  //
@@ -159,7 +160,7 @@ class Program
                 break;
         }
     }
-//--------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void ScelteSecondarie()
     {
                     // Prompt per scelte multiple
@@ -189,7 +190,7 @@ class Program
         }
     }
 
-// METODI PER SCELTE SPECIFICHE---------------------------------------------------------------------------------------------
+// METODI PER SCELTE SPECIFICHE-------------------------------------------------------------------------------------------------------
 
     static void TipoCreatura()
     {
@@ -222,7 +223,7 @@ class Program
                 break;
         }       
     }
-//--------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void QuantitativoSoggetti()
     {
         string quantitativoSoggetti; //
@@ -250,7 +251,7 @@ class Program
         }
     }
 
-// METODI PER SCELTE RANDOM ------------------------------------------------------------------------------------------------------------------------------------
+// METODI PER SCELTE RANDOM ----------------------------------------------------------------------------------------------------------
     static void SoggettoCasuale()
     {
         Random random = new Random(); //
@@ -281,29 +282,24 @@ class Program
         }
     }
 
-// METODI CHE ESTRAPOLANO DEGLI OGGETTI DA SPECIFICI FILE JSON----------------------------------------------------------------------
+// METODI CHE ESTRAPOLANO DEGLI OGGETTI DA SPECIFICI FILE JSON------------------------------------------------------------------------
 
     static void CaricaLuogo()
     {
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
     //--------------------------------//
 
+        
+                        // Crezione un percorso tra il programma e il file dei luoghi
+            path = @"luoghi.json";
         try
         {
-                        // Crezione un percorso tra il programma e il file dei luoghi
-            string path = @"luoghi.json";
                         // Lettura dell'intero file tramite il percorso
-            string json = File.ReadAllText(path);
-                        // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
-            indice = random.Next(0,obj.Count);
-
-                        // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
-            AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -311,8 +307,17 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+                        // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
+            obj = JsonConvert.DeserializeObject(json)!;
+
+                        // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
+            indice = random.Next(0,obj.Count);
+
+                        // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
+            AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
     }
-//-------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaCondizioneMeteo()
     {
         Random random = new Random(); //
@@ -329,7 +334,7 @@ class Program
                         // Il programma stampa un oggetto del file tramite indice scelto in maniera random
             indice = random.Next(0, obj.Count);
 
-            AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [208]:[/]\n\n");
+            AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [46]:[/]\n\n");
             AnsiConsole.Markup($"[46]-[/] {obj[indice].meteo}[46].[/]\n"); 
         }
         catch (Exception ex)
@@ -339,7 +344,7 @@ class Program
             return;
         }
     }
-//----------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaMomentoGiornata()
     {
         Random random = new Random(); //
@@ -356,7 +361,7 @@ class Program
                         // Il programma stampa un oggetto del file tramite indice scelto in maniera random
             indice = random.Next(0, obj.Count);
 
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [208]:[/]\n\n");
+            AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [46]:[/]\n\n");
             AnsiConsole.Markup($"[46]-[/] {obj[indice].momento}[46].[/]\n");
         }
         catch (Exception ex)
@@ -366,7 +371,7 @@ class Program
             return;
         }
     }
-//---------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaAnimale()
     {   
         Random random = new Random(); //

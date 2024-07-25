@@ -1,24 +1,31 @@
-﻿class Program 
+﻿class Program
 {
     static void Main()
     {
-        StampaMessaggio("Ciao, mondo!");
-
-        int risultato = Somma(3, 4);
-        Console.WriteLine($"La somma è: {risultato}");
+        string nome = LeggiStringa("Inserisci il tuo nome:");
+        int eta = LeggiIntero("Inserisci la tua età: ");
+        Console.WriteLine($"Ciao, {nome}! Hai {eta} anni.");
     }
 
-    // Metodo void
-    public static void StampaMessaggio(string messaggio)
+    static string LeggiStringa(string messaggio)
     {
-        Console.WriteLine(messaggio);
+        Console.Write(messaggio);
+        return Console.ReadLine()!;
     }
 
-    // Metodo con ritorno
-    public static int Somma(int a, int b)
+    static int LeggiIntero(string messaggio)
     {
-        return a + b;
+        int valore;
+        bool successo;
+        do
+        {
+            Console.Write(messaggio);
+            successo = int.TryParse(Console.ReadLine(), out valore);
+            if (!successo)
+            {
+                Console.WriteLine("Inserimento non valido. Riprova");
+            }
+        } while(!successo);
+        return valore;
     }
 }
-
-// In questo programma, StampaMessaggio è un metodo void che stamppa un messaggio sulla console, mentre Somma è un metodo
