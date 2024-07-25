@@ -22,8 +22,6 @@ class Program
         ScelteSecondarie();
 
         MenuFinale();
-
-        Conclusione();  // Metodo per chiudere il programma 
     }
 
 // METODI PER LA FLUIDITÀ DEL CODICE--------------------------------------------------------------------------------------------------
@@ -76,7 +74,7 @@ class Program
         {
             case "[86]1.[/]Ambiente[86].[/]":
                 AnsiConsole.Clear();
-                CaricaLuogo();  // Metodo per ottenere un luogo
+                ScaricaLuogo();  // Metodo per ottenere un luogo
                 Proseguimento();
                 CaratteristicheLuogo(); // Metodo per aggiungere caratteristiche al luogo
                 Proseguimento();    // Metodo per pulire la console
@@ -89,7 +87,7 @@ class Program
 
             case "[49]3.[/]Ambiente e Soggetto[49].[/]":
                 AnsiConsole.Clear();
-                CaricaLuogo();
+                ScaricaLuogo();
                 Proseguimento();
                 CaratteristicheLuogo();
                 Proseguimento();
@@ -104,7 +102,7 @@ class Program
         new MultiSelectionPrompt<string>()
             .Title("<-<-<-[50]CARATTERISTICHE LUOGO[/]->->->")
             .NotRequired() 
-            .PageSize(2)
+            .PageSize(3)
             .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
             .InstructionsText(
                 "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
@@ -115,13 +113,13 @@ class Program
 
         if (caratteristiche.Contains("[86]1.[/] Meteo[86].[/]"))
         {
-            CaricaCondizioneMeteo();
+            ScaricaCondizioneMeteo();
             Proseguimento();
         }
 
         if (caratteristiche.Contains("[85]2.[/] Momento[85].[/]"))
         {
-            CaricaMomentoGiornata();
+            ScaricaMomentoGiornata();
             Proseguimento();
         }
     }
@@ -148,7 +146,7 @@ class Program
 
             case "[85]2.[/]Animale[85].[/]":
                 AnsiConsole.Clear();
-                CaricaAnimale();
+                ScaricaAnimale();
                 Proseguimento();
                 break;
 
@@ -182,13 +180,13 @@ class Program
         
         if (altreOpzioni.Contains("[86]1.[/] Tema[86].[/]"))
         {
-            CaricaTema();
+            ScaricaTema();
             Proseguimento();
         }
 
         if (altreOpzioni.Contains("[85]2.[/] Tecnica[85].[/]"))
         {
-            CaricaTecnica();
+            ScaricaTecnica();
             Proseguimento();
         }
     }
@@ -241,7 +239,7 @@ class Program
         }
         if (gestione.Contains("[49]8.[/] Esci[49].[/]"))
         {
-            
+            Conclusione();  // Metodo per chiudere il programma 
         }
         if (!gestione.Contains("[49]8.[/] Esci[49].[/]"))
         {
@@ -270,14 +268,14 @@ class Program
             case "[86]1.[/]Creatura Mitologica[86].[/]":    // restituiamo una creatura random
                 AnsiConsole.Clear();
                             // Metodo per ottenere una creatura mitologica
-                CaricaCreaturaMitologica();
+                ScaricaCreaturaMitologica();
                             // Metodo per pulire la console
                 Proseguimento();
                 break;
             case "[85]2.[/]Propria Invenzione[85].[/]":
                 AnsiConsole.Clear();
                             // Metodo per ottenere una lista di animali
-                CaricaAnimali();
+                ScaricaAnimali();
                 Proseguimento();
                 break;
         }       
@@ -327,7 +325,7 @@ class Program
                 break;
 
             case 2:
-                CaricaAnimale();
+                ScaricaAnimale();
                 Proseguimento();
                 break;
 
@@ -341,9 +339,9 @@ class Program
         }
     }
 
-// METODI CHE ESTRAPOLANO DEGLI OGGETTI DA SPECIFICI FILE JSON------------------------------------------------------------------------
+// METODI CHE LAVORANO CON SPECIFICI FILE JSON------------------------------------------------------------------------
 
-    static void CaricaLuogo()
+    static void ScaricaLuogo()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -375,9 +373,12 @@ class Program
                     // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
         AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
         AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        CaricaProgetto(obj[indice].luogo);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaCondizioneMeteo()
+    static void ScaricaCondizioneMeteo()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -404,7 +405,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaMomentoGiornata()
+    static void ScaricaMomentoGiornata()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -431,7 +432,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaAnimale()
+    static void ScaricaAnimale()
     {   
         Random random = new Random(); //
         int indice;                   //
@@ -458,7 +459,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaAnimali()
+    static void ScaricaAnimali()
     {
         Random random = new Random();   //
         int indice;                     //
@@ -536,7 +537,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaCreaturaMitologica()
+    static void ScaricaCreaturaMitologica()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -563,7 +564,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaTema()
+    static void ScaricaTema()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -590,7 +591,7 @@ class Program
         }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaTecnica()
+    static void ScaricaTecnica()
     {
         Random random = new Random(); //
         int indice;                   //
@@ -614,6 +615,37 @@ class Program
             Console.WriteLine("Il file non esiste");
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
+        }
+    }
+//------------------------------------------------------------------------------------------------------------------------------------
+    static void CaricaProgetto(dynamic obj)
+    {
+        string path; //
+        string json; //
+    //---------------//
+        path = @"progetti.json";
+        json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+
+        try
+        {
+            File.WriteAllText(path, json);
+        }
+        catch
+        {
+            Console.WriteLine("Il file non esiste");
+            File.Create(path).Close();
+        }
+    }
+//------------------------------------------------------------------------------------------------------------------------------------
+    static void VerificaParentesiJson()
+    {
+        string path; //
+    //---------------//
+
+        path = "@progetti.json";
+        if (!path.Contains("["))
+        {
+            
         }
     }
 }

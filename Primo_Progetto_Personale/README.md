@@ -142,6 +142,62 @@ stateDiagram-v2
     
 ```
 
+</details>
+
+<details>
+<summary>Esempio Grafico JSON Progetti</summary>
+
+Per esempio ho eseguito due progetti (2 run dell'applicazione) e in ognuno tramite le mie scelte ho ottenuto le seguenti idee
+
+progetto 1:
+
+Ho scelto di fare un solo soggetto scegliendo nello specifico un animale ottenendo un ANIMALE RANDOM (cat), poi ho scelto di avere un TEMA RANDOM
+
+(fantasy) e infine di avere anche una TECNICA RANDOM  (colori ad olio).
+
+Nel file json "progetti" dovrò trovare tutti gli elementi ottenuti raggruppati in modo da poterli stampare in una tabella con spectre.
+
+```json
+{
+    "animale" : "cat",
+    "tema" : "fantasy",
+    "tecnica" : "colori ad olio"
+}
+
+```
+
+progetto 2:
+
+Ho scelto di fare sia un'ambientazione che un soggetto quindi in primis ho ottenuto un LUOGO RANDOM (bosco), dopo di che ho deciso di aggiungere una
+
+caratteristica all'ambientazione ottenendo un METEO RANDOM (nuvoloso), passando poi alla scelta del soggetto ho deciso di fare una creatura , in 
+
+particolare una di mia invenzione e composta da 3 animali ottenendo una LISTA DI ANIMALI RANDOM (cat, dog, fish).
+
+Nel file json dovrò trovare prima il progetto 1 e poi il progetto 2 completo di sottocategorie per poter stampare entrambi con spectre in due 
+
+tabelle separate .
+
+```json
+[
+    {
+        "animale" : "cat",
+        "tema" : "fantasy",
+        "tecnica" : "colori ad olio"
+    },
+
+    {
+        "luogo" : "bosco",
+        "meteo" : "nuvoloso",
+        "creatura" : {
+            "animale" : "cat",
+            "animale" : "dog",
+            "animale" : "fish"
+        }
+    }
+]
+```
+
 
 
 </details>
@@ -157,7 +213,7 @@ stateDiagram-v2
    - // 1 tab più a destra della fine della linea di codice
  - Nomi variabili in camelCase
  - Nomi Metodi in PascalCase
- - 5 file json
+ - 8 file json
  - Variabili e costanti vengono dichiarate all'inizio del blocco di codice (inteso come Main o specifico Metodo) con una cornice
  - I Metodi sono raggruppati tramite un commento scritto tutto maiuscolo e a inizio riga
    - Ogni metodo è separato da //---------------------------------
