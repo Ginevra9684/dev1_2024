@@ -29,8 +29,6 @@
 4. Tempere
 5. Colori ad olio
 6. Gessetti
-
-
 </details>
 
 ## Target
@@ -44,8 +42,8 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - Per il SOGGETTO chiederà all'utente se ha delle PREFERENZE (umano, animale, creatura).
 - Se l'utente non ha preferenze, il computer chiederà se l'utente desidera UN SOLO soggetto o UNA COPPIA di soggetti (umano, animale/creatura)
 - L'app chiede se l'utente necessita di un TEMA di riferimento
-- L'app chiede se il progetto sarà in 2D o 3D
-- Per il 2D l'app chiede se l'tente necessita di una TECNICA di esecuzione
+- L'app chiede se l'tente necessita di una TECNICA di esecuzione
+- L'app permette una gestione del progetto corrente e quelli precedenti
 - L'app in coclusione suggerisce qualche sito dove poter pubblicare il proprio lavoro
 
 # Passaggi
@@ -64,7 +62,6 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - [X] - scelta uno o due soggetti
 - [X] - - estrazione da file Json
 - [X] Scelta tema
-- [X] Input 2D o 3D
 - [X] Tecnica di disegno 2D
 - [X] Chiusura del programma
 - [X] Gestione delle eccezioni
@@ -81,6 +78,7 @@ stateDiagram-v2
     state if_state4 <<choice>>
     state if_state5 <<choice>>
     state if_state6 <<choice>>
+    state if_state7 <<choice>>
     CREA_IDEE --> Scelta
     Scelta --> Soggetto?
     Scelta --> Ambientazione_e_Soggetto?
@@ -110,9 +108,9 @@ stateDiagram-v2
     if_state4 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
     Ambientazione_e_Soggetto? --> Luogo_Specifico
     Meteo_Random --> Opzioni_Aggiuntive : if ambientazione
+    Momento_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
     Momento_Random --> Opzioni_Aggiuntive : if ambientazione
     Meteo_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
-    Momento_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
     Soggetto_Random --> Opzioni_Aggiuntive : if Random != creatura
     Soggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
     Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
@@ -122,8 +120,25 @@ stateDiagram-v2
     if_state5 --> Tecnica 
     Tema --> Tema_Random : if selezionato
     Tecnica --> Tecnica_Random : if selezionato
-    Tema_Random --> Conclusione
-    Tecnica_Random --> Conclusione
+    Tema_Random --> Menu_Finale
+    Tecnica_Random --> Menu_Finale
+    Menu_Finale --> if_state7
+    if_state7 --> Visualizza_Tabella_Dati 
+    Visualizza_Tabella_Dati --> Tabella_con\nSelezioni_Correnti : if selezionato
+    if_state7 --> Visualizza_Tabella\nProgetto_Precedente 
+    Visualizza_Tabella\nProgetto_Precedente --> Tabella\nUltimo_Progetto : if selezionato
+    if_state7 --> Visualizza_Tabella\nPenultimo_Progetto 
+    Visualizza_Tabella\nPenultimo_Progetto --> Tabella\nPenultimo_Progetto : if selezionato
+    if_state7 --> Visualizza_Tutti\ni_Progetti 
+    Visualizza_Tutti\ni_Progetti --> Lista_Tutti\ni_Progetti : if selezionato
+    if_state7 --> Cancella_Tutti\ni_Progetti 
+    Cancella_Tutti\ni_Progetti --> Cancella_Tutto\nda_File.JSON : if selezionato 
+    if_state7 --> Cancella_Ultimo\nProgetto 
+    Cancella_Ultimo\nProgetto --> Cancella_Ultimo\nElemento\nda_File.JSON : if selezionato
+    if_state7 --> Inizia_Nuovo_Progetto 
+    Inizia_Nuovo_Progetto -->  RESTART : if selezionato
+    if_state7 --> Esci 
+    Esci --> TERMINA_PROGRAMMA : if selezionato
     
 ```
 
@@ -685,7 +700,7 @@ stateDiagram-v2
 - [ ] Stampa tabella finale con tutte le scelte
 - [ ] Restart del ciclo a fine programma per più progetti
 - [ ] Aggiunta opzioni come caratteristiche e personalità dei personaggi, materiali degli oggetti
-- [ ] Aggiunta caratteristiche dei luoghi (es meteo, orario);
+- [X] Aggiunta caratteristiche dei luoghi (es meteo, orario);
 - [ ] Migliorare il codice con più Metodi, in modo che le variabili inserite in essi siano richiamabili anche all'interno del Main (se possibile)
 - [ ] Creare versione in inglese
 - [ ] Link a siti esterni

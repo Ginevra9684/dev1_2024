@@ -14,11 +14,14 @@ class Program
         AnsiConsole.Markup("[50]IDEE PER ILLUSTRAZIONI[/]:artist_palette:\n\n");
 
         Avvertimenti();
+
         Proseguimento();
     
         MenuPrincipale();   // Metodo per visualizzare il primo menu di scelta
 
         ScelteSecondarie();
+
+        MenuFinale();
 
         Conclusione();  // Metodo per chiudere il programma 
     }
@@ -101,7 +104,7 @@ class Program
         new MultiSelectionPrompt<string>()
             .Title("<-<-<-[50]CARATTERISTICHE LUOGO[/]->->->")
             .NotRequired() 
-            .PageSize(10)
+            .PageSize(2)
             .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
             .InstructionsText(
                 "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
@@ -187,6 +190,62 @@ class Program
         {
             CaricaTecnica();
             Proseguimento();
+        }
+    }
+
+    static void MenuFinale()
+    {
+        var gestione = AnsiConsole.Prompt(
+        new MultiSelectionPrompt<string>()
+            .Title("<-<-<-[50]GESTIONE[/]->->->")
+            .NotRequired() 
+            .PageSize(8)
+            .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
+            .InstructionsText(
+                "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
+                "[123]<enter>[/] per confermare le tue scelte)[/]")
+            .AddChoices(new[] {
+                "[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]", "[122]2.[/] Tabella dell'Ultimo Progetto[122].[/]", 
+                "[86]3.[/] Tabella del Penultimo Progetto [86].[/]", "[115]4.[/] Lista di Tutti i Progetti[115].[/]",
+                "[79]5.[/] Cancella Tutti i Progetti[79].[/]", "[121]6.[/] Cancella Ultimo Progetto[121].[/]", 
+                "[85]7.[/] Inizia un Nuovo Progetto[85].[/]", "[49]8.[/] Esci[49].[/]"
+            }));
+
+        if (gestione.Contains("[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]"))
+        {
+
+        }
+        if (gestione.Contains("[122]2.[/] Tabella dell'Ultimo Progetto[122].[/]"))
+        {
+
+        }
+        if (gestione.Contains("[86]3.[/] Tabella del Penultimo Progetto [86].[/]"))
+        {
+            
+        }
+        if (gestione.Contains("[115]4.[/] Lista di Tutti i Progetti[115].[/]"))
+        {
+            
+        }
+        if (gestione.Contains("[79]5.[/] Cancella Tutti i Progetti[79].[/]"))
+        {
+            
+        }
+        if (gestione.Contains("[121]6.[/] Cancella Ultimo Progetto[121].[/]"))
+        {
+            
+        }
+        if (gestione.Contains("[85]7.[/] Inizia un Nuovo Progetto[85].[/]"))
+        {
+            
+        }
+        if (gestione.Contains("[49]8.[/] Esci[49].[/]"))
+        {
+            
+        }
+        if (!gestione.Contains("[49]8.[/] Esci[49].[/]"))
+        {
+            MenuFinale();
         }
     }
 
@@ -292,10 +351,10 @@ class Program
         string json;                  //
         dynamic obj;                  //
     //--------------------------------//
-
         
-                        // Crezione un percorso tra il programma e il file dei luoghi
-            path = @"luoghi.json";
+                    // Crezione un percorso tra il programma e il file dei luoghi
+        path = @"luoghi.json";
+
         try
         {
                         // Lettura dell'intero file tramite il percorso
@@ -307,15 +366,15 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
-                        // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
-            obj = JsonConvert.DeserializeObject(json)!;
+                    // Deserializziamo il file json e lo assegnamo a un oggetto dinamico
+        obj = JsonConvert.DeserializeObject(json)!;
 
-                        // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
-            indice = random.Next(0,obj.Count);
+                    // Generiamo un numero random compreso tra 0 (inizio del file) e la conta totale degli oggetti presenti nel file
+        indice = random.Next(0,obj.Count);
 
-                        // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
-            AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
+                    // Scriviamo in console il luogo selezionato tramite indice, che corrisponde al numero random generato in precedenza
+        AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
+        AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaCondizioneMeteo()
