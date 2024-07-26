@@ -1,11 +1,11 @@
-﻿            // Pacchetto esterno per poter usare i file JSON
+﻿// Pacchetto esterno per poter usare i file JSON
 using Newtonsoft.Json;
 
             // Pacchetto esterno per implementazioni estetiche
 using Spectre.Console;
 class Program  
 {
-    static void Main()
+    static void Main(string[] args)
     {
                     // Puliamo la console
         AnsiConsole.Clear();
@@ -203,21 +203,21 @@ class Program
                 "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
                 "[123]<enter>[/] per confermare le tue scelte)[/]")
             .AddChoices(new[] {
-                "[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]", "[122]2.[/] Tabella dell'Ultimo Progetto[122].[/]", 
-                "[86]3.[/] Tabella del Penultimo Progetto [86].[/]", "[115]4.[/] Lista di Tutti i Progetti[115].[/]",
+                "[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]", "[122]2.[/] Salva Progetto[122].[/]", 
+                "[86]3.[/] Cancella Progetto[86].[/]", "[115]4.[/] Lista di Tutti i Progetti[115].[/]",
                 "[79]5.[/] Cancella Tutti i Progetti[79].[/]", "[121]6.[/] Cancella Ultimo Progetto[121].[/]", 
                 "[85]7.[/] Inizia un Nuovo Progetto[85].[/]", "[49]8.[/] Esci[49].[/]"
             }));
 
         if (gestione.Contains("[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]"))
         {
-
+            CaricaDizionario("TABELLA", 9);
         }
-        if (gestione.Contains("[122]2.[/] Tabella dell'Ultimo Progetto[122].[/]"))
+        if (gestione.Contains("[122]2.[/] Salva Progetto[122].[/]"))
         {
-
+            CreaProgetto();
         }
-        if (gestione.Contains("[86]3.[/] Tabella del Penultimo Progetto [86].[/]"))
+        if (gestione.Contains("[86]3.[/] Cancella Progetto[86].[/]"))
         {
             
         }
@@ -235,15 +235,11 @@ class Program
         }
         if (gestione.Contains("[85]7.[/] Inizia un Nuovo Progetto[85].[/]"))
         {
-            
+
         }
         if (gestione.Contains("[49]8.[/] Esci[49].[/]"))
         {
             Conclusione();  // Metodo per chiudere il programma 
-        }
-        if (!gestione.Contains("[49]8.[/] Esci[49].[/]"))
-        {
-            MenuFinale();
         }
     }
 
@@ -348,10 +344,11 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
+        string elementoTabella;       //     
     //--------------------------------//
         
                     // Crezione un percorso tra il programma e il file dei luoghi
-        path = @"luoghi.json";
+        path = @"caricamenti/luoghi.json";
 
         try
         {
@@ -374,28 +371,26 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
         AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        CaricaProgetto(obj[indice].luogo);
+        elementoTabella = obj[indice].luogo.ToString();
+        CaricaDizionario(elementoTabella, 1);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaCondizioneMeteo()
     {
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //  
     //--------------------------------//
+
+                    // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+        path = @"caricamenti/meteo.json";
 
         try
         {
-                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-            string path = @"meteo.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [46]:[/]\n\n");
-            AnsiConsole.Markup($"[46]-[/] {obj[indice].meteo}[46].[/]\n"); 
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -403,26 +398,35 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [46]:[/]\n\n");
+        AnsiConsole.Markup($"[46]-[/] {obj[indice].meteo}[46].[/]\n"); 
+        
+        elementoTabella = obj[indice].meteo.ToString();
+        CaricaDizionario(elementoTabella, 2);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaMomentoGiornata()
     {
         Random random = new Random(); //
-        int indice;                   //
+        int indice;                   //                          
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //
     //--------------------------------//
+
+                    // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+        path = @"caricamenti/momenti.json";
 
         try
         {
-                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-            string path = @"momenti.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [46]:[/]\n\n");
-            AnsiConsole.Markup($"[46]-[/] {obj[indice].momento}[46].[/]\n");
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -430,26 +434,36 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+            
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [46]:[/]\n\n");
+        AnsiConsole.Markup($"[46]-[/] {obj[indice].momento}[46].[/]\n");
+
+        elementoTabella = obj[indice].momento.ToString();
+        CaricaDizionario(elementoTabella, 3);
+        
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaAnimale()
     {   
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //
     //--------------------------------//
 
+                    // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
+        path = @"caricamenti/animali.json";
+        
         try
         {
-                        // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-            string path = @"animali.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà il seguente animale[208]:[/]\n\n");
-            AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n"); 
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -457,6 +471,17 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà il seguente animale[208]:[/]\n\n");
+        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n"); 
+
+        elementoTabella = obj[indice].animale.ToString();
+        CaricaDizionario(elementoTabella, 4);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaAnimali()
@@ -464,70 +489,18 @@ class Program
         Random random = new Random();   //
         int indice;                     //
         string quantitativoAnimali;     //
+        string path;                    //
+        string json;                    //
+        dynamic obj;                    //
+        string elementoTabella;         //
     //----------------------------------//
         
                     // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
-        string path = @"animali.json";
-        string json = File.ReadAllText(path);
-        dynamic obj = JsonConvert.DeserializeObject(json)!;
+        path = @"caricamenti/animali.json";
 
         try
         {
-                        // Prompt per la selezione del quantitativo di animali
-            quantitativoAnimali = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
-                .Title("<-<-<-[50]QUANTI ANIMALI PER LA CREAZIONE?[/]->->->")
-                .PageSize(3)
-                .MoreChoicesText("Spostati con le frecce direzionali.")
-                .AddChoices(new[] {"[86].2[/]","[85].3[/]","[49].4[/]","[79].5[/]"  // Quattro opzioni
-                }));
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: La tua creatura sarà composta dai seguenti animali [208]:[/]\n\n");
-
-            switch (quantitativoAnimali)
-            {
-                case "[86].2[/]":
-                    AnsiConsole.Clear();
-
-                                    // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
-                    for (int i = 1; i <= 2 ;i++ ) 
-                    {
-                                    // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-                        indice = random.Next(0, obj.Count);
-                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
-                    }
-                    break;
-                case "[85].3[/]":
-                    AnsiConsole.Clear();
-
-                    for (int i = 1; i <= 3 ;i++ ) 
-                    {
-                                    
-                        indice = random.Next(0, obj.Count);
-                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
-                    }
-                    break;
-                case "[49].4[/]":
-                    AnsiConsole.Clear();
-
-                    for (int i = 1; i <= 4 ;i++ ) 
-                    {
-                                    
-                        indice = random.Next(0, obj.Count);
-                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
-                    }
-                    break;
-                case "[79].5[/]":
-                    AnsiConsole.Clear();
-
-                    for (int i = 1; i <= 5 ;i++ ) 
-                    {
-                                    
-                        indice = random.Next(0, obj.Count);
-                        AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
-                    }
-                    break;
-            }
+        json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -535,26 +508,95 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+
+        obj = JsonConvert.DeserializeObject(json)!;
+
+        
+                    // Prompt per la selezione del quantitativo di animali
+        quantitativoAnimali = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("<-<-<-[50]QUANTI ANIMALI PER LA CREAZIONE?[/]->->->")
+            .PageSize(3)
+            .MoreChoicesText("Spostati con le frecce direzionali.")
+            .AddChoices(new[] {"[86].2[/]","[85].3[/]","[49].4[/]","[79].5[/]"  // Quattro opzioni
+            }));
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: La tua creatura sarà composta dai seguenti animali [208]:[/]\n\n");
+
+        switch (quantitativoAnimali)
+        {
+            case "[86].2[/]":
+                AnsiConsole.Clear();
+
+                                // Ciclo per continuare a pescare un animale random per il quantitativo di volte scelto dall'utente
+                for (int i = 1; i <= 2 ;i++ ) 
+                {
+                                // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+                    indice = random.Next(0, obj.Count);
+                    AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+
+                    elementoTabella = obj[indice].animale.ToString();
+                    CaricaDizionario(elementoTabella, 5);
+                }
+                break;
+            case "[85].3[/]":
+                AnsiConsole.Clear();
+
+                for (int i = 1; i <= 3 ;i++ ) 
+                {
+                                
+                    indice = random.Next(0, obj.Count);
+                    AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+
+                    elementoTabella = obj[indice].animale.ToString();
+                    CaricaDizionario(elementoTabella, 5);
+                }
+                break;
+            case "[49].4[/]":
+                AnsiConsole.Clear();
+
+                for (int i = 1; i <= 4 ;i++ ) 
+                {
+                                
+                    indice = random.Next(0, obj.Count);
+                    AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+
+                    elementoTabella = obj[indice].animale.ToString();
+                    CaricaDizionario(elementoTabella, 5);
+                }
+                break;
+            case "[79].5[/]":
+                AnsiConsole.Clear();
+
+                for (int i = 1; i <= 5 ;i++ ) 
+                {
+                                
+                    indice = random.Next(0, obj.Count);
+                    AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
+
+                    elementoTabella = obj[indice].animale.ToString();
+                    CaricaDizionario(elementoTabella, 5);
+                }
+                break;
+            }
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaCreaturaMitologica()
     {
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //
     //--------------------------------//
+
+                    // Colleghiamo il file delle creature mitologiche 
+        path = @"caricamenti/creature.json";
 
         try
         {
-                        // Colleghiamo il file delle creature mitologiche 
-            string path = @"creature.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Il programma stampa un oggetto del file tramite indice scelto in maniera random
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà la seguente creatura[177]:[/]\n\n");
-            AnsiConsole.Markup($"[177]-[/] {obj[indice].creatura}[177].[/]\n"); 
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -562,26 +604,35 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+            
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                     // Il programma stampa un oggetto del file tramite indice scelto in maniera random
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà la seguente creatura[177]:[/]\n\n");
+        AnsiConsole.Markup($"[177]-[/] {obj[indice].creatura}[177].[/]\n");
+
+        elementoTabella = obj[indice].creatura.ToString();
+        CaricaDizionario(elementoTabella, 6);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaTema()
     {
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //
     //--------------------------------//
+
+                    // Collegamento a file dei temi
+        path = @"caricamenti/temi.json";
 
         try
         {
-                        // Collegamento a file dei temi
-            string path = @"temi.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Stampa di un oggetto del file tramite indice
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Potrai attenerti al seguente tema [229]:[/]\n\n");
-            AnsiConsole.Markup($"[229]-[/] {obj[indice].tema}[229].[/]\n"); 
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -589,26 +640,35 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                    // Stampa di un oggetto del file tramite indice
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Potrai attenerti al seguente tema [229]:[/]\n\n");
+        AnsiConsole.Markup($"[229]-[/] {obj[indice].tema}[229].[/]\n"); 
+
+        elementoTabella = obj[indice].tema.ToString(); 
+        CaricaDizionario(elementoTabella, 7);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaTecnica()
     {
         Random random = new Random(); //
         int indice;                   //
+        string path;                  //
+        string json;                  //
+        dynamic obj;                  //
+        string elementoTabella;       //
     //--------------------------------//
+
+                    // Collegamento a file delle tecniche
+        path = @"caricamenti/tecniche.json";
 
         try
         {
-                        // Collegamento a file delle tecniche
-            string path = @"tecniche.json";
-            string json = File.ReadAllText(path);
-            dynamic obj = JsonConvert.DeserializeObject(json)!;
-
-                        // Stampa di un oggetto del file tramite indice
-            indice = random.Next(0, obj.Count);
-
-            AnsiConsole.Markup(":backhand_index_pointing_right: Potrai utilizzare la seguente tecnica [225]:[/]\n\n");
-            AnsiConsole.Markup($"[225]-[/] {obj[indice].tecnica}[225].[/]\n"); 
+            json = File.ReadAllText(path);
         }
         catch (Exception ex)
         {
@@ -616,36 +676,94 @@ class Program
             Console.WriteLine($"{ex.Message} \n {ex.HResult} \n {ex.Data}");
             return;
         }
+
+        obj = JsonConvert.DeserializeObject(json)!;
+
+                    // Stampa di un oggetto del file tramite indice
+        indice = random.Next(0, obj.Count);
+
+        AnsiConsole.Markup(":backhand_index_pointing_right: Potrai utilizzare la seguente tecnica [225]:[/]\n\n");
+        AnsiConsole.Markup($"[225]-[/] {obj[indice].tecnica}[225].[/]\n"); 
+        
+        elementoTabella = obj[indice].tecnica.ToString();
+        CaricaDizionario(elementoTabella, 8);   
+    }
+
+//METODI PER SALVARE LE PROPRIE OPZIONI-----------------------------------------------------------------------------------------------
+
+    static void CreaProgetto()
+    {
+        string path;          //
+        DateTime giorno;      //
+        string oggi;          //
+    //------------------------//
+
+        giorno = DateTime.Now;
+        oggi = giorno.ToString("dd-MM-yyyy-HHHH-mm-ss");
+
+        path = (@"progetti/"+ oggi + ".json");
+
+        Proseguimento();
+
+        File.Create(path).Close();
     }
 //------------------------------------------------------------------------------------------------------------------------------------
-    static void CaricaProgetto(dynamic obj)
+    static void CaricaDizionario(string obj , int indice)
     {
-        string path; //
-        string json; //
-    //---------------//
-        path = @"progetti.json";
-        json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+        Dictionary <string, List<string>> tabella = new Dictionary <string, List<string>>();
 
-        try
+        if (tabella.Count <= 0)
         {
-            File.WriteAllText(path, json);
+            tabella ["luogo"] = new List<string> {};
+            tabella ["meteo"] = new List<string> {};
+            tabella ["momento"] = new List<string> {};
+            tabella ["animale"] = new List<string> {};
+            tabella ["creatura"] = new List<string> {};
+            tabella ["tema"] = new List<string> {};
+            tabella ["tecnica"] = new List<string> {};
         }
-        catch
-        {
-            Console.WriteLine("Il file non esiste");
-            File.Create(path).Close();
-        }
-    }
-//------------------------------------------------------------------------------------------------------------------------------------
-    static void VerificaParentesiJson()
-    {
-        string path; //
-    //---------------//
 
-        path = "@progetti.json";
-        if (!path.Contains("["))
+        switch (indice)
         {
-            
+            case 1:
+                tabella ["luogo"].Add(obj);
+                foreach (var elemento in tabella)
+                {
+                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
+                }
+                break;
+            case 2:
+                tabella ["meteo"].Add(obj);
+                foreach (var elemento in tabella)
+                {
+                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
+                }
+                break;
+            case 3:
+                tabella ["momento"].Add(obj);
+                break;
+            case 4:
+                tabella ["animale"].Add(obj);
+                break;
+            case 5:
+                tabella ["creatura"].Add(obj);
+                break;
+            case 6:
+                tabella ["creatura"].Add(obj);
+                break;
+            case 7:
+                tabella ["tema"].Add(obj);
+                break;
+            case 8:
+                tabella ["tecnica"].Add(obj);
+                break;
+            case 9:
+                Console.WriteLine(obj);
+                foreach (var elemento in tabella)
+                {
+                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
+                }
+                break;
         }
     }
 }
