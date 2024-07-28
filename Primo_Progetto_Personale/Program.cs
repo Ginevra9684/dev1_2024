@@ -1,4 +1,4 @@
-﻿// Pacchetto esterno per poter usare i file JSON
+﻿            // Pacchetto esterno per poter usare i file JSON
 using Newtonsoft.Json;
 
             // Pacchetto esterno per implementazioni estetiche
@@ -22,6 +22,8 @@ class Program
         ScelteSecondarie();
 
         MenuFinale();
+
+        Conclusione();
     }
 
 // METODI PER LA FLUIDITÀ DEL CODICE--------------------------------------------------------------------------------------------------
@@ -77,7 +79,6 @@ class Program
                 ScaricaLuogo();  // Metodo per ottenere un luogo
                 Proseguimento();
                 CaratteristicheLuogo(); // Metodo per aggiungere caratteristiche al luogo
-                Proseguimento();    // Metodo per pulire la console
                 break;
 
             case "[85]2.[/]Soggetto[85].[/]":
@@ -90,7 +91,6 @@ class Program
                 ScaricaLuogo();
                 Proseguimento();
                 CaratteristicheLuogo();
-                Proseguimento();
                 PreferenzaSoggetto();
                 break;
         }
@@ -193,53 +193,59 @@ class Program
 
     static void MenuFinale()
     {
-        var gestione = AnsiConsole.Prompt(
-        new MultiSelectionPrompt<string>()
-            .Title("<-<-<-[50]GESTIONE[/]->->->")
-            .NotRequired() 
-            .PageSize(8)
-            .MoreChoicesText("[grey](Spostati su e giù per più opzioni)[/]")
-            .InstructionsText(
-                "[grey](Premi [117]<spacebar>[/] per aggiungere una richiesta, " + 
-                "[123]<enter>[/] per confermare le tue scelte)[/]")
-            .AddChoices(new[] {
-                "[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]", "[122]2.[/] Salva Progetto[122].[/]", 
-                "[86]3.[/] Cancella Progetto[86].[/]", "[115]4.[/] Lista di Tutti i Progetti[115].[/]",
-                "[79]5.[/] Cancella Tutti i Progetti[79].[/]", "[121]6.[/] Cancella Ultimo Progetto[121].[/]", 
-                "[85]7.[/] Inizia un Nuovo Progetto[85].[/]", "[49]8.[/] Esci[49].[/]"
+        string input;  //
+    //-----------------//
+
+        input = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("<-<-<-[50]GESTIONALE[/]->->->")
+            .PageSize(4)
+            .MoreChoicesText("Spostati con le frecce direzionali.")
+            .AddChoices(new[] {"[86]1.[/] Tabella Dati [86].[/]","[85]2.[/] Progetti [85].[/]","[49]3.[/] Nuovo Progetto [49].[/]","[79]4.[/] Esci [79].[/]"   // Quattro opzioni
             }));
 
-        if (gestione.Contains("[158]1.[/] Visualizza tabella coi Dati Correnti[158].[/]"))
+        switch (input)
         {
-            CaricaDizionario("TABELLA", 9);
-        }
-        if (gestione.Contains("[122]2.[/] Salva Progetto[122].[/]"))
-        {
-            CreaProgetto();
-        }
-        if (gestione.Contains("[86]3.[/] Cancella Progetto[86].[/]"))
-        {
-            
-        }
-        if (gestione.Contains("[115]4.[/] Lista di Tutti i Progetti[115].[/]"))
-        {
-            
-        }
-        if (gestione.Contains("[79]5.[/] Cancella Tutti i Progetti[79].[/]"))
-        {
-            
-        }
-        if (gestione.Contains("[121]6.[/] Cancella Ultimo Progetto[121].[/]"))
-        {
-            
-        }
-        if (gestione.Contains("[85]7.[/] Inizia un Nuovo Progetto[85].[/]"))
-        {
+            case "[86]1.[/] Tabella Dati [86].[/]":
 
-        }
-        if (gestione.Contains("[49]8.[/] Esci[49].[/]"))
-        {
-            Conclusione();  // Metodo per chiudere il programma 
+                                //Ci deve essere un file json su cui vengono caricati tutti gli elementi random ottenuti, il file deve essere deserializzato e deve mostrare solo le voci avente un valore
+
+
+
+
+                break;
+            case "[85]2.[/] Progetti [85].[/]":
+
+
+
+
+                                    // Bisogna poter visualizzare tutti i progetti passati all'interno della cartella "progetti"
+
+
+                break;
+            case "[49]3.[/] Nuovo Progetto [49].[/]":
+
+
+                                    // Chiede se si intende scartare o salvare il progetto corrente dopo di che fa un restart
+                                    // Opzione salva e scarta con prompt di selezione singola
+                                    // Quando salva trasferisce i dati della tabella a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
+                                    // Quando scarta svuota il file json di passaggio
+
+
+
+                break;
+            case "[79]4.[/] Esci [79].[/]":
+
+
+
+                                    // Chiede se si intende scartare o salvare il progetto corrente dopo di che termina l'applicazione
+                                    //Opzione salva e scarta con prompt di selezione singola
+                                    // Quando salva trasferisce i dati della tabella a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
+                                    // Quando scarta svuota il file json di passaggio
+
+
+
+                break;
         }
     }
 
@@ -727,17 +733,9 @@ class Program
         {
             case 1:
                 tabella ["luogo"].Add(obj);
-                foreach (var elemento in tabella)
-                {
-                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
-                }
                 break;
             case 2:
                 tabella ["meteo"].Add(obj);
-                foreach (var elemento in tabella)
-                {
-                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
-                }
                 break;
             case 3:
                 tabella ["momento"].Add(obj);

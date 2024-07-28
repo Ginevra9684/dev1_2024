@@ -1,36 +1,6 @@
 ## IDEA
 - Creare un'app che dia consigli su cosa progettare sia in 2d che 3d ed eventualmente dica quali oggetti/soggetti prendere come reference
 
-<details>
-<summary>Definizioni utili per la progettazione</summary>
-
-- Quali elementi possono essere creati:
-1. Ambienti
-2. Oggetti
-3. Soggetti
-
-- I soggetti possono essere:
-1. Persone
-2. Creature
-3. Animali
-
-- In quali contesti possono essere rappresentati:
-1. Fantasy
-2. Horror
-3. Steampank
-4. Adventure
-5. Sci-fi
-
-- I disegni 2D possono essere realizzati con le seguenti tecniche:
-
-1. Matita
-2. Carboncino
-3. Acquarelli
-4. Tempere
-5. Colori ad olio
-6. Gessetti
-</details>
-
 ## Target
 
 Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa o non ha delle idee da cui partire
@@ -70,6 +40,9 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - [X] Prova debugging
 
 
+I menu di scelta singola funzionano tramite uno switch
+I menu di scelta multipla funzionano tramite degli if
+
 ```mermaid
 stateDiagram-v2
     state if_state <<choice>>
@@ -77,69 +50,72 @@ stateDiagram-v2
     state if_state3 <<choice>>
     state if_state4 <<choice>>
     state if_state5 <<choice>>
-    state if_state6 <<choice>>
-    state if_state7 <<choice>>
-    CREA_IDEE --> Scelta
-    Scelta --> Soggetto?
-    Scelta --> Ambientazione_e_Soggetto?
-    Scelta --> Ambientazione?
-    Ambientazione? --> Luogo_Specifico
-    Luogo_Specifico --> Caratteristiche_Luogo
-    Caratteristiche_Luogo --> if_state6
-    if_state6 --> Condizioni_Metereologiche
-    if_state6 --> Momento
+
+    CREA_IDEE --> Prompt_Scelta\nSingola\nMenu_Principale
+    Prompt_Scelta\nSingola\nMenu_Principale --> if_state
+    if_state--> Soggetto
+    if_state --> Ambientazione_e_Soggetto
+    if_state --> Ambientazione
+    Ambientazione --> Luogo_Random
+    Luogo_Random --> Prompt_Scelta\nMultipla\nCaratteristiche_Luogo
+    Prompt_Scelta\nMultipla\nCaratteristiche_Luogo --> Condizioni_Metereologiche
+    Prompt_Scelta\nMultipla\nCaratteristiche_Luogo --> Momento
     Condizioni_Metereologiche --> Meteo_Random : if selezionato
-    Momento --> Momento_Random : if selezionato 
-    Soggetto? --> Preferenza?\n(umano/animale/creatura)
-    Preferenza?\n(umano/animale/creatura) --> if_state
-    if_state --> Scelta_Manuale\nun_solo_soggetto : if risposta = si
-    Scelta_Manuale\nun_solo_soggetto --> if_state2
-    if_state2 --> Opzioni_Aggiuntive : if scelta != creatura
-    if_state2 --> Creatura_Mitologica_o\nPropria_Creazione? : if scelta = creatura
-    Creatura_Mitologica_o\nPropria_Creazione? --> if_state3
-    if_state3 --> Creatura_Mitologica\nRandom : if scelta = 1
-    Creatura_Mitologica\nRandom --> Opzioni_Aggiuntive
-    if_state3 --> Quantità_Animali_per\nCreazione? : if scelta = 2
-    Quantità_Animali_per\nCreazione? --> Lista_Animali_Random
-    Lista_Animali_Random --> Opzioni_Aggiuntive
-    if_state --> Scelta_Soggetto_Unico_o\nDoppio_Soggetto : if risposta = no
-    Scelta_Soggetto_Unico_o\nDoppio_Soggetto --> if_state4
-    if_state4 --> Soggetto_Random : if risposta = 1
-    if_state4 --> Soggetto_Umano_+\nSoggetto_Random : if risposta = 2
-    Ambientazione_e_Soggetto? --> Luogo_Specifico
-    Meteo_Random --> Opzioni_Aggiuntive : if ambientazione
-    Momento_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
-    Momento_Random --> Opzioni_Aggiuntive : if ambientazione
-    Meteo_Random --> Preferenza?\n(umano/animale/creatura) : if ambientazione e soggetto
-    Soggetto_Random --> Opzioni_Aggiuntive : if Random != creatura
-    Soggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
-    Soggetto_Umano_+\nSoggetto_Random --> Creatura_Mitologica_o\nPropria_Creazione? : if Random = creatura
-    Soggetto_Umano_+\nSoggetto_Random --> Opzioni_Aggiuntive : if Random != creatura
-    Opzioni_Aggiuntive --> if_state5
-    if_state5 --> Tema 
-    if_state5 --> Tecnica 
+    Momento --> Momento_Random : if selezionato
+    Soggetto --> Prompt_Scelta\nSingola\nPreferenza_Soggetto
+    Prompt_Scelta\nSingola\nPreferenza_Soggetto --> if_state2
+    if_state2 --> Soggetto_Umano
+    if_state2 --> Animale
+    if_state2 --> Creatura
+    if_state2 --> Nessuna_Preferenza
+    Ambientazione_e_Soggetto --> Luogo_Random
+    Meteo_Random --> Prompt_Scelta\nMultipla\nAggiunte : if ambientazione
+    Momento_Random --> Prompt_Scelta\nSingola\nPreferenza_Soggetto : if ambientazione e soggetto
+    Momento_Random --> Prompt_Scelta\nMultipla\nAggiunte : if ambientazione
+    Meteo_Random --> Prompt_Scelta\nSingola\nPreferenza_Soggetto : if ambientazione e soggetto
+    Soggetto_Umano --> Prompt_Scelta\nMultipla\nAggiunte
+    Animale --> Animale_Random
+    Animale_Random --> Prompt_Scelta\nMultipla\nAggiunte
+    Creatura --> Prompt_Scelta\nSingola\nPreferenza_Creatura
+    Prompt_Scelta\nSingola\nPreferenza_Creatura --> if_state3
+    if_state3 --> Creatura_Mitologica
+    if_state3 --> Propria_Creazione
+    Creatura_Mitologica --> Creatura_Mitologica\nRandom
+    Propria_Creazione --> Quantità_Animali\nComposizione
+    Quantità_Animali\nComposizione --> Prompt_Scelta\nSingola\nNumero_Animali\nComposizione
+    Prompt_Scelta\nSingola\nNumero_Animali\nComposizione --> Lista_Animali
+    Creatura_Mitologica\nRandom --> Prompt_Scelta\nMultipla\nAggiunte
+    Lista_Animali --> Prompt_Scelta\nMultipla\nAggiunte
+    Nessuna_Preferenza --> Prompt_Scelta\nSingola\nQuantità_Soggetti
+    Prompt_Scelta\nSingola\nQuantità_Soggetti --> if_state4
+    if_state4 --> Soggetto_Unico
+    if_state4 --> Doppio_Soggetto
+    Soggetto_Unico --> Soggetto_Random
+    Doppio_Soggetto --> Soggetto_Umano_+\nSoggetto_Random
+    Soggetto_Random --> Prompt_Scelta\nMultipla\nAggiunte : if Soggetto != Creatura
+    Soggetto_Random --> Prompt_Scelta\nSingola\nPreferenza_Creatura : if Soggetto = Creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Prompt_Scelta\nSingola\nPreferenza_Creatura : if Soggetto = Creatura
+    Soggetto_Umano_+\nSoggetto_Random --> Prompt_Scelta\nMultipla\nAggiunte : if Soggetto != Creatura
+    Prompt_Scelta\nMultipla\nAggiunte --> Tema
+    Prompt_Scelta\nMultipla\nAggiunte --> Tecnica
     Tema --> Tema_Random : if selezionato
     Tecnica --> Tecnica_Random : if selezionato
-    Tema_Random --> Menu_Finale
-    Tecnica_Random --> Menu_Finale
-    Menu_Finale --> if_state7
-    if_state7 --> Visualizza_Tabella_Dati 
-    Visualizza_Tabella_Dati --> Tabella_con\nSelezioni_Correnti : if selezionato
-    if_state7 --> Visualizza_Tabella\nProgetto_Precedente 
-    Visualizza_Tabella\nProgetto_Precedente --> Tabella\nUltimo_Progetto : if selezionato
-    if_state7 --> Visualizza_Tabella\nPenultimo_Progetto 
-    Visualizza_Tabella\nPenultimo_Progetto --> Tabella\nPenultimo_Progetto : if selezionato
-    if_state7 --> Visualizza_Tutti\ni_Progetti 
-    Visualizza_Tutti\ni_Progetti --> Lista_Tutti\ni_Progetti : if selezionato
-    if_state7 --> Cancella_Tutti\ni_Progetti 
-    Cancella_Tutti\ni_Progetti --> Cancella_Tutto\nda_File.JSON : if selezionato 
-    if_state7 --> Cancella_Ultimo\nProgetto 
-    Cancella_Ultimo\nProgetto --> Cancella_Ultimo\nElemento\nda_File.JSON : if selezionato
-    if_state7 --> Inizia_Nuovo_Progetto 
-    Inizia_Nuovo_Progetto -->  RESTART : if selezionato
-    if_state7 --> Esci 
-    Esci --> TERMINA_PROGRAMMA : if selezionato
-    
+    Tema_Random --> Prompt_Scelta\nSingola\nGestionale
+    Tecnica_Random --> Prompt_Scelta\nSingola\nGestionale
+    Prompt_Scelta\nSingola\nGestionale --> if_state5
+    if_state5 --> Tabella_Dati 
+    Tabella_Dati --> Tabella_con\nSelezioni_Correnti
+    if_state5 --> Progetti
+    Progetti --> Prompt_Selezione\nSingola\nOpzioni
+    Prompt_Selezione\nSingola\nOpzioni --> Visualizza
+    Prompt_Selezione\nSingola\nOpzioni --> Elimina
+    Visualizza --> Prompt_Selezione\nMultipla\nSeleziona_Progetto
+    Elimina --> Prompt_Selezione\nMultipla\nSeleziona_Progetto
+    Prompt_Selezione\nMultipla\nSeleziona_Progetto --> Tutti_File.json\nCartella_Progetti
+    if_state5 --> Inizia_Nuovo_Progetto 
+    Inizia_Nuovo_Progetto -->  RESTART 
+    if_state5 --> Esci 
+    Esci --> TERMINA_PROGRAMMA
 ```
 
 </details>
@@ -801,7 +777,9 @@ stateDiagram-v2
 
 -   <details>
     <summary> Non risolti </summary>
+    un dizionario se all'interno di una funzione si svuota automaticamente ogni volta che si esce da quest'ultima, perciò andando di nuovo a richiamare la medesima il dizionario non avrà al suo interno ciò che era
 
+    stato aggiunto in precedenza al suo interno
     </details>
 
 

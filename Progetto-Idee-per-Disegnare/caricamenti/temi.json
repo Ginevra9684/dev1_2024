@@ -1,0 +1,25 @@
+[
+    {
+        "tema" : "fantasy"
+    },
+
+    {
+        "tema" : "horror"
+    },
+
+    {
+        "tema" : "steampank"
+    },
+
+    {
+        "tema" : "Adventure"
+    },
+
+    {
+        "tema" : "Prehistorical"
+    },
+
+    {
+        "tema" : "Sci-fi"
+    }
+]
