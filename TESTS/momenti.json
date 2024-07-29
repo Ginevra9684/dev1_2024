@@ -1,13 +1,13 @@
 [
     {
-        "momento" : "alba"
+        "elemento" : "alba"
     },
 
     {
-        "momento" : "crepuscolo"
+        "elemento" : "crepuscolo"
     },
 
     {
-        "momento" : "notte fonda"
+        "elemento" : "notte fonda"
     }
 ]

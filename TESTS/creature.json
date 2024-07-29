@@ -1,21 +1,21 @@
 [
     {
-        "creatura" : "Cetus"
+        "elemento" : "Cetus"
     },
 
     {
-        "creatura" : "Devil Whale"
+        "elemento" : "Devil Whale"
     },
 
     {
-        "creatura" : "Glashtyn"
+        "elemento" : "Glashtyn"
     },
 
     {
-        "creatura" : "Sea goat"
+        "elemento" : "Sea goat"
     },
 
     {
-        "creatura" : "Water Horse"
+        "elemento" : "Water Horse"
     }
 ]

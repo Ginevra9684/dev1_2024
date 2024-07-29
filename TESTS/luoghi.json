@@ -1,21 +1,21 @@
 [
     {
-        "luogo" : "foresta"
+        "elemento" : "foresta"
     },
 
     {
-        "luogo" : "bosco"
+        "elemento" : "bosco"
     },
 
     {
-        "luogo" : "casa"
+        "elemento" : "casa"
     },
 
     {
-        "luogo" : "castello"
+        "elemento" : "castello"
     },
 
     {
-        "luogo" : "palude"
+        "elemento" : "palude"
     }
 ]

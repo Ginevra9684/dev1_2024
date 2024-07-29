@@ -1,25 +1,25 @@
 [
     {
-        "meteo" : "tempesta"
+        "elemento" : "tempesta"
     },
 
     {
-        "meteo" : "soleggiato"
+        "elemento" : "soleggiato"
     },
 
     {
-        "meteo" : "nuvoloso"
+        "elemento" : "nuvoloso"
     },
 
     {
-        "meteo" : "foschia"
+        "elemento" : "foschia"
     },
 
     {
-        "meteo" : "nevoso"
+        "elemento" : "nevoso"
     },
 
     {
-        "meteo" : "piovigginoso"
+        "elemento" : "piovigginoso"
     }
 ]

@@ -1,11 +1,11 @@
 [
     {
-        "animale" : "cane"
+        "elemento" : "cane"
     },
     {
-        "animale" : "gatto"
+        "elemento" : "gatto"
     },
     {
-        "animale" : "pesce"
+        "elemento" : "pesce"
     }
 ]

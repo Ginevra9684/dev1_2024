@@ -1,25 +1,25 @@
 [
     {
-        "tema" : "fantasy"
+        "elemento" : "fantasy"
     },
 
     {
-        "tema" : "horror"
+        "elemento" : "horror"
     },
 
     {
-        "tema" : "steampank"
+        "elemento" : "steampank"
     },
 
     {
-        "tema" : "Adventure"
+        "elemento" : "Adventure"
     },
 
     {
-        "tema" : "Prehistorical"
+        "elemento" : "Prehistorical"
     },
 
     {
-        "tema" : "Sci-fi"
+        "elemento" : "Sci-fi"
     }
 ]

@@ -1,33 +1,33 @@
 [
     {
-        "tecnica" : "matite"
+        "elemento" : "matite"
     },
 
     {
-        "tecnica" : "acquerelli"
+        "elemento" : "acquerelli"
     },
 
     {
-        "tecnica" : "bianco e nero"
+        "elemento" : "bianco e nero"
     },
 
     {
-        "tecnica" : "china"
+        "elemento" : "china"
     },
 
     {
-        "tecnica" : "tempere"
+        "elemento" : "tempere"
     },
 
     {
-        "tecnica" : "colori ad olio"
+        "elemento" : "colori ad olio"
     },
 
     {
-        "tecnica" : "acrilici"
+        "elemento" : "acrilici"
     },
 
     {
-        "tecnica" : "carboncino"
+        "elemento" : "carboncino"
     }
 ]
