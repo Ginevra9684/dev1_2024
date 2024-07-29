@@ -16,9 +16,11 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - L'app permette una gestione del progetto corrente e quelli precedenti
 - L'app in coclusione suggerisce qualche sito dove poter pubblicare il proprio lavoro
 
-# Passaggi
+# Priorità
 
 - [X] Creare un file Json contenente le ambientazioni
+- [X] Creare un file Json contenente le condizioni meteo
+- [X] Creare un file Json contenente i momenti della giornata
 - [X] Creare un file Json contenente vari animali
 - [X] Creare un file Json contenente creature mitologiche
 - [X] Creare un file Json contenente vari temi
@@ -31,8 +33,7 @@ Chiunque voglia disegnare o creare un progetto 3D ma non ha una consegna precisa
 - [X] - - estrazione soggetto da un file Json
 - [X] - scelta uno o due soggetti
 - [X] - - estrazione da file Json
-- [X] Scelta tema
-- [X] Tecnica di disegno 2D
+- [X] Aggiunta menu con opzioni secondarie (tema, tecnica)
 - [X] Chiusura del programma
 - [X] Gestione delle eccezioni
 - [ ] Inserire più elementi nei vari file json

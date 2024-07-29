@@ -1,0 +1,25 @@
+[
+    {
+        "meteo" : "tempesta"
+    },
+
+    {
+        "meteo" : "soleggiato"
+    },
+
+    {
+        "meteo" : "nuvoloso"
+    },
+
+    {
+        "meteo" : "foschia"
+    },
+
+    {
+        "meteo" : "nevoso"
+    },
+
+    {
+        "meteo" : "piovigginoso"
+    }
+]

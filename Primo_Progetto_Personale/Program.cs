@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Spectre.Console;
 class Program  
 {
+    static Dictionary <string, List<string>> tabella= new Dictionary <string, List<string>>();
     static void Main(string[] args)
     {
                     // Puliamo la console
@@ -208,7 +209,7 @@ class Program
         {
             case "[86]1.[/] Tabella Dati [86].[/]":
 
-                                //Ci deve essere un file json su cui vengono caricati tutti gli elementi random ottenuti, il file deve essere deserializzato e deve mostrare solo le voci avente un valore
+                CaricaDizionario(null!,9);
 
 
 
@@ -716,7 +717,6 @@ class Program
 //------------------------------------------------------------------------------------------------------------------------------------
     static void CaricaDizionario(string obj , int indice)
     {
-        Dictionary <string, List<string>> tabella = new Dictionary <string, List<string>>();
 
         if (tabella.Count <= 0)
         {
@@ -733,6 +733,10 @@ class Program
         {
             case 1:
                 tabella ["luogo"].Add(obj);
+                foreach (var elemento in tabella)
+                {
+                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
+                }
                 break;
             case 2:
                 tabella ["meteo"].Add(obj);
