@@ -99,6 +99,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "69-Data-e-Ora", "69-Data-e-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progetto-Idee-per-Disegnare", "Progetto-Idee-per-Disegnare\Progetto-Idee-per-Disegnare.csproj", "{3361483A-E7AD-4BA2-99F1-CF1EAE36C487}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "70-Math", "70-Math\70-Math.csproj", "{A805172F-FA14-4B0B-840B-87BFF661C466}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -297,6 +299,10 @@ Global
 		{3361483A-E7AD-4BA2-99F1-CF1EAE36C487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3361483A-E7AD-4BA2-99F1-CF1EAE36C487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3361483A-E7AD-4BA2-99F1-CF1EAE36C487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A805172F-FA14-4B0B-840B-87BFF661C466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A805172F-FA14-4B0B-840B-87BFF661C466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A805172F-FA14-4B0B-840B-87BFF661C466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A805172F-FA14-4B0B-840B-87BFF661C466}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

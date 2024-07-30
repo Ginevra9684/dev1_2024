@@ -733,10 +733,6 @@ class Program
         {
             case 1:
                 tabella ["luogo"].Add(obj);
-                foreach (var elemento in tabella)
-                {
-                    Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
-                }
                 break;
             case 2:
                 tabella ["meteo"].Add(obj);
