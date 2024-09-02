@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 using Spectre.Console;
 class Program  
 {
-    static Dictionary <string, List<string>> tabella= new Dictionary <string, List<string>>();
-    static void Main(string[] args)
+    static Dictionary <string, List<string>> tabellaElementi = new Dictionary <string, List<string>>();
+    public static void Main(string[] args)
     {
                     // Puliamo la console
         AnsiConsole.Clear();
@@ -202,12 +202,12 @@ class Program
             .Title("<-<-<-[50]GESTIONALE[/]->->->")
             .PageSize(4)
             .MoreChoicesText("Spostati con le frecce direzionali.")
-            .AddChoices(new[] {"[86]1.[/] Tabella Dati [86].[/]","[85]2.[/] Progetti [85].[/]","[49]3.[/] Nuovo Progetto [49].[/]","[79]4.[/] Esci [79].[/]"   // Quattro opzioni
+            .AddChoices(new[] {"[86]1.[/] tabellaElementi Dati [86].[/]","[85]2.[/] Progetti [85].[/]","[49]3.[/] Nuovo Progetto [49].[/]","[79]4.[/] Esci [79].[/]"   // Quattro opzioni
             }));
 
         switch (input)
         {
-            case "[86]1.[/] Tabella Dati [86].[/]":
+            case "[86]1.[/] tabellaElementi Dati [86].[/]":
 
                 CaricaDizionario(null!,9);
 
@@ -229,7 +229,7 @@ class Program
 
                                     // Chiede se si intende scartare o salvare il progetto corrente dopo di che fa un restart
                                     // Opzione salva e scarta con prompt di selezione singola
-                                    // Quando salva trasferisce i dati della tabella a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
+                                    // Quando salva trasferisce i dati della tabellaElementi a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
                                     // Quando scarta svuota il file json di passaggio
 
 
@@ -241,7 +241,7 @@ class Program
 
                                     // Chiede se si intende scartare o salvare il progetto corrente dopo di che termina l'applicazione
                                     //Opzione salva e scarta con prompt di selezione singola
-                                    // Quando salva trasferisce i dati della tabella a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
+                                    // Quando salva trasferisce i dati della tabellaElementi a un nuovo file json denominato con data e ora corrente e svuota il file json di passaggio
                                     // Quando scarta svuota il file json di passaggio
 
 
@@ -351,7 +351,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //     
+        string elementotabellaElementi;       //     
     //--------------------------------//
         
                     // Crezione un percorso tra il programma e il file dei luoghi
@@ -378,8 +378,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo luogo di riferimento sarà[154]:[/]\n\n");
         AnsiConsole.Markup($"[154]-[/] {obj[indice].luogo}[154].[/]\n");
 
-        elementoTabella = obj[indice].luogo.ToString();
-        CaricaDizionario(elementoTabella, 1);
+        elementotabellaElementi = obj[indice].luogo.ToString();
+        CaricaDizionario(elementotabellaElementi, 1);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaCondizioneMeteo()
@@ -389,7 +389,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //  
+        string elementotabellaElementi;       //  
     //--------------------------------//
 
                     // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
@@ -414,8 +414,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Ci saranno le seguenti condizioni metereologiche [46]:[/]\n\n");
         AnsiConsole.Markup($"[46]-[/] {obj[indice].meteo}[46].[/]\n"); 
         
-        elementoTabella = obj[indice].meteo.ToString();
-        CaricaDizionario(elementoTabella, 2);
+        elementotabellaElementi = obj[indice].meteo.ToString();
+        CaricaDizionario(elementotabellaElementi, 2);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaMomentoGiornata()
@@ -425,7 +425,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //
+        string elementotabellaElementi;       //
     //--------------------------------//
 
                     // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
@@ -450,8 +450,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Il momento della giornata sarà [46]:[/]\n\n");
         AnsiConsole.Markup($"[46]-[/] {obj[indice].momento}[46].[/]\n");
 
-        elementoTabella = obj[indice].momento.ToString();
-        CaricaDizionario(elementoTabella, 3);
+        elementotabellaElementi = obj[indice].momento.ToString();
+        CaricaDizionario(elementotabellaElementi, 3);
         
     }
 //------------------------------------------------------------------------------------------------------------------------------------
@@ -462,7 +462,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //
+        string elementotabellaElementi;       //
     //--------------------------------//
 
                     // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
@@ -487,8 +487,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà il seguente animale[208]:[/]\n\n");
         AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n"); 
 
-        elementoTabella = obj[indice].animale.ToString();
-        CaricaDizionario(elementoTabella, 4);
+        elementotabellaElementi = obj[indice].animale.ToString();
+        CaricaDizionario(elementotabellaElementi, 4);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaAnimali()
@@ -499,7 +499,7 @@ class Program
         string path;                    //
         string json;                    //
         dynamic obj;                    //
-        string elementoTabella;         //
+        string elementotabellaElementi;         //
     //----------------------------------//
         
                     // Colleghiamo il file degli animali come abbiamo fatto per quello dei luoghi
@@ -542,8 +542,8 @@ class Program
                     indice = random.Next(0, obj.Count);
                     AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
 
-                    elementoTabella = obj[indice].animale.ToString();
-                    CaricaDizionario(elementoTabella, 5);
+                    elementotabellaElementi = obj[indice].animale.ToString();
+                    CaricaDizionario(elementotabellaElementi, 5);
                 }
                 break;
             case "[85].3[/]":
@@ -555,8 +555,8 @@ class Program
                     indice = random.Next(0, obj.Count);
                     AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
 
-                    elementoTabella = obj[indice].animale.ToString();
-                    CaricaDizionario(elementoTabella, 5);
+                    elementotabellaElementi = obj[indice].animale.ToString();
+                    CaricaDizionario(elementotabellaElementi, 5);
                 }
                 break;
             case "[49].4[/]":
@@ -568,8 +568,8 @@ class Program
                     indice = random.Next(0, obj.Count);
                     AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
 
-                    elementoTabella = obj[indice].animale.ToString();
-                    CaricaDizionario(elementoTabella, 5);
+                    elementotabellaElementi = obj[indice].animale.ToString();
+                    CaricaDizionario(elementotabellaElementi, 5);
                 }
                 break;
             case "[79].5[/]":
@@ -581,8 +581,8 @@ class Program
                     indice = random.Next(0, obj.Count);
                     AnsiConsole.Markup($"[208]-[/] {obj[indice].animale}[208].[/]\n");
 
-                    elementoTabella = obj[indice].animale.ToString();
-                    CaricaDizionario(elementoTabella, 5);
+                    elementotabellaElementi = obj[indice].animale.ToString();
+                    CaricaDizionario(elementotabellaElementi, 5);
                 }
                 break;
             }
@@ -595,7 +595,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //
+        string elementotabellaElementi;       //
     //--------------------------------//
 
                     // Colleghiamo il file delle creature mitologiche 
@@ -620,19 +620,19 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Il tuo soggetto sarà la seguente creatura[177]:[/]\n\n");
         AnsiConsole.Markup($"[177]-[/] {obj[indice].creatura}[177].[/]\n");
 
-        elementoTabella = obj[indice].creatura.ToString();
-        CaricaDizionario(elementoTabella, 6);
+        elementotabellaElementi = obj[indice].creatura.ToString();
+        CaricaDizionario(elementotabellaElementi, 6);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaTema()
     {
-        Random random = new Random(); //
-        int indice;                   //
-        string path;                  //
-        string json;                  //
-        dynamic obj;                  //
-        string elementoTabella;       //
-    //--------------------------------//
+        Random random = new Random();  //
+        int indice;                    //
+        string path;                   //
+        string json;                   //
+        dynamic obj;                   //
+        string elementotabellaElementi;//
+    //---------------------------------//
 
                     // Collegamento a file dei temi
         path = @"caricamenti/temi.json";
@@ -656,8 +656,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Potrai attenerti al seguente tema [229]:[/]\n\n");
         AnsiConsole.Markup($"[229]-[/] {obj[indice].tema}[229].[/]\n"); 
 
-        elementoTabella = obj[indice].tema.ToString(); 
-        CaricaDizionario(elementoTabella, 7);
+        elementotabellaElementi = obj[indice].tema.ToString(); 
+        CaricaDizionario(elementotabellaElementi, 7);
     }
 //------------------------------------------------------------------------------------------------------------------------------------
     static void ScaricaTecnica()
@@ -667,7 +667,7 @@ class Program
         string path;                  //
         string json;                  //
         dynamic obj;                  //
-        string elementoTabella;       //
+        string elementotabellaElementi;       //
     //--------------------------------//
 
                     // Collegamento a file delle tecniche
@@ -692,8 +692,8 @@ class Program
         AnsiConsole.Markup(":backhand_index_pointing_right: Potrai utilizzare la seguente tecnica [225]:[/]\n\n");
         AnsiConsole.Markup($"[225]-[/] {obj[indice].tecnica}[225].[/]\n"); 
         
-        elementoTabella = obj[indice].tecnica.ToString();
-        CaricaDizionario(elementoTabella, 8);   
+        elementotabellaElementi = obj[indice].tecnica.ToString();
+        CaricaDizionario(elementotabellaElementi, 8);   
     }
 
 //METODI PER SALVARE LE PROPRIE OPZIONI-----------------------------------------------------------------------------------------------
@@ -718,46 +718,46 @@ class Program
     static void CaricaDizionario(string obj , int indice)
     {
 
-        if (tabella.Count <= 0)
+        if (tabellaElementi.Count <= 0)
         {
-            tabella ["luogo"] = new List<string> {};
-            tabella ["meteo"] = new List<string> {};
-            tabella ["momento"] = new List<string> {};
-            tabella ["animale"] = new List<string> {};
-            tabella ["creatura"] = new List<string> {};
-            tabella ["tema"] = new List<string> {};
-            tabella ["tecnica"] = new List<string> {};
+            tabellaElementi ["luogo"] = new List<string> {};
+            tabellaElementi ["meteo"] = new List<string> {};
+            tabellaElementi ["momento"] = new List<string> {};
+            tabellaElementi ["soggetto"] = new List<string> {};
+            tabellaElementi ["animale"] = new List<string> {};
+            tabellaElementi ["creatura"] = new List<string> {};
+            tabellaElementi ["tema"] = new List<string> {};
+            tabellaElementi ["tecnica"] = new List<string> {};
         }
 
         switch (indice)
         {
             case 1:
-                tabella ["luogo"].Add(obj);
+                tabellaElementi ["luogo"].Add(obj);
                 break;
             case 2:
-                tabella ["meteo"].Add(obj);
+                tabellaElementi ["meteo"].Add(obj);
                 break;
             case 3:
-                tabella ["momento"].Add(obj);
+                tabellaElementi ["momento"].Add(obj);
                 break;
             case 4:
-                tabella ["animale"].Add(obj);
+                tabellaElementi ["animale"].Add(obj);
                 break;
             case 5:
-                tabella ["creatura"].Add(obj);
+                tabellaElementi ["creatura"].Add(obj);
                 break;
             case 6:
-                tabella ["creatura"].Add(obj);
+                tabellaElementi ["creatura"].Add(obj);
                 break;
             case 7:
-                tabella ["tema"].Add(obj);
+                tabellaElementi ["tema"].Add(obj);
                 break;
             case 8:
-                tabella ["tecnica"].Add(obj);
+                tabellaElementi ["tecnica"].Add(obj);
                 break;
             case 9:
-                Console.WriteLine(obj);
-                foreach (var elemento in tabella)
+                foreach (var elemento in tabellaElementi)
                 {
                     Console.WriteLine($"{elemento.Key} : {string.Join(",", elemento.Value)}");
                 }
