@@ -116,3 +116,9 @@ SELECT * FROM table_name GROUP BY column_name;
 ```sql
 SELECT prodotti.nome AS prodotto, prodotti.prezzo AS prezzo, categorie.nome AS categoria FROM prodotti JOIN categorie ON prodotti.id_categoria = categorie.id_categoria;
 ```
+
+```sql
+.headers on
+.mode column
+.mode html
+```

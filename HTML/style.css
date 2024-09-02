@@ -1,0 +1,28 @@
+h2 {
+    color : violet;
+}
+
+/* colore di sfondo */
+body {
+    background-color: 180161;
+}
+
+/* testo link senza sottolineatura */
+a {
+    text-decoration: none;
+}
+
+/* colore testo link */
+a {
+    color: #ff0000;
+}
+
+/* colore testo link */
+ol {
+    color: #0000ff;
+} 
+
+/* colore testo link */
+ul {
+    color: #00ff00;
+}
