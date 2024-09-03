@@ -1,57 +1,65 @@
-<html>
-    <head>
-        <title>HTML</title>
-        <style>
-            h1 {
-                color: red;
-            }
-            .p2 {
-                color: blue;
-            }
-            #p1 {
-                color: yellow;
-            }
-        </style>
-        
-        <!--foglio di stile esterno-->
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <body>
-        <h1>ciao</h1>
-        <p>ciao</p>
-        <p id = "p1">ciao</p>
-        <p class="p2">ciao</p>
-
-        <!--stile css da file esterno-->
-        <h2>ciao</h2>
-
-        <!--scritta verde-->
-        <p style="color: green;">ciao</p>
-
-        <!--link cliccabile-->
-        <a href="https://www.google.com">ciao</a>
-        <!--immagine-->
-        <img src=https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png alt="google">
-        <br>
-        <!--immagine con link-->
-        <a href="https://www.google.com">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="google" width="100%">
-        </a>
-
-        <!--elenco ordinato-->
-        <ol>
-            <li>primo</li>
-            <li>secondo</li>
-            <li>terzo</li>
-        </ol>
-
-        <!--elenco puntato-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Mingzat&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=SUSE:wght@100..800&family=Sevillana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header>
+        <span class="material-symbols-outlined">
+            home
+            </span>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <a href="#section1">Sezione 1</a>
+        <a href="#section2">Sezione 2</a>
+        <a href="#section3">Sezione 3</a>
+    </nav>
+    <section id="section1">
+        <h2>Sezione 1</h2>
+        <img src="https://placehold.co/600x400" alt="Immagine 1">
+        <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>
         <ul>
             <li>primo</li>
             <li>secondo</li>
             <li>terzo</li>
         </ul>
-    </body>
-        
+        <table>
+            <tr>
+                <th>Intestazione 1</th>
+                <th>Intestazione 2</th>
+            </tr>
+            <tr>
+                <td>Cella 1</td>
+                <td>Cella 2</td>
+            </tr>
+        </table>
+    </section>
+    <section id="section2">
+        <h2>Sezione 2</h2>
+        <img src="https://placehold.co/600x400" alt="Immagine 1">
+        <p>Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>
+        <ol>
+            <li>primo</li>
+            <li>secondo</li>
+            <li>terzo</li>
+        </ol>
+    </section>
+    <section id="section3">
+        <h2>Sezione 3</h2>
+        <img src="https://placehold.co/600x400" alt="Immagine 1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eveniet dolorem asperiores itaque, debitis magnam fugiat sed ratione ullam soluta cum dicta ipsam facere, velit quia repudiandae ipsum? Veniam, exercitationem.</p>
+        <a href="#section1"> Torna su</a>
+    <footer>
+        <h3>Footer</h3>
+    </footer>
+    
+</body>
 </html>
