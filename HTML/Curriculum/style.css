@@ -1,53 +1,33 @@
-header {
+#header {
     background-color: #91DDCF;
     color: #FFF5E4;
     padding: 40px;
     text-align: center;
 }
 
-
-.flex-container {
+#primoContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: row;
+}
+.container2 {
+    display: flex;
+    flex-direction: column;
+}
+#sezioneContatti {
+    background-color: #C7FFD8;
+    justify-content: flex-end;
+}
+
+#secondoContainer {
+    background-color: #FFF5E4;
+    display: flex;
     flex-direction: column;
 }
 
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(73, 81, 83);
-    margin: 10px;
+#terzoContainer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    flex: 1;
+    flex-direction: row;
 }
 
-.box2 {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(126, 19, 148);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    flex: 2;
-}
 
-.box3 {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(0, 255, 136);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-}
+
