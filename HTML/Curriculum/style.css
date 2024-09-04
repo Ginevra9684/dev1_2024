@@ -1,32 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 #header {
+    width: 100%;
     background-color: #91DDCF;
     color: #FFF5E4;
     padding: 40px;
     text-align: center;
 }
 
+@media screen and (max-width: 700px) {
+    #primoContainer {
+        display: flex;
+        flex-direction: column-reverse;
+    }}
+
+
 #primoContainer {
     display: flex;
     flex-direction: row;
 }
+
 .container2 {
     display: flex;
     flex-direction: column;
 }
 #sezioneContatti {
+    padding: 10px;
     background-color: #C7FFD8;
     justify-content: flex-end;
+    max-width: 250px;
 }
 
 #secondoContainer {
     background-color: #FFF5E4;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: column ;
 }
 
 #terzoContainer {
     display: flex;
     flex-direction: row;
+}
+
+.colonna {
+    padding : 15px;
+    width: 50%;
+}
+
+ul {
+    text-wrap: wrap;
 }
 
 
