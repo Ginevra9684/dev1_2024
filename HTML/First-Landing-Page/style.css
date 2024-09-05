@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: rgb(23, 26, 24);
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100%;
+}
+
+#headerImage {
+    width: 100%;
+}
+
+#upperImage {
+    width: 100%;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50px;
+    max-height:100px;
+    background-color: #16423C;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    border-radius: 10px;
+    border-left: 3px;
+    border-left: solid #0cccb2;
+}
+
+.button h3 {
+    color: #16423C;
+    background-color: antiquewhite;
+}
+
+
+h1 {
+    font-size: 90px;
+    color: antiquewhite;
+    font-style: oblique;
+}
+
+h2 {
+    color: antiquewhite;
+    font-size: 30px;
+}
+
+h3 {
+    color: antiquewhite;
+    font-size: 20px;
+}
+li {
+    color: antiquewhite;
+}
+
+ul {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#ilMioNome {
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    font-size: 100px;
+    padding: 70px;
+}
+
+#container {
+    width: 80%;
+    display: flex;
+    flex-direction:row;
+}
+
+@media screen and(min-width: 200px) and (max-width: 400px) {
+    #container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+    
+
+
+#column1 {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+#column2 {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
