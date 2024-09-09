@@ -121,4 +121,27 @@ SELECT prodotti.nome AS prodotto, prodotti.prezzo AS prezzo, categorie.nome AS c
 .headers on
 .mode column
 .mode html
+.mode table
 ```
+
+- SELEZIONARE CON UN LIMITE DI ELEMENTI DA MOSTRATE
+
+```sql
+SELECT * FROM prodotti ORDER BY prezzo DESC LIMIT 1;
+```
+
+- UTILIZZO DI AS DATA
+
+```sql
+SELECT strftime ('%d%m%Y' data_creazione) AS data_formattata
+FROM categorie;
+```
+
+- %Y: Anno con 4 cifre (2024)
+- %m: Mese con 2 cifre (01-12)
+- %d: Giorno del mese con 2 cifre (01-31)
+- %H: Ore (00-23)
+- %M: Minuti (00-59)
+- %S: Secondi (00-59)
+
+
