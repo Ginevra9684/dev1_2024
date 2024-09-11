@@ -1,0 +1,29 @@
+[
+    {
+        "elemento" : "storm"
+    },
+
+    {
+        "elemento" : "sunny"
+    },
+
+    {
+        "elemento" : "cloudy"
+    },
+
+    {
+        "elemento" : "misty"
+    },
+
+    {
+        "elemento" : "foggy"
+    },
+
+    {
+        "elemento" : "rainy"
+    },
+
+    {
+        "elemento" : "windy"
+    }
+]

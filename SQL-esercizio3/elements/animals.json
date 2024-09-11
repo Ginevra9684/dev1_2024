@@ -1,0 +1,2464 @@
+[
+    {
+        "elemento" : "echidna"
+    },
+
+    {
+        "elemento" : "platypus"
+    },
+
+    {
+        "elemento" : "possum"
+    },
+
+    {
+        "elemento" : "shrew"
+    },
+
+    {
+        "elemento" : "tasmanian devil"
+    },
+
+    {
+        "elemento" : "mulgara"
+    },
+
+    {
+        "elemento" : "kowari"
+    },
+
+    {
+        "elemento" : "quoll"
+    },
+
+    {
+        "elemento" : "dasyurus"
+    },
+
+    {
+        "elemento" : "dunnart"
+    },
+
+    {
+        "elemento" : "numbat"
+    },
+
+    {
+        "elemento" : "bilby"
+    },
+
+    {
+        "elemento" : "bandiccot"
+    },
+
+    {
+        "elemento" : "koala"
+    },
+
+    {
+        "elemento" : "wombat"
+    },
+
+    {
+        "elemento" : "cchinchilla rat"
+    },
+
+    {
+        "elemento" : "brushtail possum"
+    },
+
+    {
+        "elemento" : "glider"
+    },
+
+    {
+        "elemento" : "ringtail possum"
+    },
+
+
+
+
+
+
+
+
+
+
+
+    
+    {
+        "elemento" : "canguro arboricolo"
+    },
+
+    {
+        "elemento" : "dingiso"
+    },
+
+    {
+        "elemento" : "tenkile"
+    },
+
+    {
+        "elemento" : "canguro"
+    },
+
+    {
+        "elemento" : "wallaby"
+    },
+
+    {
+        "elemento" : "petrogale"
+    },
+
+    {
+        "elemento" : "quokka"
+    },
+
+    {
+        "elemento" : "istrice"
+    },
+
+    {
+        "elemento" : "ratto delle rocce"
+    },
+
+    {
+        "elemento" : "cavia"
+    },
+
+    {
+        "elemento" : "galea"
+    },
+
+    {
+        "elemento" : "microcavia"
+    },
+
+    {
+        "elemento" : "marà"
+    },
+
+    {
+        "elemento" : "capibara"
+    },
+
+    {
+        "elemento" : "moco"
+    },
+
+    {
+        "elemento" : "aguti"
+    },
+
+    {
+        "elemento" : "pacarana"
+    },
+
+    {
+        "elemento" : "chinchilla"
+    },
+
+    {
+        "elemento" : "lagidium"
+    },
+
+    {
+        "elemento" : "lagostomus"
+    },
+
+    {
+        "elemento" : "ursone"
+    },
+
+    {
+        "elemento" : "hutia"
+    },
+
+    {
+        "elemento" : "castoro"
+    },
+
+    {
+        "elemento" : "nutria"
+    },
+
+    {
+        "elemento" : "degu"
+    },
+
+    {
+        "elemento" : "sicista"
+    },
+
+    {
+        "elemento" : "topo saltatore dei boschi"
+    },
+
+    {
+        "elemento" : "topo delle piramidi"
+    },
+
+    {
+        "elemento" : "lemming"
+    },
+
+    {
+        "elemento" : "arvicola"
+    },
+
+    {
+        "elemento" : "topo muschiato"
+    },
+
+    {
+        "elemento" : "criceto"
+    },
+
+    {
+        "elemento" : "peromisco"
+    },
+
+    {
+        "elemento" : "gerbillo"
+    },
+
+    {
+        "elemento" : "cricetomys"
+    },
+
+    {
+        "elemento" : "votsovotsa"
+    },
+
+    {
+        "elemento" : "ghiro"
+    },
+
+    {
+        "elemento" : "spalace"
+    },
+
+    {
+        "elemento" : "muscardinus"
+    },
+
+    {
+        "elemento" : "ratufa"
+    },
+
+    {
+        "elemento" : "scoiattolo"
+    },
+
+    {
+        "elemento" : "scoiattolo volante"
+    },
+
+    {
+        "elemento" : "citello"
+    },
+
+    {
+        "elemento" : "cane della prateria"
+    },
+
+    {
+        "elemento" : "tamia"
+    },
+
+    {
+        "elemento" : "xero"
+    },
+
+    {
+        "elemento" : "marmotta"
+    },
+
+    {
+        "elemento" : "coniglio"
+    },
+
+    {
+        "elemento" : "lepre"
+    },
+
+    {
+        "elemento" : "pica"
+    },
+
+    {
+        "elemento" : "tupaia"
+    },
+
+    {
+        "elemento" : "colugo"
+    },
+
+    {
+        "elemento" : "chirogaleo"
+    },
+
+    {
+        "elemento" : "microcebo"
+    },
+
+    {
+        "elemento" : "lemure"
+    },
+
+    {
+        "elemento" : "lepilemure"
+    },
+
+    {
+        "elemento" : "apalemure"
+    },
+
+    {
+        "elemento" : "indri"
+    },
+
+    {
+        "elemento" : "avahi"
+    },
+
+    {
+        "elemento" : "sifaka"
+    },
+
+    {
+        "elemento" : "aye-aye"
+    },
+
+    {
+        "elemento" : "galagone"
+    },
+
+    {
+        "elemento" : "potto"
+    },
+
+    {
+        "elemento" : "falso potto"
+    },
+
+    {
+        "elemento" : "lori"
+    },
+
+    {
+        "elemento" : "tarsio"
+    },
+
+    {
+        "elemento" : "uistiti"
+    },
+
+    {
+        "elemento" : "callimico"
+    },
+
+    {
+        "elemento" : "tamarino"
+    },
+
+    {
+        "elemento" : "cebo"
+    },
+
+    {
+        "elemento" : "saimiri"
+    },
+
+    {
+        "elemento" : "aoto"
+    },
+
+    {
+        "elemento" : "callicebo"
+    },
+
+    {
+        "elemento" : "chiropote"
+    },
+
+    {
+        "elemento" : "pitecia"
+    },
+
+    {
+        "elemento" : "aluatta"
+    },
+
+    {
+        "elemento" : "atele"
+    },
+
+    {
+        "elemento" : "scimmia lanosa"
+    },
+
+    {
+        "elemento" : "cercopiteco"
+    },
+
+    {
+        "elemento" : "eritrocebo"
+    },
+
+    {
+        "elemento" : "cercocebo"
+    },
+
+    {
+        "elemento" : "macaco"
+    },
+
+    {
+        "elemento" : "mandrillo"
+    },
+
+    {
+        "elemento" : "colobo"
+    },
+
+    {
+        "elemento" : "presbite"
+    },
+
+    {
+        "elemento" : "entello"
+    },
+
+    {
+        "elemento" : "langur"
+    },
+
+    {
+        "elemento" : "rinopiteco"
+    },
+
+    {
+        "elemento" : "nasica"
+    },
+
+    {
+        "elemento" : "gibbone"
+    },
+
+    {
+        "elemento" : "orango"
+    },
+
+    {
+        "elemento" : "gorilla"
+    },
+
+    {
+        "elemento" : "scimpanze"
+    },
+
+    {
+        "elemento" : "riccio"
+    },
+
+    {
+        "elemento" : "toporagno"
+    },
+
+    {
+        "elemento" : "talpa"
+    },
+
+    {
+        "elemento" : "desman"
+    },
+
+    {
+        "elemento" : "guanaco"
+    },
+
+    {
+        "elemento" : "lama"
+    },
+
+    {
+        "elemento" : "vigogna"
+    },
+
+    {
+        "elemento" : "alpaca"
+    },
+
+    {
+        "elemento" : "cammello"
+    },
+
+    {
+        "elemento" : "dromedario"
+    },
+
+    {
+        "elemento" : "babirussa"
+    },
+
+    {
+        "elemento" : "ilochero"
+    },
+
+    {
+        "elemento" : "potamochero"
+    },
+
+    {
+        "elemento" : "cinghiale"
+    },
+
+    {
+        "elemento" : "facocero"
+    },
+
+    {
+        "elemento" : "pècari"
+    },
+
+    {
+        "elemento" : "balena"
+    },
+
+    {
+        "elemento" : "balenottera"
+    },
+
+    {
+        "elemento" : "delfino"
+    },
+
+    {
+        "elemento" : "sotalia"
+    },
+
+    {
+        "elemento" : "susa"
+    },
+
+    {
+        "elemento" : "stenella"
+    },
+
+    {
+        "elemento" : "tursiope"
+    },
+
+    {
+        "elemento" : "cefalorinco"
+    },
+
+    {
+        "elemento" : "lagenorinco"
+    },
+
+    {
+        "elemento" : "globicefalo"
+    },
+
+    {
+        "elemento" : "pseudorca"
+    },
+
+    {
+        "elemento" : "orca"
+    },
+
+    {
+        "elemento" : "inia"
+    },
+
+    {
+        "elemento" : "lipote"
+    },
+
+    {
+        "elemento" : "focena"
+    },
+
+    {
+        "elemento" : "beluga"
+    },
+
+    {
+        "elemento" : "narvalo"
+    },
+
+    {
+        "elemento" : "capodoglio"
+    },
+
+    {
+        "elemento" : "ippopotamo"
+    },
+
+    {
+        "elemento" : "tragulo"
+    },
+
+    {
+        "elemento" : "antilocapra"
+    },
+
+    {
+        "elemento" : "giraffa"
+    },
+
+    {
+        "elemento" : "cervo muschiato"
+    },
+
+    {
+        "elemento" : "alce"
+    },
+
+    {
+        "elemento" : "capriolo"
+    },
+
+    {
+        "elemento" : "mazama"
+    },
+
+    {
+        "elemento" : "cervo"
+    },
+
+    {
+        "elemento" : "pudu"
+    },
+
+    {
+        "elemento" : "renna"
+    },
+
+    {
+        "elemento" : "wapiti"
+    },
+
+    {
+        "elemento" : "sika"
+    },
+
+    {
+        "elemento" : "daino"
+    },
+
+    {
+        "elemento" : "muntak"
+    },
+
+    {
+        "elemento" : "tameng"
+    },
+
+    {
+        "elemento" : "cervo d'acqua"
+    },
+
+    {
+        "elemento" : "bufalo"
+    },
+
+    {
+        "elemento" : "carabao"
+    },
+
+    {
+        "elemento" : "anoa"
+    },
+
+    {
+        "elemento" : "yak"
+    },
+
+    {
+        "elemento" : "vacca"
+    },
+
+    {
+        "elemento" : "bisonte"
+    },
+
+    {
+        "elemento" : "nyala"
+    },
+
+    {
+        "elemento" : "bongo"
+    },
+
+    {
+        "elemento" : "kudu"
+    },
+
+    {
+        "elemento" : "cefalofo"
+    },
+
+    {
+        "elemento" : "antilope"
+    },
+
+    {
+        "elemento" : "orice"
+    },
+
+    {
+        "elemento" : "gazzella"
+    },
+
+    {
+        "elemento" : "udad"
+    },
+
+    {
+        "elemento" : "tahr"
+    },
+
+    {
+        "elemento" : "capra"
+    },
+
+    {
+        "elemento" : "stambecco"
+    },
+
+    {
+        "elemento" : "muflone"
+    },
+
+    {
+        "elemento" : "pecora"
+    },
+
+    {
+        "elemento" : "bue muschiato"
+    },
+
+    {
+        "elemento" : "capricorno"
+    },
+
+    {
+        "elemento" : "goral"
+    },
+
+    {
+        "elemento" : "camoscio"
+    },
+
+    {
+        "elemento" : "gnu"
+    },
+
+    {
+        "elemento" : "tigre"
+    },
+
+    {
+        "elemento" : "leone"
+    },
+
+    {
+        "elemento" : "leopardo"
+    },
+
+    {
+        "elemento" : "giaguaro"
+    },
+
+    {
+        "elemento" : "leopardo nebuloso"
+    },
+
+    {
+        "elemento" : "leopardo delle nevi"
+    },
+
+    {
+        "elemento" : "puma"
+    },
+
+    {
+        "elemento" : "ghepardo"
+    },
+
+    {
+        "elemento" : "ocelot"
+    },
+
+    {
+        "elemento" : "margay"
+    },
+
+    {
+        "elemento" : "serval"
+    },
+
+    {
+        "elemento" : "caracal"
+    },
+
+    {
+        "elemento" : "gatto"
+    },
+
+    {
+        "elemento" : "lince"
+    },
+
+    {
+        "elemento" : "gatto dorato"
+    },
+
+    {
+        "elemento" : "mangusta"
+    },
+
+    {
+        "elemento" : "suricato"
+    },
+
+    {
+        "elemento" : "fossa"
+    },
+
+    {
+        "elemento" : "linsango"
+    },
+
+    {
+        "elemento" : "zibetto"
+    },
+
+    {
+        "elemento" : "genetta"
+    },
+
+    {
+        "elemento" : "binturong"
+    },
+
+    {
+        "elemento" : "civetta delle palme"
+    },
+
+    {
+        "elemento" : "iena"
+    },
+
+    {
+        "elemento" : "protele"
+    },
+
+    {
+        "elemento" : "panda rosso"
+    },
+
+    {
+        "elemento" : "atelocino"
+    },
+
+    {
+        "elemento" : "sciacallo"
+    },
+
+    {
+        "elemento" : "dingo"
+    },
+
+    {
+        "elemento" : "cane"
+    },
+
+    {
+        "elemento" : "lupo"
+    },
+
+    {
+        "elemento" : "coyote"
+    },
+
+    {
+        "elemento" : "caberù"
+    },
+
+    {
+        "elemento" : "maikong"
+    },
+
+    {
+        "elemento" : "crisocione"
+    },
+
+    {
+        "elemento" : "cuon"
+    },
+
+    {
+        "elemento" : "licaone"
+    },
+
+    {
+        "elemento" : "otocione"
+    },
+
+    {
+        "elemento" : "urocione"
+    },
+
+    {
+        "elemento" : "volpe"
+    },
+
+    {
+        "elemento" : "fennec"
+    },
+
+    {
+        "elemento" : "moffetta"
+    },
+
+    {
+        "elemento" : "tasso"
+    },
+
+    {
+        "elemento" : "lontra"
+    },
+
+    {
+        "elemento" : "grigione"
+    },
+
+    {
+        "elemento" : "ghiottone"
+    },
+
+    {
+        "elemento" : "zorilla"
+    },
+
+    {
+        "elemento" : "martora"
+    },
+
+    {
+        "elemento" : "donnola"
+    },
+
+    {
+        "elemento" : "faina"
+    },
+
+    {
+        "elemento" : "puzzola"
+    },
+
+    {
+        "elemento" : "furetto"
+    },
+
+    {
+        "elemento" : "visone"
+    },
+
+    {
+        "elemento" : "procione"
+    },
+
+    {
+        "elemento" : "coati"
+    },
+
+    {
+        "elemento" : "bassarisco"
+    },
+
+    {
+        "elemento" : "kinkajou"
+    },
+
+    {
+        "elemento" : "olingo"
+    },
+
+    {
+        "elemento" : "tricheco"
+    },
+
+    {
+        "elemento" : "otaria"
+    },
+
+    {
+        "elemento" : "leone marino"
+    },
+
+    {
+        "elemento" : "foca"
+    },
+
+    {
+        "elemento" : "elefante marino"
+    },
+
+    {
+        "elemento" : "panda"
+    },
+
+    {
+        "elemento" : "orso"
+    },
+
+    {
+        "elemento" : "pipistrello"
+    },
+
+    {
+        "elemento" : "volpe volante"
+    },
+
+    {
+        "elemento" : "cavallo"
+    },
+
+    {
+        "elemento" : "asino"
+    },
+
+    {
+        "elemento" : "emione"
+    },
+
+    {
+        "elemento" : "zebra"
+    },
+
+    {
+        "elemento" : "tapiro"
+    },
+
+    {
+        "elemento" : "rinoceronte"
+    },
+
+    {
+        "elemento" : "pangolino"
+    },
+
+    {
+        "elemento" : "armadillo"
+    },
+
+    {
+        "elemento" : "formichiere"
+    },
+
+    {
+        "elemento" : "tamandua"
+    },
+
+    {
+        "elemento" : "bradipo"
+    },
+
+    {
+        "elemento" : "oritteropo"
+    },
+
+    {
+        "elemento" : "elefante"
+    },
+
+    {
+        "elemento" : "lamantino"
+    },
+
+    {
+        "elemento" : "dugongo"
+    },
+
+    {
+        "elemento" : "tartaruga alligatore"
+    },
+
+    {
+        "elemento" : "testuggine"
+    },
+
+    {
+        "elemento" : "terrapin"
+    },
+
+    {
+        "elemento" : "tartaruga scatola"
+    },
+
+    {
+        "elemento" : "tartaruga foglia"
+    },
+
+    {
+        "elemento" : "tartaruga palustre"
+    },
+
+    {
+        "elemento" : "tartaruga a tetto"
+    },
+
+    {
+        "elemento" : "tartaruga geografica"
+    },
+
+    {
+        "elemento" : "tartaruga del muschio"
+    },
+
+    {
+        "elemento" : "tartaruga marina"
+    },
+
+    {
+        "elemento" : "tartaruga liuto"
+    },
+
+    {
+        "elemento" : "mata mata"
+    },
+
+    {
+        "elemento" : "tartaruga gigante"
+    },
+
+    {
+        "elemento" : "tuatara"
+    },
+
+    {
+        "elemento" : "agama"
+    },
+
+    {
+        "elemento" : "stellione"
+    },
+
+    {
+        "elemento" : "clamidosauro"
+    },
+
+    {
+        "elemento" : "moloch"
+    },
+
+    {
+        "elemento" : "drago d'acqua cinese"
+    },
+
+    {
+        "elemento" : "pogona"
+    },
+
+    {
+        "elemento" : "branchocela"
+    },
+
+    {
+        "elemento" : "calotes"
+    },
+
+    {
+        "elemento" : "draco"
+    },
+
+    {
+        "elemento" : "saara"
+    },
+
+    {
+        "elemento" : "uromastyx"
+    },
+
+    {
+        "elemento" : "camaleonte"
+    },
+
+    {
+        "elemento" : "basilisco"
+    },
+
+    {
+        "elemento" : "lucertola dal collare"
+    },
+
+    {
+        "elemento" : "anolide"
+    },
+
+    {
+        "elemento" : "iguana"
+    },
+
+    {
+        "elemento" : "microlophus"
+    },
+
+    {
+        "elemento" : "ebenavia"
+    },
+
+    {
+        "elemento" : "geco tokay"
+    },
+
+    {
+        "elemento" : "felsuma"
+    },
+
+    {
+        "elemento" : "geco coda a foglia"
+    },
+
+    {
+        "elemento" : "geco ciliatus"
+    },
+
+    {
+        "elemento" : "geco leopardino"
+    },
+
+    {
+        "elemento" : "geco"
+    },
+
+    {
+        "elemento" : "smaug"
+    },
+
+    {
+        "elemento" : "algiroide"
+    },
+
+    {
+        "elemento" : "eremia"
+    },
+
+    {
+        "elemento" : "lucertola"
+    },
+
+    {
+        "elemento" : "ramarro"
+    },
+
+    {
+        "elemento" : "scinco"
+    },
+
+    {
+        "elemento" : "ameiva"
+    },
+
+    {
+        "elemento" : "dracaena"
+    },
+
+    {
+        "elemento" : "tegu"
+    },
+
+    {
+        "elemento" : "xantusia"
+    },
+
+    {
+        "elemento" : "heloderma"
+    },
+
+    {
+        "elemento" : "lantanoto"
+    },
+
+    {
+        "elemento" : "varano"
+    },
+
+    {
+        "elemento" : "drago di komodo"
+    },
+
+    {
+        "elemento" : "anilio corallino"
+    },
+
+    {
+        "elemento" : "boa"
+    },
+
+    {
+        "elemento" : "boa arboricolo"
+    },
+
+    {
+        "elemento" : "pitone"
+    },
+
+    {
+        "elemento" : "boiga"
+    },
+
+    {
+        "elemento" : "colubro"
+    },
+
+    {
+        "elemento" : "coronella"
+    },
+
+    {
+        "elemento" : "boomslang"
+    },
+
+    {
+        "elemento" : "leptophis"
+    },
+
+    {
+        "elemento" : "cobra"
+    },
+
+    {
+        "elemento" : "bitis"
+    },
+
+    {
+        "elemento" : "cerastes"
+    },
+
+    {
+        "elemento" : "bothriechis"
+    },
+
+    {
+        "elemento" : "crotalo"
+    },
+
+    {
+        "elemento" : "vipera"
+    },
+
+    {
+        "elemento" : "mocassino"
+    },
+
+    {
+        "elemento" : "serpente"
+    },
+
+    {
+        "elemento" : "coccodrillo"
+    },
+
+    {
+        "elemento" : "osteolemo"
+    },
+
+    {
+        "elemento" : "tomistoma"
+    },
+
+    {
+        "elemento" : "alligatore"
+    },
+
+    {
+        "elemento" : "caimano"
+    },
+
+    {
+        "elemento" : "gaviale"
+    },
+
+    {
+        "elemento" : "rana"
+    },
+
+    {
+        "elemento" : "rana pacman"
+    },
+
+    {
+        "elemento" : "rana foglia"
+    },
+
+    {
+        "elemento" : "rana freccia"
+    },
+
+    {
+        "elemento" : "rana arboricola"
+    },
+
+    {
+        "elemento" : "raganella"
+    },
+
+    {
+        "elemento" : "rospo"
+    },
+
+    {
+        "elemento" : "tritone"
+    },
+
+    {
+        "elemento" : "salamandra"
+    },
+
+    {
+        "elemento" : "axolotl"
+    },
+
+    {
+        "elemento" : "razza"
+    },
+
+    {
+        "elemento" : "pastinaca"
+    },
+
+    {
+        "elemento" : "manta"
+    },
+
+    {
+        "elemento" : "mobula"
+    },
+
+    {
+        "elemento" : "trigone"
+    },
+
+    {
+        "elemento" : "pristide"
+    },
+
+    {
+        "elemento" : "torpedine"
+    },
+
+    {
+        "elemento" : "squalo binaco"
+    },
+
+    {
+        "elemento" : "squalo tigre"
+    },
+
+    {
+        "elemento" : "squalo toro"
+    },
+
+    {
+        "elemento" : "squalo volpe"
+    },
+
+    {
+        "elemento" : "squalo mako"
+    },
+
+    {
+        "elemento" : "squalo limone"
+    },
+
+    {
+        "elemento" : "squatina"
+    },
+
+    {
+        "elemento" : "squalo zebra"
+    },
+
+    {
+        "elemento" : "nutrice"
+    },
+
+    {
+        "elemento" : "squalo balena"
+    },
+
+    {
+        "elemento" : "squalo elefante"
+    },
+
+    {
+        "elemento" : "verdesca"
+    },
+
+    {
+        "elemento" : "gattuccio"
+    },
+
+    {
+        "elemento" : "squalo martello"
+    },
+
+    {
+        "elemento" : "palombo"
+    },
+
+    {
+        "elemento" : "smeriglio"
+    },
+
+    {
+        "elemento" : "dipnoi"
+    },
+
+    {
+        "elemento" : "pesce spatola"
+    },
+
+    {
+        "elemento" : "pesce spada"
+    },
+
+    {
+        "elemento" : "pseudomugil"
+    },
+
+    {
+        "elemento" : "pesce volante"
+    },
+
+    {
+        "elemento" : "beryx"
+    },
+
+    {
+        "elemento" : "pesce scoiattolo"
+    },
+
+    {
+        "elemento" : "pesce chirurgo"
+    },
+
+    {
+        "elemento" : "pesce unicorno"
+    },
+
+    {
+        "elemento" : "siganus"
+    },
+
+    {
+        "elemento" : "zanclo"
+    },
+
+    {
+        "elemento" : "betta"
+    },
+
+    {
+        "elemento" : "pesce combattente"
+    },
+
+    {
+        "elemento" : "blennius"
+    },
+
+    {
+        "elemento" : "neoclinus"
+    },
+
+    {
+        "elemento" : "gibbonsia"
+    },
+
+    {
+        "elemento" : "helcogramma"
+    },
+
+    {
+        "elemento" : "pesce mandarino"
+    },
+
+    {
+        "elemento" : "elassoma"
+    },
+
+    {
+        "elemento" : "perioftalmo"
+    },
+
+    {
+        "elemento" : "nemateleotris"
+    },
+
+    {
+        "elemento" : "ciclide"
+    },
+
+    {
+        "elemento" : "anampses"
+    },
+
+    {
+        "elemento" : "cheilinus"
+    },
+
+    {
+        "elemento" : "cirrhilabrus"
+    },
+
+    {
+        "elemento" : "coris"
+    },
+
+    {
+        "elemento" : "epibulus"
+    },
+
+    {
+        "elemento" : "halichoeres"
+    },
+
+    {
+        "elemento" : "hemigymnus"
+    },
+
+    {
+        "elemento" : "symphodus"
+    },
+
+    {
+        "elemento" : "thalassoma"
+    },
+
+    {
+        "elemento" : "pesce pagliaccio"
+    },
+
+    {
+        "elemento" : "pesce farfalla"
+    },
+
+    {
+        "elemento" : "discus"
+    },
+
+    {
+        "elemento" : "murena"
+    },
+
+    {
+        "elemento" : "lampuga"
+    },
+
+    {
+        "elemento" : "remora"
+    },
+
+    {
+        "elemento" : "cobia"
+    },
+
+    {
+        "elemento" : "marlin"
+    },
+
+    {
+        "elemento" : "pesce ghiaccio"
+    },
+
+    {
+        "elemento" : "sgombro"
+    },
+
+    {
+        "elemento" : "palamita"
+    },
+
+    {
+        "elemento" : "tonnetto"
+    },
+
+    {
+        "elemento" : "tonno"
+    },
+
+    {
+        "elemento" : "barracuda"
+    },
+
+    {
+        "elemento" : "pesce ago"
+    },
+
+    {
+        "elemento" : "pesce istrice"
+    },
+
+    {
+        "elemento" : "pesce scatola"
+    },
+
+    {
+        "elemento" : "pesce palla"
+    },
+
+    {
+        "elemento" : "albula"
+    },
+
+    {
+        "elemento" : "arowana"
+    },
+
+    {
+        "elemento" : "scorfano"
+    },
+
+    {
+        "elemento" : "salmone"
+    },
+
+    {
+        "elemento" : "pesce scorpione"
+    },
+
+    {
+        "elemento" : "pesce leone"
+    },
+
+    {
+        "elemento" : "pesce gatto"
+    },
+
+    {
+        "elemento" : "pesce angelo"
+    },
+
+    {
+        "elemento" : "tinamo"
+    },
+
+    {
+        "elemento" : "struzzo"
+    },
+
+    {
+        "elemento" : "nandù"
+    },
+
+    {
+        "elemento" : "kiwi"
+    },
+
+    {
+        "elemento" : "causario"
+    },
+
+    {
+        "elemento" : "kamichi"
+    },
+
+    {
+        "elemento" : "dendrocigna"
+    },
+
+    {
+        "elemento" : "anatra"
+    },
+
+    {
+        "elemento" : "oca"
+    },
+
+    {
+        "elemento" : "gobbo"
+    },
+
+    {
+        "elemento" : "cigno"
+    },
+
+    {
+        "elemento" : "casarca"
+    },
+
+    {
+        "elemento" : "moretta"
+    },
+
+    {
+        "elemento" : "edredone"
+    },
+
+    {
+        "elemento" : "quattrocchi"
+    },
+
+    {
+        "elemento" : "pescaiola"
+    },
+
+    {
+        "elemento" : "smergo"
+    },
+
+    {
+        "elemento" : "anatra mandarina"
+    },
+
+    {
+        "elemento" : "fistione"
+    },
+
+    {
+        "elemento" : "alzavola"
+    },
+
+    {
+        "elemento" : "germano"
+    },
+
+    {
+        "elemento" : "tacchino"
+    },
+
+    {
+        "elemento" : "fagiano"
+    },
+
+    {
+        "elemento" : "ciacalaca"
+    },
+
+    {
+        "elemento" : "guan"
+    },
+
+    {
+        "elemento" : "crace"
+    },
+
+    {
+        "elemento" : "pernice"
+    },
+
+    {
+        "elemento" : "quaglia"
+    },
+
+    {
+        "elemento" : "strolaga"
+    },
+
+    {
+        "elemento" : "pinguino"
+    },
+
+    {
+        "elemento" : "albatro"
+    },
+
+    {
+        "elemento" : "fulmaro"
+    },
+
+    {
+        "elemento" : "petrello"
+    },
+
+    {
+        "elemento" : "berta"
+    },
+
+    {
+        "elemento" : "fetonte"
+    },
+
+    {
+        "elemento" : "fenicottero"
+    },
+
+    {
+        "elemento" : "cicogna"
+    },
+
+    {
+        "elemento" : "jaribu"
+    },
+
+    {
+        "elemento" : "marabù"
+    },
+
+    {
+        "elemento" : "ibis"
+    },
+
+    {
+        "elemento" : "spatola"
+    },
+
+    {
+        "elemento" : "airone"
+    },
+
+    {
+        "elemento" : "sgarza"
+    },
+
+    {
+        "elemento" : "becco a scarpa"
+    },
+
+    {
+        "elemento" : "pellicano"
+    },
+
+    {
+        "elemento" : "sula"
+    },
+
+    {
+        "elemento" : "cormorano"
+    },
+
+    {
+        "elemento" : "fregata"
+    },
+
+    {
+        "elemento" : "avvoltoio"
+    },
+
+    {
+        "elemento" : "condor"
+    },
+
+    {
+        "elemento" : "serpentario"
+    },
+
+    {
+        "elemento" : "nibbio"
+    },
+
+    {
+        "elemento" : "caracara"
+    },
+
+    {
+        "elemento" : "falco"
+    },
+
+    {
+        "elemento" : "falchetto"
+    },
+
+    {
+        "elemento" : "gheppio"
+    },
+
+    {
+        "elemento" : "gru"
+    },
+
+    {
+        "elemento" : "beccaccia"
+    },
+
+    {
+        "elemento" : "jacana"
+    },
+
+    {
+        "elemento" : "voltapietre"
+    },
+
+    {
+        "elemento" : "pernice"
+    },
+
+    {
+        "elemento" : "gabbiano"
+    },
+
+    {
+        "elemento" : "sterna"
+    },
+
+    {
+        "elemento" : "uria"
+    },
+
+    {
+        "elemento" : "piccione"
+    },
+
+    {
+        "elemento" : "colomba"
+    },
+
+    {
+        "elemento" : "tortora"
+    },
+
+    {
+        "elemento" : "nestor"
+    },
+
+    {
+        "elemento" : "cacatua"
+    },
+
+    {
+        "elemento" : "cenerino"
+    },
+
+    {
+        "elemento" : "ara"
+    },
+
+    {
+        "elemento" : "pappagallo"
+    },
+
+    {
+        "elemento" : "guaruba"
+    },
+
+    {
+        "elemento" : "conuro"
+    },
+
+    {
+        "elemento" : "parrocchetto"
+    },
+
+    {
+        "elemento" : "pappagallino"
+    },
+
+    {
+        "elemento" : "amazzone"
+    },
+
+    {
+        "elemento" : "coracopsis"
+    },
+
+    {
+        "elemento" : "rosella"
+    },
+
+    {
+        "elemento" : "northiella"
+    },
+
+    {
+        "elemento" : "eos"
+    },
+
+    {
+        "elemento" : "lorichetto"
+    },
+
+    {
+        "elemento" : "lori"
+    },
+
+    {
+        "elemento" : "caicco"
+    },
+
+    {
+        "elemento" : "inseparabile"
+    },
+
+    {
+        "elemento" : "ecletto"
+    },
+
+    {
+        "elemento" : "calopsita"
+    },
+
+    {
+        "elemento" : "hoatzin"
+    },
+
+    {
+        "elemento" : "turaco"
+    },
+
+    {
+        "elemento" : "cuculo"
+    },
+
+    {
+        "elemento" : "barbagianni"
+    },
+
+    {
+        "elemento" : "otus"
+    },
+
+    {
+        "elemento" : "assiolo"
+    },
+
+    {
+        "elemento" : "gufo"
+    },
+
+    {
+        "elemento" : "civetta"
+    },
+
+    {
+        "elemento" : "rondone"
+    },
+
+    {
+        "elemento" : "heliothryx"
+    },
+
+    {
+        "elemento" : "caribe"
+    },
+
+    {
+        "elemento" : "colibrì"
+    },
+
+    {
+        "elemento" : "ghiandaia"
+    },
+
+    {
+        "elemento" : "martin"
+    },
+
+    {
+        "elemento" : "kookaburra"
+    },
+
+    {
+        "elemento" : "motmot"
+    },
+
+    {
+        "elemento" : "gruccione"
+    },
+
+    {
+        "elemento" : "buceretto"
+    },
+
+    {
+        "elemento" : "bucero"
+    },
+
+    {
+        "elemento" : "upupa"
+    },
+
+    {
+        "elemento" : "jacamar"
+    },
+
+    {
+        "elemento" : "tucano"
+    },
+
+    {
+        "elemento" : "aracari"
+    },
+
+    {
+        "elemento" : "picchio"
+    },
+
+    {
+        "elemento" : "contiga"
+    },
+
+    {
+        "elemento" : "corvo"
+    },
+
+    {
+        "elemento" : "oriolo"
+    },
+
+    {
+        "elemento" : "gazza"
+    },
+
+    {
+        "elemento" : "cornacchia"
+    },
+
+    {
+        "elemento" : "cincia"
+    },
+
+    {
+        "elemento" : "cinciarella"
+    },
+
+    {
+        "elemento" : "rondine"
+    },
+
+    {
+        "elemento" : "usignolo"
+    },
+
+    {
+        "elemento" : "storno"
+    },
+
+    {
+        "elemento" : "gracula"
+    },
+
+    {
+        "elemento" : "tordo"
+    },
+
+    {
+        "elemento" : "fogliarolo"
+    },
+
+    {
+        "elemento" : "passero"
+    },
+
+    {
+        "elemento" : "fringuello"
+    },
+
+    {
+        "elemento" : "tessitore"
+    },
+
+    {
+        "elemento" : "ballerina"
+    },
+
+    {
+        "elemento" : "zigolo"
+    },
+
+    {
+        "elemento" : "cacico"
+    },
+
+    {
+        "elemento" : "ittero"
+    },
+
+    {
+        "elemento" : "piranga"
+    },
+
+    {
+        "elemento" : "cardinale"
+    },
+
+    {
+        "elemento" : "pettirosso"
+    },
+
+    {
+        "elemento" : "canarino"
+    },
+
+    {
+        "elemento" : "nautilus"
+    },
+
+    {
+        "elemento" : "polpo"
+    },
+
+    {
+        "elemento" : "moscardino"
+    },
+
+    {
+        "elemento" : "calamaro"
+    },
+
+    {
+        "elemento" : "seppia"
+    },
+
+    {
+        "elemento" : "lumaca di mare"
+    },
+
+    {
+        "elemento" : "caravella portoghese"
+    },
+
+    {
+        "elemento" : "medusa"
+    },
+
+    {
+        "elemento" : "riccio di mare"
+    },
+
+    {
+        "elemento" : "paguro"
+    },
+
+    {
+        "elemento" : "canocchia"
+    },
+
+    {
+        "elemento" : "krill"
+    },
+
+    {
+        "elemento" : "gambero"
+    },
+
+    {
+        "elemento" : "gamberetto"
+    },
+
+    {
+        "elemento" : "granchio"
+    },
+
+    {
+        "elemento" : "aragosta"
+    },
+
+    {
+        "elemento" : "astice"
+    },
+
+    {
+        "elemento" : "munida"
+    },
+
+    {
+        "elemento" : "glaucus"
+    },
+
+    {
+        "elemento" : "scolopendra"
+    },
+
+    {
+        "elemento" : "millepiedi"
+    },
+
+    {
+        "elemento" : "centopiedi"
+    },
+
+    {
+        "elemento" : "amblipige"
+    },
+
+    {
+        "elemento" : "ragno"
+    },
+
+    {
+        "elemento" : "scorpione"
+    },
+
+    {
+        "elemento" : "blatta"
+    },
+
+    {
+        "elemento" : "cocchiera"
+    },
+
+    {
+        "elemento" : "scarabeo"
+    },
+
+    {
+        "elemento" : "coleottero"
+    },
+
+    {
+        "elemento" : "coccinella"
+    },
+
+    {
+        "elemento" : "farfalla"
+    },
+
+    {
+        "elemento" : "falena"
+    },
+
+    {
+        "elemento" : "bruco"
+    },
+
+    {
+        "elemento" : "grillo"
+    },
+
+    {
+        "elemento" : "cavalletta"
+    },
+
+    {
+        "elemento" : "locusta"
+    },
+
+    {
+        "elemento" : "mantide"
+    },
+
+    {
+        "elemento" : "ape"
+    },
+
+    {
+        "elemento" : "bombo"
+    },
+
+    {
+        "elemento" : "vespa"
+    },
+
+    {
+        "elemento" : "calabrone"
+    },
+
+    {
+        "elemento" : "cimice"
+    },
+
+    {
+        "elemento" : "insetto stecco"
+    },
+
+    {
+        "elemento" : "insetto foglia"
+    }
+]
