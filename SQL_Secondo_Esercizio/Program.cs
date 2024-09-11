@@ -18,7 +18,7 @@ class Program
                         INSERT INTO categorie (nome) VALUES ('c1');
                         INSERT INTO categorie (nome) VALUES ('c2');
                         INSERT INTO categorie (nome) VALUES ('c3');
-                        INSERT INTO prodotti (nome, prezzo, quantita, id_categoria) VALUES ('P1', 1, 10, 1);
+                        INSERT INTO prodotti (nome, prezzo, quantita, id_categoria) VALUES ('P1', 1, 10, 1); 
                         INSERT INTO prodotti (nome, prezzo, quantita, id_categoria) VALUES ('P2', 2, 20, 2);
                         ";
             SQLiteCommand command = new SQLiteCommand(sql, connection); // Crea il comando sql da eseguire sulla connessione al database
@@ -92,19 +92,19 @@ class Program
     {
         SQLiteConnection connection = new SQLiteConnection($"Data Source = database.db; Version = 3;");
         connection.Open();  // Apre la connessione del database
-        string sql = "SELECT * FROM prodotti";
+        string sql = "SELECT prodotti.id, prodotti.nome, prodotti.prezzo, prodotti.quantita, categorie.nome AS nome_categoria FROM prodotti JOIN categorie ON prodotti.id_categoria = categorie.id";
         SQLiteCommand command = new SQLiteCommand(sql, connection); // Crea il comando sql da eseguire sulla connessione al database
         SQLiteDataReader reader = command.ExecuteReader();  // Esegue il comando sql sulla connessione al database e salva i dati in reader
         while (reader.Read())
         {
-            Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, prezzo {reader["prezzo"]}, quantita: {reader["quantita"]}, id categoria: {reader["id_categoria"]}");
+            Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, prezzo {reader["prezzo"]}, quantita: {reader["quantita"]}, categoria: {reader["nome_categoria"]}");
         }
         connection.Close(); // Chiude la connessione al database
     }
 
     static void EliminaProdotto()
     {
-        Console.WriteLine("Inserisci il nome del prodotto");
+        Console.WriteLine("Inserisci il nome del prodotto"); 
         string nome = Console.ReadLine()!;
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db; Version=3;"); // Crea la connessione al database
         connection.Open();  // Apre la connessione al database
@@ -161,7 +161,6 @@ class Program
         Console.WriteLine("Inserisci la quantità del prodotto");
         string quantita = Console.ReadLine()!;
         Console.WriteLine("Inserisci la categoria del prodotto");
-        Console.ReadKey();
         VisualizzaCategorie();
         string idCategoria = Console.ReadLine()!;
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
