@@ -1,0 +1,50 @@
+header {
+    height: 2auto;
+}
+
+ul {
+    list-style: none;
+}
+.fw-bold {
+    color: rgb(234, 161, 173);
+}
+.fw-semibold{
+    color: rgb(57, 55, 56);
+}
+footer {
+    background-color: rgb(234, 161, 173);
+    height: 130px;
+}
+.bi-instagram {
+    color: black;
+}
+.bi-github {
+    color: black;
+}
+.bi-steam {
+    color: black;
+}
+.bi-envelope-open-heart
+{
+    color: black;
+}
+.bi-house-heart {
+    color: black;
+}
+
+p {
+    font-family: hensleyton;
+}
+@font-face {
+    font-family: stylo ;
+    src: url(Stylo/stylo_.ttf);
+}
+
+header {
+    background-color: rgb(234, 161, 173);
+}
+p, h1 {
+    font-family: stylo;
+}
+
+
