@@ -1,7 +1,19 @@
 .informazioni {
-    height: 230px;
+    height: 180px;
 }
 
 .icone {
     height: 180px;
+}
+
+.footer {
+    background-color: #880808;
+    color: white;
+}
+
+.sfondo {
+    background-color: #880808;
+}
+.sfondo2 {
+    background-color: #d43742e2;
 }

@@ -10,33 +10,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <div class="container-fluid navbar navbar-expand-lg bg-body-tertiary">
-        <ul class="row navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item col">
-                <a class="navbar-brand" href="#">Ente appartenenza/Owner</a>
-            </li>
-            <li class="nav-item col ">
-                <a class="navbar-brand col" href="#">Link 1</a>
-                <a class="navbar-brand col" href="#">Link 2 Active</a>
-            </li>
-            <li class="nav-item dropdown col">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    ITA
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <nav class="navbar navbar-expand-lg sfondo">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ente appartenenza/Owner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Link 2 Active</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ITA</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li class="nav-item col">
-                <a class="btn btn-primary" href="#" role="button">Accedi</a>
-            </li>
-        </ul>
-    </div>
-
-
-    
-    <div class = "informazioni container-fluid text-bg-danger ">
+                <form class="d-flex">
+                    <button class="btn btn-outline-success" type="submit">Accedi</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class = "informazioni container-fluid text-bg-danger">
         <div class="d-flex flex-column">
             <div class="container icone d-flex flex-row">
                 <div class="w-50 d-md-flex flex-row my-auto">
@@ -50,7 +54,7 @@
                     </div>
                 </div>
                 <div class="d-lg-flex flex-row w-25 my-auto">
-                    <h6 class="mx-3">seguici su</h6>
+                    <h6 class="mx-3 text-nowrap">seguici su</h6>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook mx-3" viewBox="0 0 16 16">
                         <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
                     </svg>
@@ -68,46 +72,147 @@
                     </svg>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid justify-content-end">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-2 mb-lg-0 nav nav-underline">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Link 1 Attivo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Link 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" aria-disabled="true">Link 3 Disabilitato</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Esempio di Dropdown</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Esempio di Dropdown</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                            </li>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg sfondo2">
+        <div class="container-fluid justify-content-end">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Link 1 Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container row">
+        <div class="col-6">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum totam ipsam atque ipsa, recusandae adipisci asperiores amet, itaque sunt blanditiis sequi fugiat, optio debitis consectetur commodi. Nam ullam minima necessitatibus!</p>
+        </div>
+    </div>
+    <div class="container-fluid text-bg-danger">
+        <div class="container row">
+            <div class="col-2 p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-code-square mx-4" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0m2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0"/>
+                </svg>
+            </div>
+            <div class="col-2 text-nowrap p-4">
+                <h6>Lorem Ipsum</h6>
+                <p>Inserire qui il tag line</p>
+            </div>
+            <div class="row text-nowrap">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <ul class="list-unstyled">
+                        <li><h6>AMMINISTRAZIONE</h6></li>
+                        <li><p6>Giunta e consiglio</p6></li>
+                        <li><p6>Aree di competenza</p6></li>
+                        <li><p6>Dipendenti</p6></li>
+                        <li><p6>Luoghi</p6></li>
+                        <li><p6>Associazioni e società</p6></li>
+                        <li><p6>Partecipate</p6></li>
+                    </ul>
                 </div>
-            </nav>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <ul class="list-unstyled">
+                        <li><h6>SERVIZI</h6></li>
+                        <li><p6>Pagamenti</p6></li>
+                        <li><p6>Sostegno</p6></li>
+                        <li><p6>Domande e iscrizioni</p6></li>
+                        <li><p6>Segnalazioni</p6></li>
+                        <li><p6>Associazioni e società</p6></li>
+                        <li><p6>Certificati e dichiarazioni</p6></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <ul class="list-unstyled">
+                        <li><h6>NOVITÀ</h6></li>
+                        <li><p6>Notizie</p6></li>
+                        <li><p6>Eventi</p6></li>
+                        <li><p6>Comunicati stampa</p6></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <ul class="list-unstyled">
+                        <li><h6>DOCUMENTI</h6></li>
+                        <li><p6>Progetti e attività</p6></li>
+                        <li><p6>Delibere, determine e ordinanze</p6></li>
+                        <li><p6>Bandi</p6></li>
+                        <li><p6>Concorsi</p6></li>
+                        <li><p>Albo pretorio</p6></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+            <div class="row text-nowrap"></div>
+                <div class="col-12 col-lg-4">
+                    <ul>
+                        <h6>CONTATTI</h6>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li><p6>Comune di Lorem Ipsum</p6></li>
+                        <li><p6>Via Roma 0-00000 Lorem Ipsum Codice</p6></li>
+                        <li><p6>fiscale / P.IVA: 000000000</p6></li>
+                    </ul>
+                    <ul class="list-unstyled">
+                        <li><p6>Posta Elettronica Certificata</p6></li>
+                        <li><p6>URP - Ufficio Relazioni con il Pubblico</p6></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h6>LOREM IPSUM</h6>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h6>SEGUICI SU</h6>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="bi bi-twitter"></i></li>
+                        <li class="list-inline-item"><i class="bi bi-discord"></i></li>
+                        <li class="list-inline-item"><i class="bi bi-threads-fill"></i></li>
+                        <li class="list-inline-item"><i class="bi bi-amd"></i></i></li>
+                    </ul>
+                    <h6>NEWSLETTER</h6>
+                    <p6>From Newsletter</p6>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><p class="m-2">Media policy</p></li>
+                    <li class="list-inline-item"><p class="m-2">Note legali</p></li>
+                    <li class="list-inline-item"><p class="m-2">Privacy policy</p></li>
+                    <li class="list-inline-item"><p class="m-2">Mappa del sito</p></li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
