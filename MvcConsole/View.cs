@@ -13,12 +13,13 @@ class View{
         Console.WriteLine("3. Modifica user");
         Console.WriteLine("4. Elimina user");
         Console.WriteLine("5. Cerca user");
-        Console.WriteLine("6. esci");
+        Console.WriteLine("6. Close Database");
+        Console.WriteLine("7. Esci");
     }
 
     public void ShowUsers(List<User> users){
         foreach (var user in users) {
-            Console.WriteLine($"id: {user.Id} , name {user.Name}");
+            Console.WriteLine($"id: {user.Id} , name: {user.Name}, surname: {user.Surname}, state: {user.Active}");
         }
     }
 
@@ -33,5 +34,4 @@ class View{
     public string DeleteUser(){
         return Console.ReadLine();
     }
-
 }
