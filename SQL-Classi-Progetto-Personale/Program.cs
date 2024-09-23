@@ -5,7 +5,8 @@
         Console.Clear();
         var db = new Database();
         var view = new View(db);
-        var controller = new Controller(db, view);
+        var validator = new Validator(view);
+        var controller = new Controller(db, view, validator);
         controller.CatalogMenu();
     }
 }

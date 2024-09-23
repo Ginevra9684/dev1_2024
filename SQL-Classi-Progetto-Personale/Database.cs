@@ -135,4 +135,82 @@ class Database
         }
         return areals;
     }
+
+    public List<Animal> SearchByClass(string search)
+    {
+        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe FROM animali JOIN classi ON animali.id_classe = classi.id WHERE classi.nome = @search", _connection);
+        command.Parameters.AddWithValue("@search", search);
+        var reader = command.ExecuteReader();
+        var animals = new List<Animal>();
+        while (reader.Read())
+        {
+            animals.Add(new Animal
+            {
+                Name = reader.GetString(0),
+                Classe = reader.GetString(1)
+            });
+        }
+        return animals;
+    }
+
+    public List<Animal> SearchByDiet(string search)
+    {
+        var command = new SQLiteCommand($"SELECT animali.nome , alimentazione.nome AS nome_alimentazione FROM animali JOIN alimentazione ON animali.id_alimentazione = alimentazione.id WHERE alimentazione.nome = @search", _connection);
+        command.Parameters.AddWithValue("@search", search);
+        var reader = command.ExecuteReader();
+        var animals = new List<Animal>();
+        while (reader.Read())
+        {
+            animals.Add(new Animal
+            {
+                Name = reader.GetString(0),
+                Diet = reader.GetString(1)
+            });
+        }
+        return animals;
+    }
+
+    public List<Animal> SearchByAreal(string search)
+    {
+        var command = new SQLiteCommand($"SELECT animali.nome , areali.nome AS nome_areale FROM animali JOIN areali ON animali.id_areale = areali.id WHERE areali.nome = @search", _connection);
+        command.Parameters.AddWithValue("@search", search);
+        var reader = command.ExecuteReader();
+        var animals = new List<Animal>();
+        while (reader.Read())
+        {
+            animals.Add(new Animal
+            {
+                Name = reader.GetString(0),
+                Areal = reader.GetString(1)
+            });
+        }
+        return animals;
+    }
+
+    public List<Animal> SearchByLetter(string search)
+    {
+        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , alimentazione.nome AS nome_alimentazione , areali.nome AS nome_areale FROM animali JOIN classi ON animali.id_classe = classi.id JOIN alimentazione ON animali.id_alimentazione = alimentazione.id JOIN areali ON animali.id_areale = areali.id WHERE animali.nome LIKE @search", _connection);
+        command.Parameters.AddWithValue("@search",search + "%");
+        var reader = command.ExecuteReader();
+        var animals = new List<Animal>();
+        while (reader.Read())
+        {
+            animals.Add(new Animal
+            {
+                Name = reader.GetString(0),
+                Classe = reader.GetString(1),
+                Diet = reader.GetString(2),
+                Areal = reader.GetString(3)
+            });
+        }
+        return animals;
+    }
+
+    public void CloseConnection()
+    {
+        if (_connection.State != System.Data.ConnectionState.Closed)
+        {
+            _connection.Close();
+        }
+    }
 }

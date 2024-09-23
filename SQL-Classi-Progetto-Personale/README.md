@@ -33,6 +33,16 @@
         - In Controller.ShowClasses richiamiamo _view.ShowClasses passando la variabile
         - In View.ShowClasses iteriamo la lista ottenuta da quella variabile
         - Facciamo lo stesso per le opzioni visualizza alimentazioni ed visualizza areali
+        - Creiamo una funzione GetInput in View
+        - Creiamo una classe Animale con le sue variabili
+        - In Controller.cs creiamo la funzione SearchByClass
+        - Al suo interno utilizziamo _view.GetInput
+        - In Database.cs creiamo la funzione SearchByClass di tipo List<Animal> con assegnata una variabile di tipo stringa e che restituisce una variabile animals
+        - Richiamiamo _db.SearchByClass in _controller.SearchByClass
+        - In View creiamo ShowByClass e lo richiamiamo a sua volta
+        - Facciamo lo stesso per le alimentazioni e gli areali
+        - Creiamo una funzione SearchByLetter che estrapola dal database tramite un LIKE %
+        - Chiudiamo la connessione al database quando chiudiamo l'applicazione
 
     Aggiunte :
 
@@ -147,7 +157,7 @@ static void CreaDatabase ()
 
                 switch (input)
                 {
-                    case  "[86]1.[/] Visualizza Classi [86].[/]":
+                    case "[86]1.[/] Visualizza Classi [86].[/]":
                         VisualizzaClassi();
                         break;
                     case "[86]2.[/] Visualizza Alimentazioni [86].[/]":    
