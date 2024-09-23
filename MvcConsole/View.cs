@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 class View{
     private Database _db;
 
