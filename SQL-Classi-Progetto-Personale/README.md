@@ -48,6 +48,15 @@
 
         - Loading del database per caricamenti lunghi
         - Controlli sul codice per spazi vuoti, inserimenti errati
+
+## CARATTERISTICHE DATABASE
+
+    - TABELLA PRINCIPALE (ANIMALI) : id, nome, id classe, id alimentazione, id areale, bool acquatico
+    - TABELLE SECONDARIA (CLASSI) : id, nome
+    - TABELLE SECONDARIA (ALIMENTAZIONE) : id, nome
+    - TABELLE SECONDARIA (AREALI) : id, nome
+
+
 ```C#
 static void CreaDatabase ()
     {

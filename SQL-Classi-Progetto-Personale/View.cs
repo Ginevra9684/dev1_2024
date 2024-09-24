@@ -50,64 +50,162 @@ class View
             });
     }
 
-    public void ShowClasses(List<AnimalDetail> classes)
+    public void ShowClasses(List<Classe> classes)
     {
         Loading();
-        foreach (var classe in classes) 
-        {
-            Console.WriteLine($"id: {classe.Id}     name: {classe.Name}");
-            SlowDown();
-        }
+
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Id[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var classe in classes)
+                    {
+                        table.AddRow($"[50]-[/]{classe.Id}", $"[79]-[/]{classe.Name}");
+                        ctx.Refresh();
+                        Thread.Sleep(300);
+                    }
+                });
     }
 
-    public void ShowDiets(List<AnimalDetail> diets)
+    public void ShowDiets(List<Diet> diets)
     {
         Loading();
-        foreach (var diet in diets) 
-        {
-            Console.WriteLine($"id: {diet.Id}     name: {diet.Name}");
-            SlowDown();
-        }
+
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Id[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var diet in diets)
+                    {
+                        table.AddRow($"[50]-[/]{diet.Id}", $"[79]-[/]{diet.Name}");
+                        ctx.Refresh();
+                        Thread.Sleep(300);
+                    }
+                });
     }
 
-    public void ShowAreals(List<AnimalDetail> areals)
+    public void ShowAreals(List<Areal> areals)
     {
         Loading();
-        foreach (var areal in areals)
-        {
-            Console.WriteLine($"id: {areal.Id}    name: {areal.Name}");
-            SlowDown();
-        }
+
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Id[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var areal in areals)
+                    {
+                        table.AddRow($"[50]-[/]{areal.Id}", $"[79]-[/]{areal.Name}");
+                        ctx.Refresh();
+                        Thread.Sleep(300);
+                    }
+                });
     }
 
     public void ShowByClass(List<Animal> animals)
     {
         Loading();
-        foreach (var animal in animals)
-        {
-            Console.WriteLine($"class: {animal.Classe}     animal: {animal.Name}");
-            SlowDown();
-        }
+
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Classe[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[80]Aquatic[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var animal in animals)
+                    {
+                        table.AddRow($"[50]-[/]{animal.Classe}", $"[79]-[/]{animal.Name}", $"[80]-[/]{animal.Aquatic}");
+                        ctx.Refresh();
+                        Thread.Sleep(300);
+                    }
+                });
     }
 
     public void ShowByDiet(List<Animal> animals)
     {
         Loading();
-        foreach (var animal in animals)
-        {
-            Console.WriteLine($"diet: {animal.Diet}     animal: {animal.Name}");
-            SlowDown();
-        }
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Alimentazione[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[80]Aquatic[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var animal in animals)
+                    {
+                        table.AddRow($"[50]-[/]{animal.Diet}", $"[79]-[/]{animal.Name}", $"[80]-[/]{animal.Aquatic}");
+                        ctx.Refresh();
+                        Thread.Sleep(500);
+                    }
+                });
     }
 
     public void ShowByAreal(List<Animal> animals)
     {
         Loading();
-        foreach (var animal in animals)
-        {
-            Console.WriteLine($"areal: {animal.Areal}    animal: {animal.Name}");
-            SlowDown();
-        }
+
+        var table = new Table();
+            AnsiConsole.Live(table)
+                .Start(ctx =>
+                {
+                    table.Border(TableBorder.Rounded);
+                    table.Centered();
+                    table.AddColumn("[50]Areale[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[79]Nome[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    table.AddColumn("[80]Aquatic[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
+                    foreach (var animal in animals)
+                    {
+                        table.AddRow($"[50]-[/]{animal.Areal}", $"[79]-[/]{animal.Name}", $"[80]-[/]{animal.Aquatic}");
+                        ctx.Refresh();
+                        Thread.Sleep(500);
+                    }
+                });
     }
 
     public void ShowByLetter(List<Animal> animals)
@@ -132,9 +230,14 @@ class View
                     table.AddColumn("[81]Areale[/]");
                     ctx.Refresh();
                     Thread.Sleep(500);
+                    table.AddColumn("[87]Aquatic[/]");
+                    ctx.Refresh();
+                    Thread.Sleep(500);
                     foreach (var animal in animals)
                     {
-                        table.AddRow($"[50]-[/]{animal.Name}", $"[79]-[/]{animal.Classe}", $"[80]-[/]{animal.Diet}", $"[81]-[/]{animal.Areal}" );
+                        table.AddRow($"[50]-[/]{animal.Name}", $"[79]-[/]{animal.Classe}", $"[80]-[/]{animal.Diet}", $"[81]-[/]{animal.Areal}" , $"[87]-[/]{animal.Aquatic}" );
+                        ctx.Refresh();
+                        Thread.Sleep(500);
                     }
                 });
     }

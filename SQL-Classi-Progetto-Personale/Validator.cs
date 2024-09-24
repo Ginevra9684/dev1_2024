@@ -20,12 +20,13 @@ class Validator
             }
             if (int.TryParse(input, out value))
             {
-                AnsiConsole.WriteLine($"{value} isn't a valid input");
+                AnsiConsole.Markup($"\t \t :red_circle: {value} isn't a valid input \n");
                 _view.Continue();
                 continue;  
             }
             else 
             {
+                Console.Clear();
                 return input;
             }
         }while(true);

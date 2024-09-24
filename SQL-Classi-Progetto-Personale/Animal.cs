@@ -7,4 +7,6 @@ class Animal
     public string Diet { get; set; }
 
     public string Areal { get; set; }
+
+    public bool Aquatic { get; set; }
 }

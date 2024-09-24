@@ -6,14 +6,14 @@ class Database
     public Database()
     {
         string pathDatabase = @"catalogo.db";
-        _connection = new SQLiteConnection($"Data Source={pathDatabase}");
-        _connection.Open();
         if (!File.Exists(pathDatabase))
         {
+            _connection = new SQLiteConnection($"Data Source={pathDatabase}");
+            _connection.Open();
             var command = new SQLiteCommand(@"  CREATE TABLE classi (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
                                             CREATE TABLE alimentazione (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
                                             CREATE TABLE areali (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
-                                            CREATE TABLE animali (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, id_classe INTEGER, id_alimentazione INTEGER, id_areale INTEGER, FOREIGN KEY (id_classe) REFERENCES classi(id), FOREIGN KEY (id_alimentazione) REFERENCES alimentazione(id), FOREIGN KEY (id_areale) REFERENCES areali(id));
+                                            CREATE TABLE animali (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE, id_classe INTEGER, id_alimentazione INTEGER, id_areale INTEGER, aquatic BOOLEAN, FOREIGN KEY (id_classe) REFERENCES classi(id), FOREIGN KEY (id_alimentazione) REFERENCES alimentazione(id), FOREIGN KEY (id_areale) REFERENCES areali(id));
                                             INSERT INTO classi (nome) VALUES ('mammalia');
                                             INSERT INTO classi (nome) VALUES ('reptilia');
                                             INSERT INTO classi (nome) VALUES ('aves');
@@ -67,35 +67,40 @@ class Database
                                             INSERT INTO areali (nome) VALUES ('oceano indiano');
                                             INSERT INTO areali (nome) VALUES ('oceano artico');
                                             INSERT INTO areali (nome) VALUES ('oceano antartico');
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('ornitorinco',1,1,3);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('echidna',1,4,1);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('opossum',1,3,10);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('toporagno',1,1,15);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('diavolo della tasmania',1,1,8);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('mulgara',1,1,2);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('kowari',1,1,1);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('quoll',1,1,1);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('numbat',1,4,4);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('koala',1,2,1);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('canguro',1,2,1);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('camaleonte',2,4,20);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('rana arboricola',4,4,14);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('squalo martello',5,1,35);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('pesce chirurgo',5,2,34);
-                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale) VALUES ('pinguino',3,1,33);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('ornitorinco',1,1,3,1);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('echidna',1,4,1, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('opossum',1,3,10, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('toporagno',1,1,15, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('diavolo della tasmania',1,1,8, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('mulgara',1,1,2, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('kowari',1,1,1, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('quoll',1,1,1, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('numbat',1,4,4, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('koala',1,2,1, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('canguro',1,2,1, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('camaleonte',2,4,20, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('rana arboricola',4,4,14, 0);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('squalo martello',5,1,35, 1);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('pesce chirurgo',5,2,34, 1);
+                                            INSERT INTO animali (nome, id_classe, id_alimentazione, id_areale, aquatic) VALUES ('pinguino',3,1,33, 1);
                                             ", _connection);
             command.ExecuteNonQuery();
         }
+        else
+        {
+            _connection = new SQLiteConnection($"Data Source={pathDatabase}");
+            _connection.Open();
+        }
     }
 
-    public List<AnimalDetail> GetClasses()
+    public List<Classe> GetClasses()
     {
         var command = new SQLiteCommand("SELECT * FROM classi", _connection);
         var reader = command.ExecuteReader();
-        var classes = new List<AnimalDetail>();
+        var classes = new List<Classe>();
         while (reader.Read())
         {
-            classes.Add(new AnimalDetail
+            classes.Add(new Classe
             {
                 Id = reader.GetInt32(0),
                 Name = reader.GetString(1)
@@ -104,14 +109,14 @@ class Database
         return classes;
     }
 
-    public List<AnimalDetail> GetDiets()
+    public List<Diet> GetDiets()
     {
         var command = new SQLiteCommand("SELECT * FROM alimentazione", _connection);
         var reader = command.ExecuteReader();
-        var diets = new List<AnimalDetail>();
+        var diets = new List<Diet>();
         while (reader.Read())
         {
-            diets.Add(new AnimalDetail
+            diets.Add(new Diet
             {
                 Id = reader.GetInt32(0),
                 Name = reader.GetString(1)
@@ -120,14 +125,14 @@ class Database
         return diets;
     }
 
-    public List<AnimalDetail> GetAreals()
+    public List<Areal> GetAreals()
     {
         var command = new SQLiteCommand("SELECT * FROM areali", _connection);
         var reader = command.ExecuteReader();
-        var areals = new List<AnimalDetail>();
+        var areals = new List<Areal>();
         while (reader.Read())
         {
-            areals.Add(new AnimalDetail
+            areals.Add(new Areal
             {
                 Id = reader.GetInt32(0),
                 Name = reader.GetString(1)
@@ -138,7 +143,7 @@ class Database
 
     public List<Animal> SearchByClass(string search)
     {
-        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe FROM animali JOIN classi ON animali.id_classe = classi.id WHERE classi.nome = @search", _connection);
+        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , animali.aquatic FROM animali JOIN classi ON animali.id_classe = classi.id WHERE classi.nome = @search", _connection);
         command.Parameters.AddWithValue("@search", search);
         var reader = command.ExecuteReader();
         var animals = new List<Animal>();
@@ -147,7 +152,8 @@ class Database
             animals.Add(new Animal
             {
                 Name = reader.GetString(0),
-                Classe = reader.GetString(1)
+                Classe = reader.GetString(1),
+                Aquatic = reader.GetBoolean(2)
             });
         }
         return animals;
@@ -155,7 +161,7 @@ class Database
 
     public List<Animal> SearchByDiet(string search)
     {
-        var command = new SQLiteCommand($"SELECT animali.nome , alimentazione.nome AS nome_alimentazione FROM animali JOIN alimentazione ON animali.id_alimentazione = alimentazione.id WHERE alimentazione.nome = @search", _connection);
+        var command = new SQLiteCommand($"SELECT animali.nome , alimentazione.nome AS nome_alimentazione , animali.aquatic FROM animali JOIN alimentazione ON animali.id_alimentazione = alimentazione.id WHERE alimentazione.nome = @search", _connection);
         command.Parameters.AddWithValue("@search", search);
         var reader = command.ExecuteReader();
         var animals = new List<Animal>();
@@ -164,7 +170,8 @@ class Database
             animals.Add(new Animal
             {
                 Name = reader.GetString(0),
-                Diet = reader.GetString(1)
+                Diet = reader.GetString(1),
+                Aquatic = reader.GetBoolean(2)
             });
         }
         return animals;
@@ -172,8 +179,8 @@ class Database
 
     public List<Animal> SearchByAreal(string search)
     {
-        var command = new SQLiteCommand($"SELECT animali.nome , areali.nome AS nome_areale FROM animali JOIN areali ON animali.id_areale = areali.id WHERE areali.nome = @search", _connection);
-        command.Parameters.AddWithValue("@search", search);
+        var command = new SQLiteCommand($"SELECT animali.nome , areali.nome AS nome_areale , animali.aquatic FROM animali JOIN areali ON animali.id_areale = areali.id WHERE areali.nome LIKE @search", _connection);
+        command.Parameters.AddWithValue("@search", "%" + search + "%");
         var reader = command.ExecuteReader();
         var animals = new List<Animal>();
         while (reader.Read())
@@ -181,7 +188,8 @@ class Database
             animals.Add(new Animal
             {
                 Name = reader.GetString(0),
-                Areal = reader.GetString(1)
+                Areal = reader.GetString(1),
+                Aquatic = reader.GetBoolean(2)
             });
         }
         return animals;
@@ -189,7 +197,7 @@ class Database
 
     public List<Animal> SearchByLetter(string search)
     {
-        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , alimentazione.nome AS nome_alimentazione , areali.nome AS nome_areale FROM animali JOIN classi ON animali.id_classe = classi.id JOIN alimentazione ON animali.id_alimentazione = alimentazione.id JOIN areali ON animali.id_areale = areali.id WHERE animali.nome LIKE @search", _connection);
+        var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , alimentazione.nome AS nome_alimentazione , areali.nome AS nome_areale , animali.aquatic FROM animali JOIN classi ON animali.id_classe = classi.id JOIN alimentazione ON animali.id_alimentazione = alimentazione.id JOIN areali ON animali.id_areale = areali.id WHERE animali.nome LIKE @search", _connection);
         command.Parameters.AddWithValue("@search",search + "%");
         var reader = command.ExecuteReader();
         var animals = new List<Animal>();
@@ -200,7 +208,8 @@ class Database
                 Name = reader.GetString(0),
                 Classe = reader.GetString(1),
                 Diet = reader.GetString(2),
-                Areal = reader.GetString(3)
+                Areal = reader.GetString(3),
+                Aquatic = reader.GetBoolean(4)
             });
         }
         return animals;

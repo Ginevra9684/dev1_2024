@@ -1,0 +1,49 @@
+[
+    {
+        "elemento" : "fantasy"
+    },
+
+    {
+        "elemento" : "horror"
+    },
+
+    {
+        "elemento" : "steampank"
+    },
+
+    {
+        "elemento" : "Adventure"
+    },
+
+    {
+        "elemento" : "Prehistorical"
+    },
+
+    {
+        "elemento" : "Sci-fi"
+    },
+
+    {
+        "elemento" : "Western"
+    },
+
+    {
+        "elemento" : "Apocalyptic"
+    },
+
+    {
+        "elemento" : "Futuristic"
+    },
+
+    {
+        "elemento" : "comedy"
+    },
+
+    {
+        "elemento" : "action"
+    },
+
+    {
+        "elemento" : "thriller"
+    }
+]
