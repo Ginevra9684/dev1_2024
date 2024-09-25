@@ -3,9 +3,12 @@ class Database
 {
     private SQLiteConnection _connection;
 
+                // Costruttore con collegamento a un database
     public Database()
     {
         string pathDatabase = @"catalogo.db";
+
+                    // Creazione database se non già esistente con correlata apertura connessione
         if (!File.Exists(pathDatabase))
         {
             _connection = new SQLiteConnection($"Data Source={pathDatabase}");
@@ -86,26 +89,32 @@ class Database
                                             ", _connection);
             command.ExecuteNonQuery();
         }
-        else
+        else            // Apertura connessione al database se il database è già esistente
         {
             _connection = new SQLiteConnection($"Data Source={pathDatabase}");
             _connection.Open();
         }
     }
 
+//----------METODI PER ESTRAPOLARE ELEMENTI DAL DATABASE------------------------------------------------------------------------------
     public List<Classe> GetClasses()
     {
+                    // Comando SQL
         var command = new SQLiteCommand("SELECT * FROM classi", _connection);
         var reader = command.ExecuteReader();
+                    // Lista che conterrà ogni valore estrapolato sotto forma di variabile appartenende ad un modello
         var classes = new List<Classe>();
+                    // Lettura dei valori estrapolati con comando SQL
         while (reader.Read())
         {
+                        // Assegnazione dei valori alle variabili del modello -> modello aggiunto alla lista
             classes.Add(new Classe
             {
                 Id = reader.GetInt32(0),
                 Name = reader.GetString(1)
             });
         }
+                    // Lista che contenente i modelli, passata al Controller per poter essere visualizzata tramite View
         return classes;
     }
 
@@ -141,9 +150,11 @@ class Database
         return areals;
     }
 
-    public List<Animal> SearchByClass(string search)
+//----------METODI PER ESTRAPOLARE ELEMENTI DAL DATABASE IN MODO SELETTIVO TRAMITE INPUT UTENTE---------------------------------------
+    public List<Animal> SearchByClass(string search)    // search = passato da Controller
     {
         var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , animali.aquatic FROM animali JOIN classi ON animali.id_classe = classi.id WHERE classi.nome = @search", _connection);
+                    // trasformazione variabile in parametro per effettuare controlli di sicurezza
         command.Parameters.AddWithValue("@search", search);
         var reader = command.ExecuteReader();
         var animals = new List<Animal>();
@@ -215,11 +226,12 @@ class Database
         return animals;
     }
 
+//------------------------------------------------------------------------------------------------------------------------------------
     public void CloseConnection()
     {
         if (_connection.State != System.Data.ConnectionState.Closed)
         {
-            _connection.Close();
+            _connection.Close();    // Chiude connessione database
         }
     }
 }

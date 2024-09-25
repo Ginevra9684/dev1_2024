@@ -7,7 +7,6 @@ class Json
     {
         Random random = new Random(); //
         int index;                    //
-        string valorePerDizionario;   // 
     //--------------------------------//
 
         string json = File.ReadAllText(path);
@@ -16,7 +15,7 @@ class Json
         for (int i = 1; i <= elementsQuantity ;i++ ) 
         {          
             index = random.Next(0, obj.Count);
-            _elements.Add(obj[index].elemento);
+            _elements.Add(Convert.ToString(obj[index].elemento));
         }
         return _elements;
     }

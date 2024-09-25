@@ -1,8 +1,15 @@
-# AGGIUNTA CLASSI AL PROGETTO
+# AGGIUNTA CLASSI AD UN PROGETTO
+
+## PROGETTO ORIGINALE
+
+    Catalogo con caratteristiche di alcuni animali : mostra la classe, l'alimentazione e l'areale di un'animale e se quest'ultimo è acquatico o meno
 
 ## MODELLO MVC
 
-    Passaggi :
+<details> 
+
+<summary> PASSAGGI </summary>
+    
 
         - Creare file .cs per il model (database)
         - Creare file .cs per la view
@@ -48,6 +55,8 @@
 
         - Loading del database per caricamenti lunghi
         - Controlli sul codice per spazi vuoti, inserimenti errati
+    
+</details>
 
 ## CARATTERISTICHE DATABASE
 
@@ -56,6 +65,20 @@
     - TABELLE SECONDARIA (ALIMENTAZIONE) : id, nome
     - TABELLE SECONDARIA (AREALI) : id, nome
 
+## CARATTERISTICHE MENU
+    
+- VISUALIZZA CLASSI : fornisce un elenco di tutti gli elementi della tabella classi
+- VISUALIZZA ALIMENTAZIONE : fornisce un elenco di tutti gli elementi della tabella classi
+- VISUALIZZA AREALI : fornisce un elenco di tutti gli elementi della tabella classi
+- CERCA TRAMITE CLASSE : scrivendo il nome di una classe (es. mammalia) fornisce un elenco di tutti gli animali appartenenti a quella classe
+- CERCA TRAMITE ALIMENTAZIONE : scrivendo il nome di un tipo di alimentazione (es. carnivoro) fornisce un elenco di tutti gli animali di cui quell'alimentazione ne è una caratteristica
+- CERCA TRAMITE AREALE : scrivendo il nome di un areale (es. australia) fornisce un elenco di tutti gli animali il cui habitat corrisponde all'areale scelto
+    - La ricerca può essere sia specifica che generica (es. australia, sud australia ecc)
+- CERCA TRAMITE LETTERA : permette di cercare animali e vedere tutte le loro caratteristiche scrivendo la loro iniziale o più lettere fino anche a scrivere l'intero nome 
+
+<details>
+
+<summary> CODICE ORIGINALE </summary>
 
 ```C#
 static void CreaDatabase ()
@@ -314,3 +337,4 @@ static void CreaDatabase ()
     }
 
 ```
+</details>

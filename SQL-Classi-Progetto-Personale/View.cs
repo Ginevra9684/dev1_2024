@@ -8,6 +8,7 @@ class View
         _db = db;
     }
 
+                // Menu creato tramite spectre console : la scelta selezionata viene passata alla classe Controller tramite un return
     public string ShowCatalogMenu()
     {
         string input = AnsiConsole.Prompt(
@@ -19,38 +20,51 @@ class View
                                         "[86]4.[/] Cerca Tramite Classe [86].[/]","[86]5.[/] Cerca Tramite Alimentazione [86].[/]","[86]6.[/] Cerca Tramite Areale [86].[/]",
                                         "[86]7.[/] Cerca Tramite Iniziale [86].[/]", "[86]8.[/] Chiudi Programma [86].[/]"
                     }));
-        return input;
+        return input;   // Restituisce al Controller la scelta efettuata tra quelle sopra elencate
     }
 
+                // Metodo GetInput
+                // Prende un input utente e lo trasforma in minuscolo e rimuove eventuali spazi iniziali/finali
     public string GetInput()
     { 
         return Console.ReadLine().ToLower().Trim();
     }
 
+                // Metodo ontinue
+                // Attende input generico per rendere l'applicazione più fluida
     public void Continue()
     {
+                    // Messaggio -> attesa input generico -> pulizia console
         AnsiConsole.Markup("\n:red_exclamation_mark:Premere un tasto per proseguire[221].[/][222].[/][223].[/]");
-        Console.ReadKey();
+        Console.ReadKey();  
         AnsiConsole.Clear();
     }
 
+                // Metodo SlowDown
+                // Rallenta la visualizzazione di determinati dati (valore fisso 300)
     public void SlowDown()
     {
         Thread.Sleep(300);
     }
 
+                // Metodo Loading
+                // Visualizza uno spinner di spectre console prima che siano caricati dei dati
     public void Loading()
     {
         AnsiConsole.Status()
-        .Start("[75]Loading[/]", ctx => 
+        .Start("[75]Loading[/]", ctx =>                     // Parola visualizzata
             {
-                ctx.Spinner(Spinner.Known.Point);
-                ctx.SpinnerStyle(Style.Parse("69"));
-                Thread.Sleep(2000);
+                ctx.Spinner(Spinner.Known.Point);           // Tipologia spinner
+                ctx.SpinnerStyle(Style.Parse("69"));        // codice colore
+                Thread.Sleep(2000);                         // Tempo durata "animazione"
             });
     }
 
-    public void ShowClasses(List<Classe> classes)
+//--------------METODI PER VISUALIZZARE TABELLE SPECTRE CONSOLE CONTENENTI I DATI PRECEDENTEMENTE ESTRAPOLATI DA UN DATABASE (CONTROLLER -> DATABASE -> VIEW)              
+    
+                // Metodo ShowClasses
+                // Mostra in tabella spectre tutte le classi animali esistenti
+    public void ShowClasses(List<Classe> classes) // Lista di modelli passata da Controller
     {
         Loading();
 
@@ -60,7 +74,7 @@ class View
                 {
                     table.Border(TableBorder.Rounded);
                     table.Centered();
-                    table.AddColumn("[50]Id[/]");
+                    table.AddColumn("[50]Id[/]");   // Id sarà il nome della prima colonna
                     ctx.Refresh();
                     Thread.Sleep(500);
                     table.AddColumn("[79]Nome[/]");
@@ -68,13 +82,16 @@ class View
                     Thread.Sleep(500);
                     foreach (var classe in classes)
                     {
-                        table.AddRow($"[50]-[/]{classe.Id}", $"[79]-[/]{classe.Name}");
+                                    // il contenuto di classe.id sarà l'elemento o uno degli elementi visualizzato/i nella colonna "Id"
+                        table.AddRow($"[50]-[/]{classe.Id}", $"[79]-[/]{classe.Name}"); 
                         ctx.Refresh();
-                        Thread.Sleep(300);
+                        SlowDown();
                     }
                 });
     }
 
+                // Metodo ShowDiets
+                // Mostra in tabella spectre tutte le tipologie di alimentazioni animali esistenti 
     public void ShowDiets(List<Diet> diets)
     {
         Loading();
@@ -95,11 +112,13 @@ class View
                     {
                         table.AddRow($"[50]-[/]{diet.Id}", $"[79]-[/]{diet.Name}");
                         ctx.Refresh();
-                        Thread.Sleep(300);
+                        SlowDown();
                     }
                 });
     }
 
+                // Metodo ShowAreals
+                // Mostra in tabella spectre tutte gli areali esistenti
     public void ShowAreals(List<Areal> areals)
     {
         Loading();
@@ -120,11 +139,13 @@ class View
                     {
                         table.AddRow($"[50]-[/]{areal.Id}", $"[79]-[/]{areal.Name}");
                         ctx.Refresh();
-                        Thread.Sleep(300);
+                        SlowDown();
                     }
                 });
     }
 
+                // Metodo ShowByClass
+                // Mostra in tabella spectre tutti gli animali appartenenti alla classe da noi scelta
     public void ShowByClass(List<Animal> animals)
     {
         Loading();
@@ -148,11 +169,13 @@ class View
                     {
                         table.AddRow($"[50]-[/]{animal.Classe}", $"[79]-[/]{animal.Name}", $"[80]-[/]{animal.Aquatic}");
                         ctx.Refresh();
-                        Thread.Sleep(300);
+                        SlowDown();
                     }
                 });
     }
 
+                // Metodo ShowByDiet
+                // Mostra in tabella spectre tutti gli animali con l'alimentazione da noi scelta
     public void ShowByDiet(List<Animal> animals)
     {
         Loading();
@@ -180,6 +203,8 @@ class View
                 });
     }
 
+                // Metodo ShowByAreal
+                // Mostra in tabella spectre tutti gli animali appartenenti all'areale da noi scelto
     public void ShowByAreal(List<Animal> animals)
     {
         Loading();
@@ -208,6 +233,8 @@ class View
                 });
     }
 
+                // Metodo ShowByLetter
+                // Mostra in tabella spectre tutti gli animali che iniziano con la/e lettera/a da noi scelta/e
     public void ShowByLetter(List<Animal> animals)
     {
         Loading();
