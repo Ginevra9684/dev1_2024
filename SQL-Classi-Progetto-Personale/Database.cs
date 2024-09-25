@@ -97,6 +97,9 @@ class Database
     }
 
 //----------METODI PER ESTRAPOLARE ELEMENTI DAL DATABASE------------------------------------------------------------------------------
+
+                // Metodo GetClasses
+                // Seleziona tutto dalla tabella classi
     public List<Classe> GetClasses()
     {
                     // Comando SQL
@@ -118,6 +121,8 @@ class Database
         return classes;
     }
 
+                // Metodo GetDiets
+                // Seleziona tutto dalla tabella alimentazione
     public List<Diet> GetDiets()
     {
         var command = new SQLiteCommand("SELECT * FROM alimentazione", _connection);
@@ -134,6 +139,8 @@ class Database
         return diets;
     }
 
+                // Metodo GetAreals
+                // Seleziona tutto dalla tabella areali
     public List<Areal> GetAreals()
     {
         var command = new SQLiteCommand("SELECT * FROM areali", _connection);
@@ -151,6 +158,9 @@ class Database
     }
 
 //----------METODI PER ESTRAPOLARE ELEMENTI DAL DATABASE IN MODO SELETTIVO TRAMITE INPUT UTENTE---------------------------------------
+
+                // Metodo SearchByClass
+                // Seleziona il nome e la classe degli animali che corrispondono alla classe da noi fornita
     public List<Animal> SearchByClass(string search)    // search = passato da Controller
     {
         var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , animali.aquatic FROM animali JOIN classi ON animali.id_classe = classi.id WHERE classi.nome = @search", _connection);
@@ -170,6 +180,9 @@ class Database
         return animals;
     }
 
+                // Metodo SearchByDiet
+                // Seleziona il nome e l'alimentazione' degli animali che corrispondono all'alimentazione da noi fornita
+
     public List<Animal> SearchByDiet(string search)
     {
         var command = new SQLiteCommand($"SELECT animali.nome , alimentazione.nome AS nome_alimentazione , animali.aquatic FROM animali JOIN alimentazione ON animali.id_alimentazione = alimentazione.id WHERE alimentazione.nome = @search", _connection);
@@ -188,6 +201,8 @@ class Database
         return animals;
     }
 
+                // Metodo SearchByAreal
+                // Seleziona il nome e l'areale degli animali che corrispondono all'areale da noi fornito
     public List<Animal> SearchByAreal(string search)
     {
         var command = new SQLiteCommand($"SELECT animali.nome , areali.nome AS nome_areale , animali.aquatic FROM animali JOIN areali ON animali.id_areale = areali.id WHERE areali.nome LIKE @search", _connection);
@@ -206,6 +221,8 @@ class Database
         return animals;
     }
 
+                // Metodo SearchByLetter 
+                // Seleziona tutte le caratteristiche degli animali che iniziano con la lettera/e da noi fornita/e
     public List<Animal> SearchByLetter(string search)
     {
         var command = new SQLiteCommand($"SELECT animali.nome , classi.nome AS nome_classe , alimentazione.nome AS nome_alimentazione , areali.nome AS nome_areale , animali.aquatic FROM animali JOIN classi ON animali.id_classe = classi.id JOIN alimentazione ON animali.id_alimentazione = alimentazione.id JOIN areali ON animali.id_areale = areali.id WHERE animali.nome LIKE @search", _connection);
@@ -227,6 +244,9 @@ class Database
     }
 
 //------------------------------------------------------------------------------------------------------------------------------------
+
+                // Metodo CloseConnection
+                // Chiude la connessione al database
     public void CloseConnection()
     {
         if (_connection.State != System.Data.ConnectionState.Closed)
