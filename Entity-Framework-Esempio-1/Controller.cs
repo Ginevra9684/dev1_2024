@@ -34,6 +34,26 @@ class Controller
             }
             if (input == "5")
             {
+                AddSubscription();  // Aggiungi abbonamento
+            }
+            if (input == "6")
+            {
+                ShowSubscriptions();
+            }
+            if (input == "7")
+            {
+                DeleteSubscription();
+            }
+            if (input == "8")
+            {
+                AddTransaction();
+            }
+            if (input == "9")
+            {
+                ShowTransactions();
+            }
+            if (input == "10")
+            {
                 break;
             }
         }
@@ -43,7 +63,10 @@ class Controller
     {
         Console.WriteLine("Enter user name:");
         var name = _view.GetInput();    // Legge il nome dell'utente
-        _db.Users.Add(new User {Name = name});  // Aggiunge un utente al database
+        Console.WriteLine("user is active or inactive (y/n)");
+        var stato = _view.GetInput().ToLower();
+        bool isActive = stato == "y";
+        _db.Users.Add(new User {Name = name,  IsActive = isActive});  // Aggiunge un utente al database
         _db.SaveChanges();  // Salva le modifiche
     }
 
@@ -98,5 +121,80 @@ class Controller
             _db.Users.Remove(userToDelete); // Rimuove l'utente
             _db.SaveChanges();  // Salva le modifiche
         }
+    }
+
+    private void AddSubscription()
+    {
+        Console.WriteLine("Enter subscription name");
+        var name = _view.GetInput();    // Legge il nome dell'utente
+        Console.WriteLine("Enter subscription price");
+        var price = decimal.Parse(_view.GetInput());
+        _db.Subscriptions.Add(new Subscription { Name = name, Price = price });  // Aggiunge un utente al database
+        _db.SaveChanges();  // Salva le modifiche
+    }
+
+    private void ShowSubscriptions()
+    {
+        var subscriptions = _db.Subscriptions.ToList(); // Prende tutti gli utenti del database
+        _view.ShowSubscriptions(subscriptions); // Mostra gli utenti
+    }
+
+    private void DeleteSubscription()
+    {
+        Console.WriteLine("Enter subscription name: ");
+        var name = _view.GetInput();    // Legge il nome dell'utente
+
+        Subscription subToDelete = null;
+        foreach (var sub in _db.Subscriptions)
+        {
+            if (sub.Name == name)
+            {
+                subToDelete = sub;
+                break;  // Esce dal ciclo una volta trovato l'utente
+            }
+        }
+
+        if (subToDelete != null)
+        {
+            _db.Subscriptions.Remove(subToDelete); // Rimuove l'utente
+            _db.SaveChanges();  // Salva le modifiche
+        }
+    }
+
+    private void AddTransaction()
+    {
+        Console.WriteLine("Inserisci il tuo nome");
+        var name = _view.GetInput();
+
+        User userToSubscribe = null;
+        foreach (var user in _db.Users)
+        {
+            if (user.Name == name)
+            {
+                userToSubscribe = user;
+                break;
+            }
+        }
+        
+        Console.WriteLine("Enter subscription name");
+        var subscription = _view.GetInput();
+
+        Subscription subToAdd = null;
+        foreach (var sub in _db.Subscriptions)
+        {
+            if (sub.Name == name)
+            {
+                subToAdd = sub;
+                break; 
+            }
+        }
+        _db.Transactions.Add(new Transaction { User = userToSubscribe, Type = subToAdd, Date = DateTime.Now});
+        _db.SaveChanges();
+    }
+
+    private void ShowTransactions()
+    {
+        var transaction = _db.Transactions.ToList(); // Prende tutti gli utenti del database
+        _view.ShowTransactions(transaction); // Mostra gli utenti
     }
 }

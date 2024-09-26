@@ -194,7 +194,6 @@ class Database
 
                 // Metodo SearchByDiet
                 // Seleziona il nome e l'alimentazione' degli animali che corrispondono all'alimentazione da noi fornita
-
     public List<Animal> SearchByDiet(string search)
     {
         var command = new SQLiteCommand($"SELECT animali.nome , alimentazione.nome AS nome_alimentazione , animali.aquatic FROM animali JOIN alimentazione ON animali.id_alimentazione = alimentazione.id WHERE alimentazione.nome = @search", _connection);
