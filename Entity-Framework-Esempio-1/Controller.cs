@@ -34,23 +34,23 @@ class Controller
             }
             if (input == "5")
             {
-                AddSubscription();  // Aggiungi abbonamento
+                AddSubscription();  // Aggiungi sub
             }
             if (input == "6")
             {
-                ShowSubscriptions();
+                ShowSubscriptions();    // Mostra sub
             }
             if (input == "7")
             {
-                DeleteSubscription();
+                DeleteSubscription();   // Elimina sub
             }
             if (input == "8")
             {
-                AddTransaction();
+                AddTransaction();   // Aggiungi transazione
             }
             if (input == "9")
             {
-                ShowTransactions();
+                ShowTransactions(); // Mostra transazioni
             }
             if (input == "10")
             {
@@ -163,7 +163,7 @@ class Controller
 
     private void AddTransaction()
     {
-        Console.WriteLine("Inserisci il tuo nome");
+        Console.WriteLine("Enter user name");
         var name = _view.GetInput();
 
         User userToSubscribe = null;
@@ -182,14 +182,21 @@ class Controller
         Subscription subToAdd = null;
         foreach (var sub in _db.Subscriptions)
         {
-            if (sub.Name == name)
+            if (sub.Name == subscription)
             {
                 subToAdd = sub;
                 break; 
             }
         }
-        _db.Transactions.Add(new Transaction { User = userToSubscribe, Type = subToAdd, Date = DateTime.Now});
-        _db.SaveChanges();
+                    // la data deve essere in formato yyyy-MM-dd
+        Console.WriteLine("Enter transaction date (yyyy-MM-dd): ");
+        var date = DateTime.Parse(_view.GetInput());
+
+        if (userToSubscribe != null && subToAdd != null && date != null)
+        {
+            _db.Transactions.Add(new Transaction { User = userToSubscribe, Subscription = subToAdd, Date = date});
+            _db.SaveChanges();
+        }
     }
 
     private void ShowTransactions()

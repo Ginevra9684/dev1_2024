@@ -10,11 +10,11 @@ class View
     public void ShowMainMenu()
     {
         Console.WriteLine("1. Aggiungi user");
-        Console.WriteLine("2. Leggi users");
+        Console.WriteLine("2. Mostra users");
         Console.WriteLine("3. Modifica user");
         Console.WriteLine("4. Elimina user");
         Console.WriteLine("5. Aggiungi abbonamento");
-        Console.WriteLine("6. Leggi abbonamenti");
+        Console.WriteLine("6. Mostra abbonamenti");
         Console.WriteLine("7. Cancella abbonamento");
         Console.WriteLine("8. Aggiungi transazione");
         Console.WriteLine("9. Mostra transazioni");
@@ -51,7 +51,7 @@ class View
     {
         foreach (var transaction in transactions)
         {
-            Console.WriteLine($"User : {transaction.User.Name}, Subscription : {transaction.Type.Name}, Date : {transaction.Date}");
+            Console.WriteLine($"User : {transaction.User.Name}, Subscription : {transaction.Subscription.Name}, Date : {transaction.Date}");
         }
     }
 }

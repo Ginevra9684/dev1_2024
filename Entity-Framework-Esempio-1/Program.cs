@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Sqlite;
 
-using Microsoft.EntityFrameworkCore;
-
 class Program 
 {
     public static void Main(string[] args)

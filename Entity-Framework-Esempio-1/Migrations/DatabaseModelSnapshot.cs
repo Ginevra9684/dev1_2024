@@ -43,7 +43,7 @@ namespace Entity_Framework_Esempio_1.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int>("SubscriptionId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")
@@ -51,7 +51,7 @@ namespace Entity_Framework_Esempio_1.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("SubscriptionId");
 
                     b.HasIndex("UserId");
 
@@ -78,9 +78,9 @@ namespace Entity_Framework_Esempio_1.Migrations
 
             modelBuilder.Entity("Transaction", b =>
                 {
-                    b.HasOne("Subscription", "Type")
+                    b.HasOne("Subscription", "Subscription")
                         .WithMany()
-                        .HasForeignKey("TypeId")
+                        .HasForeignKey("SubscriptionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -90,7 +90,7 @@ namespace Entity_Framework_Esempio_1.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Type");
+                    b.Navigation("Subscription");
 
                     b.Navigation("User");
                 });
