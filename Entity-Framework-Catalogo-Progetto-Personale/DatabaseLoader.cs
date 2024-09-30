@@ -22,7 +22,7 @@ class DatabaseLoader
     public void CatalogAddClasses()
     {
         var classes = _db.Classes.ToList(); // Raccoglie in lista gli elementi della tabella
-        if (classes.Any() == false) // 
+        if (classes.Any() == false) // Controlla che la tabella sia vuota
         {
             _db.Classes.Add(new Classe {Name = "mammalia",});   // Aggiunge una classe alla tabella Classes
             _db.Classes.Add(new Classe {Name = "reptilia",});
@@ -40,6 +40,7 @@ class DatabaseLoader
                 // Verifica che la tabella sia vuota per aggiungere le alimentazioni degli animali
     public void CatalogAddDiets()
     {
+        /*
         var diets = _db.Diets.ToList();
         if (diets.Any() == false)
         {
@@ -52,12 +53,14 @@ class DatabaseLoader
             _db.Diets.Add(new Diet {Name = "frugivoro"});
             _db.SaveChanges();
         }
+        */
     }
 
                 // Metodo CatalogAddAreals
                 // Verifica che la tabella sia vuota per aggiungere gli areali degli animali
     public void CatalogAddAreals()
     {
+        /*
         var areals = _db.Areals.ToList();
         if(areals.Any() == false)
         {
@@ -103,6 +106,7 @@ class DatabaseLoader
             _db.Areals.Add(new Areal {Name = "indonesia"});
             _db.SaveChanges();
         }
+        */
     }
 
                 // Metodo CatalogAddClasses
@@ -110,7 +114,7 @@ class DatabaseLoader
     public void CatalogAddAnimals()
     {
         var animals = _db.Animals.ToList();
-        /*if (animals.Any() == false)
+        if (animals.Any() == false)
         {
             Classe classe = null;
             Diet diet = null;
@@ -141,20 +145,6 @@ class DatabaseLoader
             }
             _db.Animals.Add(new Animal{Name = "ornitorinco", Classe = classe, Diet = diet, Areal = areal, Aquatic = true});
             _db.SaveChanges();
-        }*/
-        
-        Animal animal = null;
-        foreach(var a in _db.Animals)
-        {
-            if (a.Name == "ornitorinco")
-            {
-                animal = a;
-                break;
-            }
-
-            _db.Animals.Remove(animal);
-            _db.SaveChanges();
         }
-        
     }
 }

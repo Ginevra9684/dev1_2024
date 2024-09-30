@@ -3,9 +3,7 @@ class Database : DbContext  // DbContext è un'estensione fornita da entity fram
 {
     public DbSet<Classe> Classes { get; set; }
     public DbSet<Diet> Diets { get; set; }
-
     public DbSet<Areal> Areals { get; set; }
-
     public DbSet<Animal> Animals { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

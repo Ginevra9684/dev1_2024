@@ -1,0 +1,46 @@
+@page
+@model ProdottiModel
+@{ 
+    ViewData["Title"] = "Prodotti";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form method="get">
+        <div class="form-group">
+            <label for="minPrezzo">Min Prezzo</label>
+            <input type="text" class="form-control" name="minPrezzo" placeholder="es 100"/>
+        </div>
+        <div>
+            <label for="maxPrezzo">Max Prezzo</label>
+            <input type="text" class="form-control" name="maxPrezzo" placeholder="es 150" />
+        </div>
+        <button type="submit" class="btn btn-primary">Filtra</button>
+    </form>
+    <br>
+    <table class = "table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Prezzo</th>
+                <th>Dettagli</th>
+                <th>Immagine</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prodotto in Model.Prodotti)   // Model è una variabile che contiene i dati e le funzionalità di quella pagina
+                                                        // Se vuoi accedere ad elementi all'interno di model devi specificare che stai prendendo quell'informazione
+            {
+                <tr>
+                    <td>@prodotto.Nome</td>
+                    <td>@prodotto.Prezzo</td>
+                    <td>@prodotto.Dettaglio</td>
+                    <td><img src="@prodotto.Immagine" alt="@prodotto.Nome" width="300" height="200"/></td>
+                    <td><a class="link-body-emphasis link-underline-opacity-10" asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-immagine="@prodotto.Immagine">Dettaglio</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

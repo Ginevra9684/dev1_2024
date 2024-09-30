@@ -254,6 +254,8 @@ class View
         }
     }
 
+                // Metodo ShowByInitial
+                // Mostra tutti gli animali che iniziano con la/e lettera/e da noi scelta/e
     public void ShowByInitial(string letters, IEnumerable<dynamic> animalsByInitial)
     {
         if (animalsByInitial.Any())
