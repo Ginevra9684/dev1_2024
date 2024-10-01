@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 public class ProdottiModel : PageModel
 {
@@ -25,7 +26,7 @@ public class ProdottiModel : PageModel
 
     public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)     // Aggiunta di argomenti per filtrare i prodotti per prezzo
     {
-        
+        /*
         var prodottiTotali = new List<Prodotto>   // Viene creata una lista di tutti i prodotti
         {
             new Prodotto { Id = 1 , Nome = "cuffie" , Dettaglio = "fine scorte" , Prezzo = 100 , Immagine = "img/Immagine1.jpg" },     // Vengono aggiunti 3 prodotti nella lista
@@ -44,6 +45,10 @@ public class ProdottiModel : PageModel
             new Prodotto { Id = 14 , Nome = "amplificatore", Dettaglio = "in stock" , Prezzo = 1400 , Immagine = "img/Immagine2.jpg" },
             new Prodotto { Id = 15 , Nome = "gamepad", Dettaglio = "non disponibile" , Prezzo = 1500 , Immagine = "img/Immagine3.jpg" }
         };
+        */
+
+        var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
+        var prodottiTotali = JsonConvert.DeserializeObject<List<Prodotto>>(json);
 
         var prodottiFiltrati = new List<Prodotto>();
         foreach (var prodotto in prodottiTotali)
@@ -80,7 +85,7 @@ public class ProdottiModel : PageModel
                                                                     // 6.0 è il numero di prodotti per pagina
 
         Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 6).Take(6);   // esegue la paginazione
-                                                                    // Skip salta i primi ((pageIndex ?? 1) - 1) * 6 prodotti
-                                                                    // Take prende i sucessivi 6 prodotti
-    }
+                                                                        // Skip salta i primi ((pageIndex ?? 1) - 1) * 6 prodotti
+                                                                        // Take prende i sucessivi 6 prodotti
+        }
 }

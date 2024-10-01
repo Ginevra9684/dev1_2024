@@ -1,0 +1,114 @@
+[
+  {
+    "Id": 1,
+    "Nome": "Cuffie",
+    "Prezzo": 120.59,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine1.jpg"
+  },
+  {
+    "Id": 2,
+    "Nome": "Polaroid",
+    "Prezzo": 230.19,
+    "Dettaglio": "Dettaglio 2",
+    "Immagine": "img/Immagine2.jpg"
+  },
+  {
+    "Id": 3,
+    "Nome": "Playstation 4",
+    "Prezzo": 499.99,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine3.jpg"
+  },
+  {
+    "Id": 4,
+    "Nome": "Caricatore",
+    "Prezzo": 12.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine4.jpg"
+  },
+  {
+    "Id": 5,
+    "Nome": "Obiettivo",
+    "Prezzo": 470.80,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine5.jpg"
+  },
+  {
+    "Id": 6,
+    "Nome": "Tavoletta grafica",
+    "Prezzo": 50.80,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine6.jpg"
+  },
+  {
+    "Id": 7,
+    "Nome": "Mouse",
+    "Prezzo": 27.56,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine7.jpg"
+  },
+  {
+    "Id": 8,
+    "Nome": "Tastiera",
+    "Prezzo": 33.59,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine8.jpg"
+  },
+  {
+    "Id": 9,
+    "Nome": "Controller",
+    "Prezzo": 85.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine9.jpg"
+  },
+  {
+    "Id": 10,
+    "Nome": "Nintendo switch",
+    "Prezzo": 299.99,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine10.jpg"
+  },
+  {
+    "Id": 11,
+    "Nome": "Disponibile",
+    "Prezzo": 29.99,
+    "Dettaglio": "Dettaglio 11",
+    "Immagine": "img/Immagine11.jpg"
+  },
+  {
+    "Id": 12,
+    "Nome": "Oculus Quest",
+    "Prezzo": 299.00,
+    "Dettaglio": "Esaurito",
+    "Immagine": "img/Immagine12.jpg"
+  },
+  {
+    "Id": 13,
+    "Nome": "Casse",
+    "Prezzo": 40.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine13.jpg"
+  },
+  {
+    "Id": 14,
+    "Nome": "Amplificatore",
+    "Prezzo": 740.89,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine14.jpg"
+  },
+  {
+    "Id": 15,
+    "Nome": "GoPro",
+    "Prezzo": 349.99,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine15.jpg"
+  },
+  {
+    "Id": 16,
+    "Nome": "HTC VIVE",
+    "Prezzo": 1200.00,
+    "Dettaglio": "Disponibilità limitata",
+    "Immagine": null
+  }
+]

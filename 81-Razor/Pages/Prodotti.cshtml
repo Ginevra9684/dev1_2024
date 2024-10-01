@@ -6,19 +6,20 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
+<div class="container">
     <form method="get">
-        <div class="form-group">
-            <label for="minPrezzo">Min Prezzo</label>
-            <input type="text" class="form-control" name="minPrezzo" placeholder="es 100"/>
+        <div class="form-group m-1">
+            <label for="minPrezzo">
+            <input type="text" class="form-control form-control-sm" maxlength="10" name="minPrezzo" placeholder="min Prezzo"/></label>
         </div>
-        <div>
-            <label for="maxPrezzo">Max Prezzo</label>
-            <input type="text" class="form-control" name="maxPrezzo" placeholder="es 150" />
+        <div class="form-group m-1">
+            <label for="maxPrezzo">
+            <input type="text" class="form-control form-control-sm" maxlength="10" name="maxPrezzo" placeholder="max Prezzo" /></label>
+            <button type="submit" class="btn btn-primary">Filtra</button>
         </div>
-        <button type="submit" class="btn btn-primary">Filtra</button>
     </form>
     <br>
+    <!--tabella
     <table class = "table">
         <thead>
             <tr>
@@ -43,16 +44,75 @@
             }
         </tbody>
     </table>
-    <form method="get">
+    -->
+
+    <!-- switch card
+
+    <div class="col-md-4">
+        @foreach (var prodotto in Model.Prodotti) 
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">@prodotto.Nome</h5>
+                    @switch (prodotto.Prezzo)
+                    {
+                        case var expression when expression < 300:
+                            <p class="card-text text-success">@prodotto.Prezzo</p>
+                            break;
+                            case var expression when expression < 600:
+                            <p class="card-text text-danger">@prodotto.Prezzo</p>
+                            break;
+                            default: 
+                            <p class="card-text text-dark">@prodotto.Prezzo</p>
+                            break;
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    -->
+    <div class="row">
+        @foreach (var prodotto in Model.Prodotti)   // Model è una variabile che contiene i dati e le funzionalità di quella pagina
+        {
+            <div class = "col-md-6 col-lg-4 d-flex justify-content-center">
+                @if(prodotto.Prezzo <= 100)
+                {
+                    <div class="card mb-3 mb-md-4 mb-lg-5 border border-bottom-0 border-success" style="width: 18rem;">
+                        <img src="@prodotto.Immagine" class="card-img-top" alt="@prodotto.Nome">
+                        <div class="card-body">
+                            <h5 class="card-title">@prodotto.Nome</h5>
+                            <p class="card-text text-success">@prodotto.Prezzo</p>
+                            <p class="card-text">@prodotto.Dettaglio</p>
+                            <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-primary">dettaglio</a>
+                            <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="card mb-3 mb-md-4 mb-lg-5 border border-bottom-0 border-danger" style="width: 18rem;">
+                        <img src="@prodotto.Immagine" class="card-img-top" alt="@prodotto.Nome">
+                        <div class="card-body">
+                            <h5 class="card-title">@prodotto.Nome</h5>
+                            <p class="card-text text-danger">@prodotto.Prezzo</p>
+                            <p class="card-text">@prodotto.Dettaglio</p>
+                            <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-primary">dettaglio</a>
+                            <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    
+    <form method="get" class="d-flex justify-content-end">
         <input type="hidden" name="minPrezzo" value="@Request.Query["minPrezzo"]" /> <!-- per mantenere il valore del filtro -->
         <input type="hidden" name="maxPrezzo" value="@Request.Query["maxPrezzo"]" /> <!-- per mantenere il valore del filtro -->
         @for (int i = 1; i <= Model.numeroPagine; i++)
         {
-            <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+            <button type="submit" class="btn btn-dark m-1 opacity-50" name="pageIndex" value="@i">@i</button>
         }
     </form>
     <br>
     <a asp-asp-page="/Index">Torna a home</a>
-    
-    
 </div>
