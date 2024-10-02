@@ -17,7 +17,7 @@ public class AggiungiProdottoModel : PageModel
     }
     public Prodotto Prodotto { get; set; }
     [BindProperty]  // Viene utilizzato per includere le proprietà nella fase di model binding
-    public string Codice { get; set; }
+    public string codice { get; set; }
 
     public List<string> Categorie { get; set; }   
 
@@ -29,10 +29,16 @@ public class AggiungiProdottoModel : PageModel
 
     public IActionResult OnPost(string nome, int quantita, string categoria, decimal prezzo, string dettaglio, string immagine)  // Viene utilizzato per inviare i dati al server web
     {                                                                           // I parametri vengono passati attraverso il form nella pagina web
-        if(!ModelState.IsValid)
+        if(codice != "1234")
         {
             return RedirectToPage("Error", new {message = "Codice non valido"});
         }
+
+        if (string.IsNullOrWhiteSpace(nome))
+        {
+            ModelState.AddModelError("nome", "Il Nome è obbligatorio.");
+        }
+
         var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
         var prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
         int id =1;
