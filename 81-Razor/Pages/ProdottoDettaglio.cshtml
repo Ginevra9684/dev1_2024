@@ -11,6 +11,8 @@
         <thead>
             <tr>
                 <th>Nome</th>
+                <th>Quantita</th>
+                <th>Categoria</th>
                 <th>Prezzo</th>
                 <th>Dettaglio</th>
                 <th>Immagine</th>
@@ -19,6 +21,8 @@
         <tbody>
             <tr>
                 <td>@Model.Prodotto.Nome</td>
+                <td>@Model.Prodotto.Quantita</td>
+                <td>@Model.Prodotto.Categoria</td>
                 <td>@Model.Prodotto.Prezzo</td>
                 <td>@Model.Prodotto.Dettaglio</td>
                 <td><img src="@Model.Prodotto.Immagine" alt="@Model.Prodotto.Nome" width="300" height="200"/></td>

@@ -15,10 +15,11 @@
         <div class="form-group m-1">
             <label for="maxPrezzo">
             <input type="text" class="form-control form-control-sm" maxlength="10" name="maxPrezzo" placeholder="max Prezzo" /></label>
-            <button type="submit" class="btn btn-primary">Filtra</button>
+            <button type="submit" class="btn btn-outline-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Filtra</button>
         </div>
     </form>
-    <br>
+
+
     <!--tabella
     <table class = "table">
         <thead>
@@ -81,10 +82,18 @@
                         <img src="@prodotto.Immagine" class="card-img-top" alt="@prodotto.Nome">
                         <div class="card-body">
                             <h5 class="card-title">@prodotto.Nome</h5>
+                            <p class="card-text text-dark">@prodotto.Quantita</p>
+                            <p class="card-text text-dark">@prodotto.Categoria</p>
                             <p class="card-text text-success">@prodotto.Prezzo</p>
                             <p class="card-text">@prodotto.Dettaglio</p>
-                            <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-primary">dettaglio</a>
-                            <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
+
+                            <!--Gruppo di bottoni per gestire il singolo prodotto-->
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-outline-success">Det</a>
+                                <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-primary">Mod</a>
+                                <a asp-page="/CancellaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-danger">Del</a>
+                            </div>
+
                         </div>
                     </div>
                 }
@@ -96,8 +105,11 @@
                             <h5 class="card-title">@prodotto.Nome</h5>
                             <p class="card-text text-danger">@prodotto.Prezzo</p>
                             <p class="card-text">@prodotto.Dettaglio</p>
-                            <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-primary">dettaglio</a>
-                            <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-primary">Modifica</a>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <a asp-page="/ProdottoDettaglio" asp-route-id="@prodotto.Id" class="btn btn-outline-success">Det</a>
+                                <a asp-page="/ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-primary">Mod</a>
+                                <a asp-page="/CancellaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-danger">Del</a>
+                            </div>
                         </div>
                     </div>
                 }

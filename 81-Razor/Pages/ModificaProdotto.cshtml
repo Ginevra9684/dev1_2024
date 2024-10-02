@@ -10,19 +10,35 @@
     <form method="post">
         <div class="form-group m-1">
             <label for="nome">
-            <input type="text" class="form-control form-control-sm" name="nome" placeholder="@Model.Prodotto.Nome"/></label>
+            <input type="text" class="form-control form-control-sm" name="nome" value="@Model.Prodotto.Nome"/></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="quantita">
+            <input type="text" class="form-control form-control-sm" name="quantita" value="@Model.Prodotto.Quantita" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="categoria">
+            <!--<input type="text" class="form-control form-control-sm" name="categoria" placeholder="categoria"/>-->
+                <select class="form-control" name="categoria">
+                    <option value="">Seleziona categoria</option>
+                    @foreach(var categoria in Model.Categorie)
+                    {
+                        <option value ="@categoria">@categoria</option>
+                    }
+                </select>
+            </label>
         </div>
         <div class="form-group m-1">
             <label for="prezzo">
-            <input type="text" class="form-control form-control-sm" name="prezzo" placeholder="@Model.Prodotto.Prezzo" /></label>
+            <input type="text" class="form-control form-control-sm" name="prezzo" value="@Model.Prodotto.Prezzo" /></label>
         </div>
         <div class="form-group m-1">
             <label for="dettaglio">
-            <input type="text" class="form-control form-control-sm" name="dettaglio" placeholder="@Model.Prodotto.Dettaglio" /></label>
+            <input type="text" class="form-control form-control-sm" name="dettaglio" value="@Model.Prodotto.Dettaglio" /></label>
         </div>
         <div class="form-group m-1">
             <label for="immagine">
-            <input type="text" class="form-control form-control-sm" name="immagine" placeholder="@Model.Prodotto.Immagine" /></label>
+            <input type="text" class="form-control form-control-sm" name="immagine" value="@Model.Prodotto.Immagine" /></label>
         </div>
         <button type="submit" class="btn btn-dark">Aggiorna</button>
     </form>

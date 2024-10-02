@@ -2,113 +2,261 @@
   {
     "Id": 1,
     "Nome": "Cuffie",
-    "Prezzo": 120.59,
+    "Prezzo": 130.00,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine1.jpg"
+    "Immagine": "img/Immagine1.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 2,
     "Nome": "Polaroid",
     "Prezzo": 230.19,
     "Dettaglio": "Dettaglio 2",
-    "Immagine": "img/Immagine2.jpg"
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 3,
     "Nome": "Playstation 4",
     "Prezzo": 499.99,
     "Dettaglio": "Ultime scorte",
-    "Immagine": "img/Immagine3.jpg"
+    "Immagine": "img/Immagine3.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 4,
     "Nome": "Caricatore",
     "Prezzo": 12.00,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine4.jpg"
+    "Immagine": "img/Immagine4.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 5,
     "Nome": "Obiettivo",
     "Prezzo": 470.80,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine5.jpg"
+    "Immagine": "img/Immagine5.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 6,
     "Nome": "Tavoletta grafica",
     "Prezzo": 50.80,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine6.jpg"
+    "Immagine": "img/Immagine6.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 7,
     "Nome": "Mouse",
     "Prezzo": 27.56,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine7.jpg"
+    "Immagine": "img/Immagine7.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 8,
     "Nome": "Tastiera",
     "Prezzo": 33.59,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine8.jpg"
+    "Immagine": "img/Immagine8.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 9,
     "Nome": "Controller",
     "Prezzo": 85.00,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine9.jpg"
+    "Immagine": "img/Immagine9.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 10,
     "Nome": "Nintendo switch",
     "Prezzo": 299.99,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine10.jpg"
+    "Immagine": "img/Immagine10.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 11,
     "Nome": "Disponibile",
     "Prezzo": 29.99,
     "Dettaglio": "Dettaglio 11",
-    "Immagine": "img/Immagine11.jpg"
+    "Immagine": "img/Immagine11.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 12,
     "Nome": "Oculus Quest",
     "Prezzo": 299.00,
     "Dettaglio": "Esaurito",
-    "Immagine": "img/Immagine12.jpg"
+    "Immagine": "img/Immagine12.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 13,
     "Nome": "Casse",
-    "Prezzo": 40.00,
+    "Prezzo": 45.00,
     "Dettaglio": "Disponibile",
-    "Immagine": "img/Immagine13.jpg"
+    "Immagine": "img/Immagine13.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 14,
     "Nome": "Amplificatore",
     "Prezzo": 740.89,
     "Dettaglio": "Ultime scorte",
-    "Immagine": "img/Immagine14.jpg"
+    "Immagine": "img/Immagine14.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 15,
     "Nome": "GoPro",
-    "Prezzo": 349.99,
+    "Prezzo": 329.00,
     "Dettaglio": "Ultime scorte",
-    "Immagine": "img/Immagine15.jpg"
+    "Immagine": "img/Immagine15.jpg",
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
   },
   {
     "Id": 16,
+    "Nome": null,
+    "Prezzo": 0.0,
+    "Dettaglio": null,
+    "Immagine": null,
+    "Quantita": 0,
+    "Categoria": null,
+    "Categorie": null
+  },
+  {
+    "Id": 17,
+    "Nome": null,
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": null,
+    "Categorie": null
+  },
+  {
+    "Id": 18,
+    "Nome": null,
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 19,
+    "Nome": null,
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": null,
+    "Categorie": null
+  },
+  {
+    "Id": 20,
     "Nome": "HTC VIVE",
-    "Prezzo": 1200.00,
-    "Dettaglio": "Disponibilità limitata",
-    "Immagine": null
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 21,
+    "Nome": "HTC VIVE",
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 22,
+    "Nome": "HTC VIVE",
+    "Prezzo": 120.0,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 23,
+    "Nome": "HTC VIVE",
+    "Prezzo": 120.0,
+    "Dettaglio": "1",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 24,
+    "Nome": "HTC VIVE",
+    "Prezzo": 455.0,
+    "Dettaglio": "1ubyubbobo",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 25,
+    "Nome": "HTC VIVE",
+    "Prezzo": 4567.0,
+    "Dettaglio": "3",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 4,
+    "Categoria": "Elettronica",
+    "Categorie": null
+  },
+  {
+    "Id": 26,
+    "Nome": "HTC VIVE",
+    "Prezzo": 679980.0,
+    "Dettaglio": "eeeeeejijjpopèuhuhi",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 45,
+    "Categoria": "Elettronica",
+    "Categorie": null
   }
 ]

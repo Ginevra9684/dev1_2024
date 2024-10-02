@@ -7,24 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-public class ModificaProdottoModel : PageModel
+public class CancellaProdottoModel : PageModel
 {
-    private readonly ILogger<ModificaProdottoModel> _logger;
+    private readonly ILogger<CancellaProdottoModel> _logger;
 
-    public ModificaProdottoModel(ILogger<ModificaProdottoModel> logger)
+    public CancellaProdottoModel(ILogger<CancellaProdottoModel> logger)
     {
         _logger = logger;
     }
 
     public Prodotto Prodotto { get; set; }
 
-    public List<string> Categorie { get; set; }
     public void OnGet(int id)
     {
         var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
         var prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
-        var categoriejson =System.IO.File.ReadAllText("wwwroot/json/categorie.json");
-        Categorie = JsonConvert.DeserializeObject<List<string>>(categoriejson);
         foreach (var prodotto in prodotti)
         {
             if (prodotto.Id == id)
@@ -35,26 +32,18 @@ public class ModificaProdottoModel : PageModel
         }
     }
 
-    public IActionResult OnPost(int id, string nome, int quantita, string categoria, decimal prezzo, string dettaglio, string immagine)
+    public IActionResult OnPost(int id)
     {
         var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
         var prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
-        Prodotto prodotto = null;
-        foreach (var p in prodotti)
+        for (int i = 0; i < prodotti.Count; i++)
         {
-            if (p.Id == id)
+            if(prodotti[i].Id == id)
             {
-                prodotto = p;
+                prodotti.RemoveAt(i);
                 break;
             }
         }
-        prodotto.Nome = nome;
-        prodotto.Quantita = quantita;
-        prodotto.Categoria = categoria;
-        prodotto.Prezzo = prezzo;
-        prodotto.Dettaglio = dettaglio;
-        prodotto.Immagine = immagine;
-                    // Scriviamo il file json con i dati aggiornati
         System.IO.File.WriteAllText("wwwroot/json/prodotti.json", JsonConvert.SerializeObject(prodotti, Formatting.Indented));
         return RedirectToPage("Prodotti");
     }

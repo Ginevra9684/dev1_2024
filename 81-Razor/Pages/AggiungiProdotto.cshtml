@@ -13,6 +13,22 @@
             <input type="text" class="form-control form-control-sm" name="nome" placeholder="nome"/></label>
         </div>
         <div class="form-group m-1">
+            <label for="quantita">
+            <input type="text" class="form-control form-control-sm" name="quantita" placeholder="quantita"/></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="categoria">
+            <!--<input type="text" class="form-control form-control-sm" name="categoria" placeholder="categoria"/>-->
+                <select class="form-control" name="categoria">
+                    <option value="">Seleziona categoria</option>
+                    @foreach(var categoria in Model.Categorie)
+                    {
+                        <option value ="@categoria">@categoria</option>
+                    }
+                </select>
+            </label>
+        </div>
+        <div class="form-group m-1">
             <label for="prezzo">
             <input type="text" class="form-control form-control-sm" name="prezzo" placeholder="prezzo" /></label>
         </div>
@@ -23,6 +39,11 @@
         <div class="form-group m-1">
             <label for="immagine">
             <input type="text" class="form-control form-control-sm" name="immagine" placeholder="immagine" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="codice">
+            <input  for="codice" type="text" class="form-control form-control-sm" name="codice" placeholder="codice" /></label>
+            <span asp-validation-formaction="codice" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-dark">Aggiungi</button>
     </form>
