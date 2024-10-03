@@ -15,7 +15,10 @@ public class AggiungiProdottoModel : PageModel
     {
         _logger = logger;
     }
+
+    [BindProperty]
     public Prodotto Prodotto { get; set; }
+
     [BindProperty]  // Viene utilizzato per includere le proprietà nella fase di model binding
     public string codice { get; set; }
 
@@ -33,12 +36,12 @@ public class AggiungiProdottoModel : PageModel
         {
             return RedirectToPage("Error", new {message = "Codice non valido"});
         }
-
+/*
         if (string.IsNullOrWhiteSpace(nome))
         {
             ModelState.AddModelError("nome", "Il Nome è obbligatorio.");
         }
-
+*/
         var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
         var prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
         int id =1;
@@ -46,7 +49,8 @@ public class AggiungiProdottoModel : PageModel
         {
             id = prodotti[prodotti.Count -1].Id +1;
         }
-        prodotti.Add(new Prodotto{Id = id, Nome = nome, Quantita = quantita, Categoria = categoria, Prezzo = prezzo, Dettaglio = dettaglio, Immagine = immagine});
+        //prodotti.Add(new Prodotto{Id = id, Nome = nome, Quantita = quantita, Categoria = categoria, Prezzo = prezzo, Dettaglio = dettaglio, Immagine = immagine});
+        prodotti.Add(Prodotto);
         System.IO.File.WriteAllText("wwwroot/json/prodotti.json", JsonConvert.SerializeObject(prodotti, Formatting.Indented));
         return RedirectToPage("Prodotti");
     }
