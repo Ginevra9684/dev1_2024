@@ -67,3 +67,12 @@ public void OnGet(int id, string nome, decimal prezzo, string dettaglio, string 
 - [Compare("Password" , ErrorMessage = "Le password non corrispondono")]
 
 - [Url(ErrorMessage = "Inserire un URL valido")]
+
+
+## PER NON USARE CDN BOOTSTRAP
+
+- lasciare link con tilde della web app
+- non aggiungere i cdn bootstrap
+- fare download da bootstrap della cartella bootstrap.dist
+- copiare i file css e js
+- nella webapp andare in wwwroot, lib, bootstrap, dist e incollare li i file

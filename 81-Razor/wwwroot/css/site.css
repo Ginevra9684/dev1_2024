@@ -1,3 +1,4 @@
+
 html {
   font-size: 14px;
 }
@@ -21,3 +22,33 @@ body {
   margin-bottom: 60px;
 }
 
+a, h1, h5 {
+  font-family: 'Inknut Antiqua' , serif;
+}
+
+.input-validation-error {
+  border-color: #dc3545;
+}
+
+.field-validation-error {
+  color: #dc3545;
+}
+
+.input-validation-valid {
+  border-color: green;
+}
+
+.field-validation-valid {
+  color: green;
+}
+
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #495057;
+}
+
+input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #495057;
+}

@@ -5,7 +5,7 @@
     "Prezzo": 130.00,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine1.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -15,7 +15,7 @@
     "Prezzo": 230.19,
     "Dettaglio": "Dettaglio 2",
     "Immagine": "img/Immagine2.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -25,7 +25,7 @@
     "Prezzo": 499.99,
     "Dettaglio": "Ultime scorte",
     "Immagine": "img/Immagine3.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -35,7 +35,7 @@
     "Prezzo": 12.00,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine4.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -45,7 +45,7 @@
     "Prezzo": 470.80,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine5.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -55,7 +55,7 @@
     "Prezzo": 50.80,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine6.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -65,7 +65,7 @@
     "Prezzo": 27.56,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine7.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -75,7 +75,7 @@
     "Prezzo": 33.59,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine8.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -85,7 +85,7 @@
     "Prezzo": 85.00,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine9.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -95,7 +95,7 @@
     "Prezzo": 299.99,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine10.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -105,7 +105,7 @@
     "Prezzo": 29.99,
     "Dettaglio": "Dettaglio 11",
     "Immagine": "img/Immagine11.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -115,7 +115,7 @@
     "Prezzo": 299.00,
     "Dettaglio": "Esaurito",
     "Immagine": "img/Immagine12.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -125,7 +125,7 @@
     "Prezzo": 45.00,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine13.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -135,7 +135,7 @@
     "Prezzo": 740.89,
     "Dettaglio": "Ultime scorte",
     "Immagine": "img/Immagine14.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
   },
@@ -145,8 +145,18 @@
     "Prezzo": 329.00,
     "Dettaglio": "Ultime scorte",
     "Immagine": "img/Immagine15.jpg",
-    "Quantita": 0,
+    "Quantita": 0.0,
     "Categoria": null,
+    "Categorie": null
+  },
+  {
+    "Id": 16,
+    "Nome": "rregr",
+    "Prezzo": 3231.0,
+    "Dettaglio": "rfref",
+    "Immagine": "frefref",
+    "Quantita": 123213.0,
+    "Categoria": "Elettronica",
     "Categorie": null
   }
 ]
