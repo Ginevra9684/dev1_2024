@@ -54,3 +54,16 @@ public void OnGet(int id, string nome, decimal prezzo, string dettaglio, string 
 ```
 
 - asp ricostruisce una rotta virtuale in una fisica
+
+
+
+
+## BIND PROPERTIES
+
+- [EmailAddress(ErrorMessage = "Inserire un indirizzo email valido")]
+
+- [RegularExpression(@"^[0-9]{3}-[0-9]{2}-[0-9]{4}$", ErrorMessage = "Il formato non è valido")]
+
+- [Compare("Password" , ErrorMessage = "Le password non corrispondono")]
+
+- [Url(ErrorMessage = "Inserire un URL valido")]

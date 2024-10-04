@@ -55,65 +55,65 @@
 <div class="row">
     <div class="col-lg-9 mx-auto rounded border p-3">
         <h1 class="text-center mb-5">@ViewData["Title"]</h1>
-        <form method="post">
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Nome</label>
+        <form method="post" class="g-3 needs-validation" novalidate>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 form-label control-label">Nome</label>
                 <div class="col-sm-8">
-                    <input class="form-control" asp-for="Prodotto.Nome" name="nome" placeholder="nome">
-                    <span asp-validation-for="Prodotto.Nome" class="text danger"></span>
+                    <input type="text" class="form-control" asp-for="Prodotto.Nome" placeholder="nome" required>
+                    <span asp-validation-for="Prodotto.Nome" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Quantità</label>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label control-label">Quantità</label>
                 <div class="col-sm-8">
-                    <input class="form-control" asp-for="Prodotto.Quantita" name="quantita" placeholder="quantità">
-                    <span asp-validation-for="Prodotto.Quantita" class="text danger"></span>
+                    <input class="form-control" asp-for="Prodotto.Quantita" placeholder="quantità" required>
+                    <span asp-validation-for="Prodotto.Quantita" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Prezzo</label>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label control-label">Prezzo</label>
                 <div class="col-sm-8">
-                    <input class="form-control" asp-for="Prodotto.Prezzo" name="prezzo" placeholder="prezzo">
-                    <span asp-validation-for="Prodotto.Prezzo" class="text danger"></span>
+                    <input class="form-control" asp-for="Prodotto.Prezzo" placeholder="prezzo" required>
+                    <span asp-validation-for="Prodotto.Prezzo" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Dettaglio</label>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label control-label">Dettaglio</label>
                 <div class="col-sm-8">
-                    <input class="form-control" asp-for="Prodotto.Dettaglio" name="dettaglio" placeholder="dettaglio">
-                    <span asp-validation-for="Prodotto.Dettaglio" class="text danger"></span>
+                    <input class="form-control" asp-for="Prodotto.Dettaglio" placeholder="dettaglio" required>
+                    <span asp-validation-for="Prodotto.Dettaglio" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3 center">
-                <label class="col-sm-4 col-form-label">Categoria</label>
+            <div class="form-group row mb-3 center">
+                <label class="col-sm-4 col-form-label control-label">Categoria</label>
                 <div class="col-sm-8">
-                    <select class="form-select" asp-for="Prodotto.Categoria" name="categoria">
+                    <select class="form-select" asp-for="Prodotto.Categoria" required>
                         <option value="">Seleziona categoria</option>
                         @foreach(var categoria in Model.Categorie)
                         {
                             <option value ="@categoria">@categoria</option>
                         }
                     </select>
-                    <span asp-validation-for="Prodotto.Categoria" class="text danger"></span>
+                    <span asp-validation-for="Prodotto.Categoria" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Immagine</label>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label control-label">Immagine</label>
                 <div class="col-sm-8">
-                    <input class="form-control" asp-for="Prodotto.Immagine" name="immagine" placeholder="immagine">
-                    <span asp-validation-for="Prodotto.Immagine" class="text danger"></span>
+                    <input class="form-control" asp-for="Prodotto.Immagine" placeholder="immagine" required>
+                    <span asp-validation-for="Prodotto.Immagine" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="row mb-3 center">
-                <label class="col-sm-4 col-form-label">Codice</label>
+            <div class="form-group row mb-3 center">
+                <label class="col-sm-4 col-form-label control-label">Codice</label>
                 <div class="col-sm-8">
-                    <input class="form-control form-control" asp-for="codice" name="codice" placeholder="codice" />
+                    <input type="password" class="form-control" asp-for="codice" placeholder="codice" required/>
                     <span asp-validation-for="codice" class="text-danger"></span>
                 </div>
             </div>
@@ -127,6 +127,25 @@
     </div>
 </div>
 
+            <!-- Script per il Bind Property-->
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+            <!-- Script trovato online per far funzionare il validation form di bootstrap-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() 
+    {
+        const form = document.querySelector('.needs-validation');
+
+        form.addEventListener('submit', function(event) 
+        {
+            if (form.checkValidity() === false) 
+            {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        form.classList.add('was-validated');
+        });
+    });
+</script>

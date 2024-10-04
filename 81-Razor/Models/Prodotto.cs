@@ -8,6 +8,7 @@ public class Prodotto
     [Required(ErrorMessage = "Il campo Prezzo è obbligatorio.")]
     [Range(0.01, double.MaxValue, ErrorMessage = "Il prezzo deve essere maggiore di 0.")]
     public decimal Prezzo { get; set; }
+
     [Required(ErrorMessage = "Il campo Dettaglio è obbligatorio.")]
     public string Dettaglio { get; set; }
     [Required(ErrorMessage = "L'immagine è obbligatoria.")]
