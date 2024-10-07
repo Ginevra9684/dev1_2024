@@ -2,7 +2,7 @@
 
 ## STEPS
 
-- Passaggio del modello (class Product). (Bing property commentati)
+- Passaggio del modello (class Prodotto). (Bing property commentati)
 - Aggiungiamo il file Json contenente i prodotti in wwwroot creando la cartella json
 - Aggiungiamo le immagini in wwwroot
 - Aggiungiamo in Views la cartella Prodotti e creiamo index.cshtml (corrisponde alla pagina di visualizzazione dei prodotti)

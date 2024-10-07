@@ -1,12 +1,19 @@
-@page
-@model Prodotto
+@model ProdottiViewModel
 @{
     ViewData["Title"] = "Prodotto Dettaglio";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
+@if (Model == null)
+{
+    <div class="alert alert-danger">
+        <strong>Error:</strong> The product could not be found.
+    </div>
+}
+else
+{
+    <div>
     <table class = "table">
         <thead>
             <tr>
@@ -20,14 +27,15 @@
         </thead>
         <tbody>
             <tr>
-                <td>@Model.Nome</td>
-                <td>@Model.Quantita</td>
-                <td>@Model.Categoria</td>
-                <td>@Model.Prezzo</td>
-                <td>@Model.Dettaglio</td>
-                <td><img src="@Model.Immagine" alt="@Model.Nome" width="300" height="200"/></td>
+                <td>@Model.Prodotto.Nome</td>
+                <td>@Model.Prodotto.Quantita</td>
+                <td>@Model.Prodotto.Categoria</td>
+                <td>@Model.Prodotto.Prezzo</td>
+                <td>@Model.Prodotto.Dettaglio</td>
+                <td><img src="@Model.Prodotto.Immagine" alt="@Model.Prodotto.Nome" width="300" height="200"/></td>
             </tr>
         </tbody>
     </table>
     <a class="link-body-emphasis link-underline-opacity-10" asp-controller="Prodotti" asp-action="Index">Torna a Prodotti</a>
-</div>
+    </div>
+}

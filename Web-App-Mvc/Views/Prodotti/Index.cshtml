@@ -1,4 +1,4 @@
-@model IEnumerable<Prodotto>
+@model ProdottiViewModel
 @{
     ViewData["Title"] = "Prodotti";
 }
@@ -21,7 +21,7 @@
     </form>
 
     <div class="row">
-        @foreach (var prodotto in Model)
+        @foreach (var prodotto in Model.Prodotti)
         {
             <div class="col-md-6 col-lg-4 d-flex justify-content-center">
                 <div class="card mb-3 mb-md-4 mb-lg-5 @(prodotto.Prezzo <= 100 ? "border-success" : "border-danger")" style="width: 18rem;">
@@ -43,6 +43,14 @@
             </div>
         }
     </div>
+    <form method="get" class="d-flex justify-content-end">
+        <input type="hidden" name="minPrezzo" value="Model.MinPrezzo" /> <!-- per mantenere il valore del filtro -->
+        <input type="hidden" name="maxPrezzo" value="Model.MaxPrezzo" /> <!-- per mantenere il valore del filtro -->
+        @for (int i = 1; i <= Model.NumeroPagine; i++)
+        {
+            <button type="submit" class="btn btn-dark m-1 opacity-50" name="pageIndex" value="@i">@i</button>
+        }
+    </form>
     <br>
     <a class="link-body-emphasis link-underline-opacity-10" asp-controller="Home" asp-action="Index">Torna a home</a>
 </div>

@@ -2,22 +2,29 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class ProdottiController : Controller
 {
-    public IEnumerable<Prodotto> Prodotti { get; set; }
-    public int numeroPagine { get; set; }
-
-                // OnGet -- Ritorna alla View i prodotti secondo le direttive
+    // OnGet -- Ritorna alla View i prodotti secondo le direttive
     public IActionResult Index(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
     {
         var prodottiTotali = CaricaProdotti();
         var prodottiFiltrati = FiltraProdotti(minPrezzo, maxPrezzo, prodottiTotali);
         var prodottiInpaginati = InpaginaProdotti(pageIndex, prodottiFiltrati);
-        return View(prodottiTotali);
+
+        var viewModel = new ProdottiViewModel
+        {
+            Prodotti = prodottiInpaginati,
+            NumeroPagine = (int)Math.Ceiling(prodottiFiltrati.Count() / 6.0),
+            MinPrezzo = minPrezzo,
+            MaxPrezzo = maxPrezzo
+        };
+
+        return View(viewModel);
     }
 
-                // Metodo -- Estrapola prodotti da file Json -- Li ritorna in una variabile IEnumerable
+    // Metodo -- Estrapola prodotti da file Json -- Li ritorna in una variabile IEnumerable
     public IEnumerable<Prodotto> CaricaProdotti()
     {
         var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
@@ -25,48 +32,41 @@ public class ProdottiController : Controller
         return prodottiTotali;
     }
 
-                // Metodo -- Ottiene un prezzo min e max -- Ritorna i prodotti nel range
+    // Metodo -- Ottiene un prezzo min e max -- Ritorna i prodotti nel range
     public IEnumerable<Prodotto> FiltraProdotti(decimal? minPrezzo, decimal? maxPrezzo, IEnumerable<Prodotto> prodottiTotali)
     {
         var prodottiFiltrati = new List<Prodotto>();
+        
         foreach (var prodotto in prodottiTotali)
         {
             bool aggiungi = true;
 
-            if (minPrezzo.HasValue)
+            if (minPrezzo.HasValue && prodotto.Prezzo < minPrezzo.Value)
             {
-                if(prodotto.Prezzo < minPrezzo.Value)
-                {
-                    aggiungi = false;
-                }
+                aggiungi = false;
             }
 
-            if (maxPrezzo.HasValue)
+            if (maxPrezzo.HasValue && prodotto.Prezzo > maxPrezzo.Value)
             {
-                if(prodotto.Prezzo > maxPrezzo.Value)
-                {
-                    aggiungi = false;
-                }
+                aggiungi = false;
             }
 
-            if(aggiungi)
+            if (aggiungi)
             {
                 prodottiFiltrati.Add(prodotto);
             }
         }
+
         return prodottiFiltrati;
     }
 
-                // Metodo -- Ottiene un indice della pagina -- Ritorna 6 prodotti per pagina
+    // Metodo -- Ottiene un indice della pagina -- Ritorna 6 prodotti per pagina
     public IEnumerable<Prodotto> InpaginaProdotti(int? pageIndex, IEnumerable<Prodotto> prodottiFiltrati)
     {
-        Prodotti = prodottiFiltrati;
-        numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 6.0); 
-        Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 6).Take(6);
-        return Prodotti;
+        int page = pageIndex ?? 1;
+        return prodottiFiltrati.Skip((page - 1) * 6).Take(6);
     }
 
-    public Prodotto? Prodotto {get; set;}
     public IActionResult DettaglioProdotto(int? id)
     {
         if (!id.HasValue)
@@ -75,25 +75,31 @@ public class ProdottiController : Controller
         }
 
         var prodottiTotali = CaricaProdotti();
-        Prodotto = PrendiIdProdotto(id, prodottiTotali);
+        var prodotto = PrendiIdProdotto(id.Value, prodottiTotali);
         
-        if (Prodotto == null)
+        if (prodotto == null)
         {
             return NotFound(); // Return 404 if product is not found
         }
-        return View(Prodotto);
+
+        var viewModel = new ProdottiViewModel
+        {
+            Prodotto = prodotto
+        };
+
+        return View(viewModel);
     }
 
-    public Prodotto PrendiIdProdotto(int? id, IEnumerable<Prodotto> prodottiTotali)
+    public Prodotto? PrendiIdProdotto(int id, IEnumerable<Prodotto> prodottiTotali)
     {
         foreach (var prodotto in prodottiTotali)
         {
-            if(prodotto.Id == id)
+            if (prodotto.Id == id)
             {
-                Prodotto = prodotto;
-                break;
+                return prodotto; // Return the found product
             }
         }
-        return Prodotto;
+
+        return null; // Return null if not found
     }
 }
