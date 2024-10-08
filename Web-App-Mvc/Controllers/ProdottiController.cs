@@ -112,11 +112,11 @@ public class ProdottiController : Controller
         var prodottiTotali = JsonConvert.DeserializeObject<List<Prodotto>>(json);
 
         // Find the product with the specified id
-        foreach (var prodotto in prodotti)
+        foreach (var prodotto in prodottiTotali)
         {
             if (prodotto.Id == id)
             {
-                Prodotto = prodotto; // Set the product to be modified
+                Prodotto = prodotto// Set the product to be modified
                 break;
             }
         }

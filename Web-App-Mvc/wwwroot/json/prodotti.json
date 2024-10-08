@@ -148,15 +148,5 @@
     "Quantita": 0.0,
     "Categoria": null,
     "Categorie": null
-  },
-  {
-    "Id": 16,
-    "Nome": "rregr",
-    "Prezzo": 3231.0,
-    "Dettaglio": "rfref",
-    "Immagine": "frefref",
-    "Quantita": 123213.0,
-    "Categoria": "Elettronica",
-    "Categorie": null
   }
 ]
