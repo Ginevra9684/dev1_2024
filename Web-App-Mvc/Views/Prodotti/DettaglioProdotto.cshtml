@@ -5,37 +5,29 @@
 
 <h1>@ViewData["Title"]</h1>
 
-@if (Model == null)
-{
-    <div class="alert alert-danger">
-        <strong>Error:</strong> The product could not be found.
-    </div>
-}
-else
-{
-    <div>
-    <table class = "table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Quantita</th>
-                <th>Categoria</th>
-                <th>Prezzo</th>
-                <th>Dettaglio</th>
-                <th>Immagine</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Prodotto.Nome</td>
-                <td>@Model.Prodotto.Quantita</td>
-                <td>@Model.Prodotto.Categoria</td>
-                <td>@Model.Prodotto.Prezzo</td>
-                <td>@Model.Prodotto.Dettaglio</td>
-                <td><img src="@Model.Prodotto.Immagine" alt="@Model.Prodotto.Nome" width="300" height="200"/></td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="link-body-emphasis link-underline-opacity-10" asp-controller="Prodotti" asp-action="Index">Torna a Prodotti</a>
-    </div>
-}
+<div>
+<table class = "table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantita</th>
+            <th>Categoria</th>
+            <th>Prezzo</th>
+            <th>Dettaglio</th>
+            <th>Immagine</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Prodotto.Nome</td>
+            <td>@Model.Prodotto.Quantita</td>
+            <td>@Model.Prodotto.Categoria</td>
+            <td>@Model.Prodotto.Prezzo</td>
+            <td>@Model.Prodotto.Dettaglio</td>
+            <td><img src="@Model.Prodotto.Immagine" alt="@Model.Prodotto.Nome" /></td>
+        </tr>
+    </tbody>
+</table>
+<a class="link-body-emphasis link-underline-opacity-10" asp-controller="Prodotti" asp-action="Index">Torna a Prodotti</a>
+</div>
+

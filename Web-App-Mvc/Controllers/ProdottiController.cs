@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Linq;
 
@@ -90,7 +93,7 @@ public class ProdottiController : Controller
         return View(viewModel);
     }
 
-    public Prodotto? PrendiIdProdotto(int id, IEnumerable<Prodotto> prodottiTotali)
+    public Prodotto? PrendiIdProdotto(int? id, IEnumerable<Prodotto> prodottiTotali)
     {
         foreach (var prodotto in prodottiTotali)
         {
@@ -99,7 +102,51 @@ public class ProdottiController : Controller
                 return prodotto; // Return the found product
             }
         }
-
         return null; // Return null if not found
+    }
+
+    public IActionResult ModificaProdotto(int id)
+    {
+        var jsonPath = "wwwroot/json/prodotti.json";
+        var json = System.IO.File.ReadAllText(jsonPath);
+        var prodottiTotali = JsonConvert.DeserializeObject<List<Prodotto>>(json);
+
+        // Find the product with the specified id
+        foreach (var prodotto in prodotti)
+        {
+            if (prodotto.Id == id)
+            {
+                Prodotto = prodotto; // Set the product to be modified
+                break;
+            }
+        }
+
+        // Return the view with the product model
+        return View(Prodotto);
+    }
+
+    // POST method to delete a product by id
+    [HttpPost]
+    public IActionResult CancellaProdotto(int id)
+    {
+        var jsonPath = "wwwroot/json/prodotti.json";
+        var json = System.IO.File.ReadAllText(jsonPath);
+        var prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
+
+        // Remove the product with the specified id
+        for (int i = 0; i < prodotti.Count; i++)
+        {
+            if (prodotti[i].Id == id)
+            {
+                prodotti.RemoveAt(i);
+                break; // Exit the loop after removing the product
+            }
+        }
+
+        // Write the updated product list back to the JSON file
+        System.IO.File.WriteAllText(jsonPath, JsonConvert.SerializeObject(prodotti, Formatting.Indented));
+
+        // Redirect to the Index action to see the updated product list
+        return RedirectToAction("Index");
     }
 }
