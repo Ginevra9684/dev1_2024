@@ -10,6 +10,12 @@ using Web_App_MVvc_2ndAttempt.Models;
 
 public class ProdottiController : Controller
 {
+    private readonly ILogger<ProdottiController> _logger;
+
+    public ProdottiController(ILogger<ProdottiController> logger)
+    {
+        _logger = logger;
+    }
 //--------------Pagina con tutti i prodotti-------------------------------------------------------------------------------------------
     [HttpGet]
     public IActionResult Index()
@@ -147,6 +153,7 @@ public class ProdottiController : Controller
     [HttpGet]
     public IActionResult ModificaProdotto(Prodotto Prodotto)
     {
+        _logger.LogInformation("Form Modifica Prodotto Caricata");
         var prodottiTotali = CaricaProdotti();
         var prodotto = PrendiIdProdotto(Prodotto.Id, prodottiTotali);
         var categorie = CaricaCategorie();
@@ -159,10 +166,13 @@ public class ProdottiController : Controller
     }
 
     [HttpPost, ActionName("ModificaProdotto")]
-    public IActionResult ModificaProdottoConfermato(ModificaProdottoViewModel viewModel, Prodotto Prodotto)
+    public IActionResult ModificaProdottoConfermato(ModificaProdottoViewModel viewModel)
     {
-            var prodottiTotali = CaricaProdotti();
-            var prodottoDaModificare = PrendiIdProdotto(Prodotto.Id, prodottiTotali);
+        var prodottiTotali = CaricaProdotti();
+        var prodottoDaModificare = PrendiIdProdotto(viewModel.Prodotto.Id, prodottiTotali);
+        if(prodottoDaModificare != null)
+        {
+            _logger.LogInformation("Prodotto Modificato");
             prodottoDaModificare.Nome = viewModel.Prodotto.Nome;
             prodottoDaModificare.Quantita = viewModel.Prodotto.Quantita;
             prodottoDaModificare.Categoria = viewModel.Prodotto.Categoria;
@@ -172,6 +182,9 @@ public class ProdottiController : Controller
                         // Scriviamo il file json con i dati aggiornati
             System.IO.File.WriteAllText("wwwroot/json/prodotti.json", JsonConvert.SerializeObject(prodottiTotali, Formatting.Indented));
             return RedirectToAction("Index","Prodotti");
+        }
+        _logger.LogWarning("Prodotto con ID: {Id} non trovato.", viewModel.Prodotto.Id);
+        return NotFound();
     }
 
     public List<string> CaricaCategorie()
