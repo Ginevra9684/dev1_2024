@@ -10,6 +10,7 @@ using System.Linq;
 public class ProdottiController : Controller
 {
     // OnGet -- Ritorna alla View i prodotti secondo le direttive
+    [HttpGet]
     public IActionResult Index(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
     {
         var prodottiTotali = CaricaProdotti();
@@ -70,6 +71,7 @@ public class ProdottiController : Controller
         return prodottiFiltrati.Skip((page - 1) * 6).Take(6);
     }
 
+    [HttpGet]
     public IActionResult DettaglioProdotto(int? id)
     {
         if (!id.HasValue)
@@ -105,11 +107,10 @@ public class ProdottiController : Controller
         return null; // Return null if not found
     }
 
+    [HttpGet]
     public IActionResult ModificaProdotto(int id)
     {
-        var jsonPath = "wwwroot/json/prodotti.json";
-        var json = System.IO.File.ReadAllText(jsonPath);
-        var prodottiTotali = JsonConvert.DeserializeObject<List<Prodotto>>(json);
+        var prodottiTotali = CaricaProdotti();
 
         // Find the product with the specified id
         foreach (var prodotto in prodottiTotali)

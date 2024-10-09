@@ -1,0 +1,45 @@
+@model ModificaProdottoViewModel
+@{
+    ViewData["Title"] = "ModificaProdotto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form method="post">
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Nome">
+            <input type="text" class="form-control form-control-sm" asp-for="@Model.Prodotto.Nome" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Quantita">
+            <input type="text" class="form-control form-control-sm" asp-for="@Model.Prodotto.Quantita"  /></label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Categoria">
+            <!--<input type="text" class="form-control form-control-sm" name="categoria" placeholder="categoria"/>-->
+                <select class="form-control" asp-for="@Model.Prodotto.Categoria">
+                    <option value= "@null">Seleziona categoria</option>
+                    @foreach(var categoria in Model.Categorie)
+                    {
+                        <option value ="@categoria">@categoria</option>
+                    }
+                </select>
+            </label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Prezzo">
+            <input type="text" class="form-control form-control-sm" asp-for="@Model.Prodotto.Prezzo" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Dettaglio">
+            <input type="text" class="form-control form-control-sm" asp-for="@Model.Prodotto.Dettaglio" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="@Model.Prodotto.Immagine">
+            <input type="text" class="form-control form-control-sm" asp-for="@Model.Prodotto.Immagine" /></label>
+        </div>
+        <button type="submit" class="btn btn-dark" asp-route = "@Model.Prodotto.Id">Aggiorna</button>
+    </form>
+    <a class="link-body-emphasis link-underline-opacity-10" asp-Controller="Prodotti" asp-action="Index">Torna a Prodotti</a>
+</div>

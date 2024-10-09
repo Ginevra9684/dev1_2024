@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 public class ProdottiViewModel
 {
     public IEnumerable<Prodotto> Prodotti { get; set; }
