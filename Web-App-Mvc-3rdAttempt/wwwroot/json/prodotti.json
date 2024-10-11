@@ -133,5 +133,23 @@
     "Immagine": "img/Immagine15.jpg",
     "Quantita": 6,
     "Categoria": "Elettronica"
+  },
+  {
+    "Id": 16,
+    "Nome": "ciao",
+    "Prezzo": 9.0,
+    "Dettaglio": "sacsfcaws",
+    "Immagine": "gerggr",
+    "Quantita": 78,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 17,
+    "Nome": "ciao",
+    "Prezzo": 345.0,
+    "Dettaglio": "sacsfcaws",
+    "Immagine": "wqdqwdqw",
+    "Quantita": 8,
+    "Categoria": "Elettronica"
   }
 ]

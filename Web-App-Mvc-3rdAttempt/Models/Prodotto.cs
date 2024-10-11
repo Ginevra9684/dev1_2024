@@ -1,5 +1,24 @@
 using System.ComponentModel.DataAnnotations;
 
+[ProdottoValidation]  // Apply the custom validation to the whole model
+public class Prodotto
+{
+    public int Id { get; set; }
+
+    public string Nome { get; set; }
+
+    public decimal Prezzo { get; set; }
+
+    public string Dettaglio { get; set; }
+
+    public string Immagine { get; set; }
+
+    public int Quantita { get; set; }
+
+    public string Categoria { get; set; }
+}
+
+/*
 public class Prodotto
 {
 
@@ -29,5 +48,5 @@ public class Prodotto
 
     [Required(ErrorMessage = "La categoria è obbligatoria.")]
     public string Categoria { get; set; }
-
 }
+*/

@@ -19,8 +19,18 @@ public class ProdottiController : Controller
 
     private List<Prodotto> CaricaProdotti()
     {
-        var json = System.IO.File.ReadAllText(prodottiFilePath);
-        return JsonConvert.DeserializeObject<List<Prodotto>>(json) ?? new List<Prodotto>();
+        try
+        {
+            var json = System.IO.File.ReadAllText(prodottiFilePath);
+            _logger.LogInformation("Prodotti JSON caricati" + json);
+            return JsonConvert.DeserializeObject<List<Prodotto>>(json) ?? new List<Prodotto>();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Errore nella lettura : {Message} \n Exception Type : {ExceptionType} \n Stack Trace : {StackTrace}", ex.Message , ex.GetType().Name , ex.StackTrace);
+            return new List<Prodotto>(); // Ritorna una lista vuota se c'è un errore
+        }
+        
     }
 
     private List<string> CaricaCategorie()
@@ -52,17 +62,31 @@ public class ProdottiController : Controller
         }
     }
 
+    private Prodotto CercaProdottoPerId(List<Prodotto> prodotti, int id)
+    {
+        try
+        {
+            return prodotti.Find(p => p.Id == id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Errore nella ricerca : {Message} \n Exception Type : {ExceptionType} \n Stack Trace : {StackTrace}", ex.Message , ex.GetType().Name , ex.StackTrace);
+            return null;
+        }
+    }
+/*
+    private List<Prodotto> FiltraPrezzo(int? minPrezzo, int? maxPrezzo, List<Prodotto> prodotti)
+    {
+        if (minPrezzo.HasValue) prodotti = prodotti.Where(p => p.Prezzo >= minPrezzo.Value).ToList();
+        if (maxPrezzo.HasValue) prodotti = prodotti.Where(p => p.Prezzo <= maxPrezzo.Value).ToList();
+        return prodotti;
+    }
+*/
     public IActionResult Index(int? minPrezzo, int? maxPrezzo, int indicePagina = 1)
     {
         var prodotti = CaricaProdotti();
-        if (minPrezzo.HasValue)
-        {
-            prodotti = prodotti.Where(p => p.Prezzo >= minPrezzo.Value).ToList();
-        }
-        if (maxPrezzo.HasValue)
-        {
-            prodotti = prodotti.Where(p => p.Prezzo <= maxPrezzo.Value).ToList();
-        }
+        if (minPrezzo.HasValue) prodotti = prodotti.Where(p => p.Prezzo >= minPrezzo.Value).ToList();
+        if (maxPrezzo.HasValue) prodotti = prodotti.Where(p => p.Prezzo <= maxPrezzo.Value).ToList();
         int prodottiPerPagina = 6;
         var prodottiInpaginati = prodotti.Skip((indicePagina - 1) * prodottiPerPagina).Take(prodottiPerPagina);
         var viewModel = new ProdottiViewModel
@@ -78,7 +102,7 @@ public class ProdottiController : Controller
     public IActionResult DettaglioProdotto(int id)
     {
         var prodotti = CaricaProdotti();
-        var prodotto = prodotti.Find(p => p.Id == id);
+        var prodotto = CercaProdottoPerId(prodotti, id);
         if (prodotto == null) return NotFound();
         return View(prodotto);
     }
@@ -92,7 +116,7 @@ public class ProdottiController : Controller
         };
         return View(viewModel);
     }
-
+/*
     [HttpPost]
     public IActionResult AggiungiProdotto(AggiungiProdottoViewModel viewModel)
     {
@@ -118,11 +142,53 @@ public class ProdottiController : Controller
         viewModel.Categorie = CaricaCategorie();
         return View(viewModel);
     }
+*/
+
+    [HttpPost]
+    public IActionResult AggiungiProdotto(AggiungiProdottoViewModel viewModel)
+    {
+        // Log the entered 'Codice' for debugging purposes
+        _logger.LogInformation("Valore della categoria: " + viewModel.Prodotto.Categoria);
+
+        // Check if the model is valid, including custom validation for password
+        if (!ModelState.IsValid)
+        {
+            // Log validation errors for debugging purposes
+            foreach (var modelState in ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    _logger.LogError(error.ErrorMessage);  // Log each error
+                }
+            }
+        }
+
+        _logger.LogInformation("Loading existing products");
+        var prodotti = CaricaProdotti();
+
+        // Assign a new ID
+        viewModel.Prodotto.Id = prodotti.Count > 0 ? prodotti.Max(p => p.Id) + 1 : 1;
+        _logger.LogInformation($"Assigned new product ID: {viewModel.Prodotto.Id}");
+
+        // Add the new product to the list
+        _logger.LogInformation("Adding new product to the list");
+        prodotti.Add(viewModel.Prodotto);
+
+        // Save the updated product list
+        _logger.LogInformation("Saving product list to file");
+        SalvaProdotti(prodotti);
+
+        // Redirect to Index page after success
+        _logger.LogInformation("Product successfully saved. Redirecting to Index.");
+        return RedirectToAction("Index");
+    }
+
+
 
     public IActionResult ModificaProdotto(int id)
     {
         var prodotti = CaricaProdotti();
-        var prodotto = prodotti.FirstOrDefault(p => p.Id == id);
+        var prodotto = CercaProdottoPerId(prodotti, id);
         if (prodotto == null) return NotFound();
         var viewModel = new ModificaProdottoViewModel
         {
@@ -138,7 +204,7 @@ public class ProdottiController : Controller
         _logger.LogInformation("Categoria selezionata: " + viewModel.Prodotto.Categoria);
         _logger.LogInformation("Prezzo ricevuto: " + viewModel.Prodotto.Prezzo);
         var prodotti = CaricaProdotti();
-        var prodottoDaModificare = prodotti.FirstOrDefault(p => p.Id == viewModel.Prodotto.Id);
+        var prodottoDaModificare = CercaProdottoPerId(prodotti, viewModel.Prodotto.Id);
 
         if(prodottoDaModificare != null)
         {
@@ -160,7 +226,7 @@ public class ProdottiController : Controller
     public IActionResult CancellaProdotto(int id)
     {
         var prodotti = CaricaProdotti();
-        var prodotto = prodotti.FirstOrDefault(p => p.Id == id);
+        var prodotto = prodotti.Find(p => p.Id == id);
         var viewModel = new CancellaProdottoViewModel
         {
             Prodotto = prodotto
