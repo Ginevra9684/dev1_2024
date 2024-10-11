@@ -3,6 +3,13 @@
     ViewData["Title"] = "Prodotti";
 }
 
+@{
+    @foreach (var prodotto in Model.Prodotti)
+    {
+        var className = prodotto.Prezzo > 0 ? "border-danger": null;
+    }
+}
+
 <h1>@ViewData["Title"]</h1>
 
 <div class="container">
@@ -24,7 +31,7 @@
         @foreach (var prodotto in Model.Prodotti)
         {
             <div class="col-md-6 col-lg-4 d-flex justify-content-center">
-                <div class="card mb-3 mb-md-4 mb-lg-5 border-primary" style="width: 18rem;">
+                <div class="card mb-3 mb-md-4 mb-lg-5 className" style="width: 18rem;">
                     <img src="@prodotto.Immagine" class="card-img-top" alt="@prodotto.Nome">
                     <div class="card-body">
                         <h5 class="card-title">@prodotto.Nome</h5>

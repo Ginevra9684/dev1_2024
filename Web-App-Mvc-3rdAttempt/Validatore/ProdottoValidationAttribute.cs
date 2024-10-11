@@ -4,7 +4,7 @@ public class ProdottoValidationAttribute : ValidationAttribute
 {
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
-        // Access the Prodotto object from the ViewModel (AggiungiProdottoViewModel)
+                    //  Accede all'oggetto Prodotto dalla ViewModel (AggiungiProdottoViewModel)
         var viewModel = validationContext.ObjectInstance as AggiungiProdottoViewModel;
         
         if (viewModel == null || viewModel.Prodotto == null)
