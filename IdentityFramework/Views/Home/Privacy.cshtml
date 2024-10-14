@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if (User.IsInRole("User"))
+{
+    <p>Questo testo è visibile solo agli utenti del ruolo "user"</p>
+}
+else
+{
+    <p>Non sei autorizzato a visualizzare questo testo che è solo per gli user</p>
+}
+
+
+@if (User.IsInRole("Admin"))
+{
+    <p>Questo testo è visibile solo agli utenti del ruolo "Admin"</p>
+}
+else
+{
+    <p>Non sei autorizzato a visualizzare questo testo che è solo per gli Admin</p>
+}
+
+<p>Use this page to detail your site's privacy policy.</p>

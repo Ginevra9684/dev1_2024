@@ -1,0 +1,164 @@
+[
+  {
+    "Id": 1,
+    "Nome": "Cuffie",
+    "Prezzo": 130.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine1.jpg",
+    "Quantita": 59,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 2,
+    "Nome": "Polaroid",
+    "Prezzo": 230.19,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine2.jpg",
+    "Quantita": 13,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 3,
+    "Nome": "Playstation 4",
+    "Prezzo": 499.99,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine3.jpg",
+    "Quantita": 8,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 4,
+    "Nome": "Caricatore",
+    "Prezzo": 12.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine4.jpg",
+    "Quantita": 436,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 5,
+    "Nome": "Obiettivo",
+    "Prezzo": 470.80,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine5.jpg",
+    "Quantita": 58,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 6,
+    "Nome": "Tavoletta grafica",
+    "Prezzo": 50.80,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine6.jpg",
+    "Quantita": 49,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 7,
+    "Nome": "Mouse",
+    "Prezzo": 27.56,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine7.jpg",
+    "Quantita": 239,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 8,
+    "Nome": "Tastiera",
+    "Prezzo": 33.59,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine8.jpg",
+    "Quantita": 157,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 9,
+    "Nome": "Controller",
+    "Prezzo": 85.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine9.jpg",
+    "Quantita": 58,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 10,
+    "Nome": "Nintendo switch",
+    "Prezzo": 299.99,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine10.jpg",
+    "Quantita": 73,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 11,
+    "Nome": "Cuffiette",
+    "Prezzo": 29.99,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine11.jpg",
+    "Quantita": 58,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 12,
+    "Nome": "Oculus Quest",
+    "Prezzo": 299.00,
+    "Dettaglio": "Esaurito",
+    "Immagine": "img/Immagine12.jpg",
+    "Quantita": 0,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 13,
+    "Nome": "Casse",
+    "Prezzo": 45.00,
+    "Dettaglio": "Disponibile",
+    "Immagine": "img/Immagine13.jpg",
+    "Quantita": 70,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 14,
+    "Nome": "Amplificatore",
+    "Prezzo": 740.89,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine14.jpg",
+    "Quantita": 3,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 15,
+    "Nome": "GoPro",
+    "Prezzo": 329.00,
+    "Dettaglio": "Ultime scorte",
+    "Immagine": "img/Immagine15.jpg",
+    "Quantita": 6,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 16,
+    "Nome": "ciao",
+    "Prezzo": 9.0,
+    "Dettaglio": "sacsfcaws",
+    "Immagine": "gerggr",
+    "Quantita": 78,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 17,
+    "Nome": "ciao",
+    "Prezzo": 345.0,
+    "Dettaglio": "sacsfcaws",
+    "Immagine": "wqdqwdqw",
+    "Quantita": 8,
+    "Categoria": "Elettronica"
+  },
+  {
+    "Id": 18,
+    "Nome": "HTC VIVE",
+    "Prezzo": 67.0,
+    "Dettaglio": "dffwef",
+    "Immagine": "qrfqef",
+    "Quantita": 5678,
+    "Categoria": "Elettronica"
+  }
+]

@@ -1,0 +1,63 @@
+@model ProdottiViewModel
+@{
+    ViewData["Title"] = "Prodotti";
+}
+
+@{
+    @foreach (var prodotto in Model.Prodotti)
+    {
+        var className = prodotto.Prezzo > 0 ? "border-danger": null;
+    }
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <form method="get">
+        <div class="form-group m-1">
+            <label for="minPrezzo">
+                <input type="number" class="form-control form-control-sm" maxlength="10" name="minPrezzo" value="@Model.MinPrezzo"/>
+            </label>
+        </div>
+        <div class="form-group m-1">
+            <label for="maxPrezzo">
+                <input type="number" class="form-control form-control-sm" maxlength="10" name="maxPrezzo" value="@Model.MaxPrezzo"/>
+            </label>
+            <button type="submit" class="btn btn-outline-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Filtra</button>
+        </div>
+    </form>
+
+    <div class="row">
+        @foreach (var prodotto in Model.Prodotti)
+        {
+            <div class="col-md-6 col-lg-4 d-flex justify-content-center">
+                <div class="card mb-3 mb-md-4 mb-lg-5 className" style="width: 18rem;">
+                    <img src="@prodotto.Immagine" class="card-img-top" alt="@prodotto.Nome">
+                    <div class="card-body">
+                        <h5 class="card-title">@prodotto.Nome</h5>
+                        <p class="card-text text-dark">@prodotto.Quantita</p>
+                        <p class="card-text text-dark">@prodotto.Categoria</p>
+                        <p class="card-text text-success">@prodotto.Prezzo</p>
+                        <p class="card-text">@prodotto.Dettaglio</p>
+
+                        <div class= "d-flex flex-column align-content-center">
+                            <a asp-controller="Prodotti" asp-action="DettaglioProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-success">Dettagli</a>
+                            <a asp-controller="Prodotti" asp-action="ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-primary">Modifica</a>
+                            <a asp-controller="Prodotti" asp-action="CancellaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-danger">Elimina</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <form method="get" class="d-flex justify-content-end">
+        <input type="hidden" name="minPrezzo" value="@Model.MinPrezzo" /> 
+        <input type="hidden" name="maxPrezzo" value="@Model.MaxPrezzo" /> 
+        @for (int i = 1; i <= Model.NumeroPagine; i++)
+        {
+            <button type="submit" class="btn btn-dark m-1 opacity-50" name="indicePagina" value="@i">@i</button>
+        }
+    </form>
+    <br>
+    <a class="link-body-emphasis link-underline-opacity-10" asp-controller="Home" asp-action="Index">Torna a home</a>
+</div>
