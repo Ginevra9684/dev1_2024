@@ -42,8 +42,14 @@
 
                         <div class= "d-flex flex-column align-content-center">
                             <a asp-controller="Prodotti" asp-action="DettaglioProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-success">Dettagli</a>
-                            <a asp-controller="Prodotti" asp-action="ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-primary">Modifica</a>
-                            <a asp-controller="Prodotti" asp-action="CancellaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-danger">Elimina</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-controller="Prodotti" asp-action="ModificaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-primary">Modifica</a>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-controller="Prodotti" asp-action="CancellaProdotto" asp-route-id="@prodotto.Id" class="btn btn-outline-danger">Elimina</a>
+                            }
                         </div>
                     </div>
                 </div>

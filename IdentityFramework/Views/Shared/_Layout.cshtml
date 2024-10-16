@@ -82,6 +82,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Prodotti" asp-action="Index">Prodotti</a>
                             </li>
                         }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Prodotti" asp-action="AggiungiProdotto">Aggiungi Prodotto</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

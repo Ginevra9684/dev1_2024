@@ -1,0 +1,49 @@
+@using System.Globalization
+@model ModificaProdottoViewModel
+@{
+    ViewData["Title"] = "Modifica Prodotto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form asp-action="ModificaProdotto" method="post">
+        <div class="form-group m-1">
+            <label for="nome">
+            <input type="text" class="form-control form-control-sm" name="Prodotto.Nome" value="@Model.Prodotto.Nome"/></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="quantita">
+            <input type="text" class="form-control form-control-sm" name="Prodotto.Quantita" value="@Model.Prodotto.Quantita" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label asp-for="Prodotto.Categoria">
+            <!--<input type="text" class="form-control form-control-sm" name="categoria" placeholder="categoria"/>-->
+                <select asp-for="Prodotto.Categoria" class="form-control" asp-items="@(new SelectList(Model.Categorie))">
+                    <option value="">Seleziona categoria</option>
+                </select>
+                <span asp-validation-for="Prodotto.Categoria" class="text-danger"></span>
+            </label>
+            
+        </div>
+        <div class="form-group m-1">
+            <label for="prezzo">
+            <input type="text" class="form-control form-control-sm" name="Prodotto.Prezzo" value="@Model.Prodotto.Prezzo" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="dettaglio">
+            <input type="text" class="form-control form-control-sm" name="Prodotto.Dettaglio" value="@Model.Prodotto.Dettaglio" /></label>
+        </div>
+        <div class="form-group m-1">
+            <label for="immagine">
+            <input type="text" class="form-control form-control-sm" name="Prodotto.Immagine" value="@Model.Prodotto.Immagine" /></label>
+        </div>
+        <input type="hidden" name="Prodotto.Id" value="@Model.Prodotto.Id" />
+        <button type="submit" class="btn btn-dark">Aggiorna</button>
+    </form>
+    <a class="link-body-emphasis link-underline-opacity-10" asp-controller="Prodotti" asp-action="Index">Torna a Prodotti</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />  
+}
