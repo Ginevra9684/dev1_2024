@@ -1,0 +1,40 @@
+# Utilizza l'mmagine base di .NET 8 SDK per il build
+# FROM indica l'immagine di partenza cioe l'immagine che verra scaricata da Docker Hub che serve a costruire l'immagine finale
+# As build indica un alias per l'immagine di partenza cosi da poter fare riferimento ad essa in un secondo momento
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+# Imposta la directory di lavoro all'interno dell'immagine
+# app è la directory di lavoro all'interno dell'immagine Docker che verra creata
+WORKDIR /app
+
+# Copia i file del progetto e ripristina le dipendenze
+COPY *.csproj ./
+
+# dotnet restore è un comando che serve a ripristinare le dipendenze del progetto serve a scaricare le librerie necessarie per il progetto
+RUN dotnet restore
+
+# FASI DI COSTRUZIONE DELL'IMMAGINE
+
+# Copia il resto dei file
+# In quesrto caso copia i file di una directory locale al container . è la directory corrente ./ è la directory corrente del container
+COPY . ./
+
+# RUN è un comando che serve a eseguire un comando all'interno del container
+# dotnet publish è un comando che serve a compilare l'applicazione e a pubblicarla in una directory di output
+# -c Release indica che la compilazione deve essere fatta in modalita Release
+# La modalita Release è una modalita di compilazione che ottimizza il codice per la produzione
+# -o out indica che l'output della compilazione deve essere messo nella directory out
+RUN dotnet publish -c Release -o out
+
+# Utilizza l'immagine runtime di .NET 8 in modo da avere un'immagine piu leggera
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+
+# Imposta la directory di lavoro all'interno dell'immagine Docker
+WORKDIR /app
+
+# Copia i file pubblicati dall'immagine di build al container
+COPY --from=build /app/out ./
+
+# Imposta il comando di avvio dell'applicazione
+#Docker.dll è il file che verra eseguito all'avvio del container
+ENTRYPOINT ["dotnet", "Docker.dll"]
