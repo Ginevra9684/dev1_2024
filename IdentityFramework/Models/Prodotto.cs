@@ -1,3 +1,4 @@
+/*
 public class Prodotto
 {
     public int Id { get; set; }
@@ -14,8 +15,8 @@ public class Prodotto
 
     public string Categoria { get; set; }
 }
-
-/*
+*/
+using System.ComponentModel.DataAnnotations;
 public class Prodotto
 {
 
@@ -46,4 +47,3 @@ public class Prodotto
     [Required(ErrorMessage = "La categoria è obbligatoria.")]
     public string Categoria { get; set; }
 }
-*/

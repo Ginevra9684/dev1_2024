@@ -5,7 +5,7 @@
     "Prezzo": 130.00,
     "Dettaglio": "Disponibile",
     "Immagine": "img/Immagine1.jpg",
-    "Quantita": 59,
+    "Quantita": 79,
     "Categoria": "Elettronica"
   },
   {
@@ -132,33 +132,6 @@
     "Dettaglio": "Ultime scorte",
     "Immagine": "img/Immagine15.jpg",
     "Quantita": 6,
-    "Categoria": "Elettronica"
-  },
-  {
-    "Id": 16,
-    "Nome": "ciao",
-    "Prezzo": 9.0,
-    "Dettaglio": "sacsfcaws",
-    "Immagine": "gerggr",
-    "Quantita": 78,
-    "Categoria": "Elettronica"
-  },
-  {
-    "Id": 17,
-    "Nome": "ciao",
-    "Prezzo": 345.0,
-    "Dettaglio": "sacsfcaws",
-    "Immagine": "wqdqwdqw",
-    "Quantita": 8,
-    "Categoria": "Elettronica"
-  },
-  {
-    "Id": 18,
-    "Nome": "HTC VIVE",
-    "Prezzo": 67.0,
-    "Dettaglio": "dffwef",
-    "Immagine": "qrfqef",
-    "Quantita": 5678,
     "Categoria": "Elettronica"
   }
 ]
