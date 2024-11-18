@@ -35,6 +35,9 @@ WORKDIR /app
 # Copia i file pubblicati dall'immagine di build al container
 COPY --from=build /app/out ./
 
+# Crea un file tentativi.json e imposta i permessi di scrittura
+RUN touch tentativi.json && chmod 777 tentativi.json
+
 # Imposta il comando di avvio dell'applicazione
 #Docker.dll è il file che verra eseguito all'avvio del container
 ENTRYPOINT ["dotnet", "Docker.dll"]
